@@ -20,8 +20,10 @@
                             <thead>
                                 <tr>
                                     <th>Placa</th>
+                                    <th>Tipo</th>
                                     <th>Entrada</th>
                                     <th>Tempo</th>
+                                    <th>Tipo de Cobrança</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
@@ -30,7 +32,14 @@
                                 <tr>
                                     <td class="fw-bold">{{ record.plate }}</td>
                                     <td>
-                                        {% set entrada_brasilia = record.entry_time.replace(tzinfo=pytz.utc).astimezone(fuso_brasilia) %}
+                                        {% if record.vehicle_type == 'moto' %}
+                                            <span class="badge bg-info"><i class="fas fa-motorcycle me-1"></i> Moto</span>
+                                        {% else %}
+                                            <span class="badge bg-secondary"><i class="fas fa-car me-1"></i> Carro</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% set entrada_brasilia = record.entry_time.astimezone(fuso_brasilia) %}
                                         {{ entrada_brasilia.strftime('%d/%m/%Y %H:%M') }}
                                     </td>
                                     <td>
@@ -39,6 +48,13 @@
                                             {{ duration|int }} minutos
                                         {% else %}
                                             {{ (duration // 60)|int }} horas e {{ (duration % 60)|int }} minutos
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if record.is_daily %}
+                                            <span class="badge bg-warning"><i class="fas fa-calendar-day me-1"></i> Diária</span>
+                                        {% else %}
+                                            <span class="badge bg-success"><i class="fas fa-clock me-1"></i> Por hora</span>
                                         {% endif %}
                                     </td>
                                     <td>

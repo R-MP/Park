@@ -39,9 +39,11 @@
                             <thead>
                                 <tr>
                                     <th>Placa</th>
+                                    <th>Tipo</th>
                                     <th>Entrada</th>
                                     <th>Saída</th>
                                     <th>Duração</th>
+                                    <th>Tipo de Cobrança</th>
                                     <th>Valor</th>
                                     <th>Ações</th>
                                 </tr>
@@ -50,6 +52,13 @@
                                 {% for record in records %}
                                 <tr>
                                     <td class="fw-bold">{{ record.plate }}</td>
+                                    <td>
+                                        {% if record.vehicle_type == 'moto' %}
+                                            <span class="badge bg-info"><i class="fas fa-motorcycle me-1"></i> Moto</span>
+                                        {% else %}
+                                            <span class="badge bg-secondary"><i class="fas fa-car me-1"></i> Carro</span>
+                                        {% endif %}
+                                    </td>
                                     <td>{{ record.entry_time.strftime('%d/%m/%Y %H:%M') }}</td>
                                     <td>
                                         {% if record.exit_time %}
@@ -68,6 +77,13 @@
                                             {% endif %}
                                         {% else %}
                                             -
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if record.is_daily %}
+                                            <span class="badge bg-warning"><i class="fas fa-calendar-day me-1"></i> Diária</span>
+                                        {% else %}
+                                            <span class="badge bg-success"><i class="fas fa-clock me-1"></i> Por hora</span>
                                         {% endif %}
                                     </td>
                                     <td>

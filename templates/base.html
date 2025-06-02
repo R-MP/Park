@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" {% if session.dark_mode %}data-bs-theme="dark"{% endif %}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,11 +29,50 @@
         .card-header {
             border-radius: 10px 10px 0 0 !important;
         }
+        
+        /* Estilos específicos para modo escuro */
+        body.dark-mode {
+            background-color: #212529;
+            color: #f8f9fa;
+        }
+        
+        .dark-mode .card {
+            background-color: #343a40;
+            border-color: #495057;
+        }
+        
+        .dark-mode .card-header {
+            background-color: #495057;
+            border-color: #6c757d;
+        }
+        
+        .dark-mode .footer {
+            background-color: #343a40 !important;
+        }
+        
+        .dark-mode .text-muted {
+            color: #adb5bd !important;
+        }
+        
+        /* Ícone de alternância de tema */
+        .theme-toggle {
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
     </style>
 </head>
-<body>
+<body {% if session.dark_mode %}class="dark-mode"{% endif %}>
     {% if session.user_id %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg {% if session.dark_mode %}navbar-dark bg-dark{% else %}navbar-dark bg-primary{% endif %}">
         <div class="container">
             <a class="navbar-brand" href="{{ url_for('index') }}">
                 <i class="fas fa-parking me-2"></i>Sistema de Estacionamento
@@ -67,12 +106,31 @@
                     {% endif %}
                 </ul>
                 <ul class="navbar-nav">
+                    <!-- Botão de alternância de tema -->
+                    <li class="nav-item me-2">
+                        <a class="nav-link theme-toggle" href="{{ url_for('auth.toggle_dark_mode') }}" title="Alternar tema">
+                            {% if session.dark_mode %}
+                                <i class="fas fa-sun"></i>
+                            {% else %}
+                                <i class="fas fa-moon"></i>
+                            {% endif %}
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                             <i class="fas fa-user me-1"></i>{{ session.username }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="{{ url_for('auth.profile') }}">Perfil</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ url_for('auth.toggle_dark_mode') }}">
+                                    {% if session.dark_mode %}
+                                        <i class="fas fa-sun me-2"></i>Modo Claro
+                                    {% else %}
+                                        <i class="fas fa-moon me-2"></i>Modo Escuro
+                                    {% endif %}
+                                </a>
+                            </li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{{ url_for('auth.logout') }}">Sair</a></li>
                         </ul>
@@ -100,9 +158,9 @@
         </div>
     </div>
 
-    <footer class="footer bg-light py-3 mt-4">
+    <footer class="footer {% if session.dark_mode %}bg-dark text-light{% else %}bg-light{% endif %} py-3 mt-4">
         <div class="container text-center">
-            <p class="text-muted mb-0">Sistema de Estacionamento &copy; {{ now.year }}</p>
+            <p class="{% if session.dark_mode %}text-light{% else %}text-muted{% endif %} mb-0">Sistema de Estacionamento &copy; {{ now.year }}</p>
         </div>
     </footer>
 

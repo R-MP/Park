@@ -103,6 +103,7 @@ def login():
         session['user_id'] = user.id
         session['username'] = user.username
         session['is_admin'] = user.is_admin
+        session['dark_mode'] = user.dark_mode  # Adicionar preferência de modo escuro à sessão
         
         flash(f'Bem-vindo, {user.username}!', 'success')
         return redirect(url_for('index'))
@@ -120,3 +121,15 @@ def logout():
 def profile():
     user = User.query.get(session['user_id'])
     return render_template('auth/profile.html', user=user)
+
+@auth_bp.route('/toggle_dark_mode')
+@login_required
+def toggle_dark_mode():
+    user = User.query.get(session['user_id'])
+    user.dark_mode = not user.dark_mode
+    db.session.commit()
+    
+    # Atualizar a sessão
+    session['dark_mode'] = user.dark_mode
+    
+    return redirect(request.referrer or url_for('index'))

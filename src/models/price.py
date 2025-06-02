@@ -13,8 +13,21 @@ class PriceConfiguration(db.Model):
     __tablename__ = 'price_configurations'
     
     id = db.Column(db.Integer, primary_key=True)
+    
+    # Preços para carros
+    first_hour_car_price = db.Column(db.Float, nullable=False, default=10.0)
+    additional_hour_car_price = db.Column(db.Float, nullable=False, default=5.0)
+    daily_car_price = db.Column(db.Float, nullable=False, default=50.0)
+    
+    # Preços para motos
+    first_hour_motorcycle_price = db.Column(db.Float, nullable=False, default=5.0)
+    additional_hour_motorcycle_price = db.Column(db.Float, nullable=False, default=3.0)
+    daily_motorcycle_price = db.Column(db.Float, nullable=False, default=25.0)
+    
+    # Mantendo os campos originais para compatibilidade com código existente
     first_hour_price = db.Column(db.Float, nullable=False, default=10.0)
     additional_hour_price = db.Column(db.Float, nullable=False, default=5.0)
+    
     updated_at = db.Column(db.DateTime, default=hora_brasilia, onupdate=hora_brasilia)
     
     # Relacionamento com o usuário que atualizou a configuração
@@ -22,4 +35,4 @@ class PriceConfiguration(db.Model):
     user = db.relationship('User', backref=db.backref('price_updates', lazy=True))
     
     def __repr__(self):
-        return f'<PriceConfiguration {self.id} - R${self.first_hour_price}/{self.additional_hour_price}>'
+        return f'<PriceConfiguration {self.id} - Carro: R${self.first_hour_car_price}/{self.additional_hour_car_price} - Moto: R${self.first_hour_motorcycle_price}/{self.additional_hour_motorcycle_price}>'

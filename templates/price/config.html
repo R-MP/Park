@@ -5,28 +5,71 @@
 {% block content %}
 <div class="container mt-3">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card shadow">
                 <div class="card-header bg-primary text-white">
                     <h4 class="mb-0"><i class="fas fa-cog me-2"></i>Configuração de Preços</h4>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ url_for('price.price_config') }}">
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="first_hour_price" class="form-label">Valor da Primeira Hora (R$)</label>
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5><i class="fas fa-car me-2"></i>Preços para Carros</h5>
+                                <hr>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="first_hour_car_price" class="form-label">Primeira Hora (R$)</label>
                                 <div class="input-group">
                                     <span class="input-group-text">R$</span>
-                                    <input type="number" class="form-control" id="first_hour_price" name="first_hour_price" 
-                                           value="{{ config.first_hour_price }}" step="0.01" min="0.01" required>
+                                    <input type="number" class="form-control" id="first_hour_car_price" name="first_hour_car_price" 
+                                           value="{{ config.first_hour_car_price }}" step="0.01" min="0.01" required>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="additional_hour_price" class="form-label">Valor das Horas Adicionais (R$)</label>
+                            <div class="col-md-4">
+                                <label for="additional_hour_car_price" class="form-label">Horas Adicionais (R$)</label>
                                 <div class="input-group">
                                     <span class="input-group-text">R$</span>
-                                    <input type="number" class="form-control" id="additional_hour_price" name="additional_hour_price" 
-                                           value="{{ config.additional_hour_price }}" step="0.01" min="0.01" required>
+                                    <input type="number" class="form-control" id="additional_hour_car_price" name="additional_hour_car_price" 
+                                           value="{{ config.additional_hour_car_price }}" step="0.01" min="0.01" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="daily_car_price" class="form-label">Diária (R$)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">R$</span>
+                                    <input type="number" class="form-control" id="daily_car_price" name="daily_car_price" 
+                                           value="{{ config.daily_car_price }}" step="0.01" min="0.01" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5><i class="fas fa-motorcycle me-2"></i>Preços para Motos</h5>
+                                <hr>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="first_hour_motorcycle_price" class="form-label">Primeira Hora (R$)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">R$</span>
+                                    <input type="number" class="form-control" id="first_hour_motorcycle_price" name="first_hour_motorcycle_price" 
+                                           value="{{ config.first_hour_motorcycle_price }}" step="0.01" min="0.01" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="additional_hour_motorcycle_price" class="form-label">Horas Adicionais (R$)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">R$</span>
+                                    <input type="number" class="form-control" id="additional_hour_motorcycle_price" name="additional_hour_motorcycle_price" 
+                                           value="{{ config.additional_hour_motorcycle_price }}" step="0.01" min="0.01" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="daily_motorcycle_price" class="form-label">Diária (R$)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">R$</span>
+                                    <input type="number" class="form-control" id="daily_motorcycle_price" name="daily_motorcycle_price" 
+                                           value="{{ config.daily_motorcycle_price }}" step="0.01" min="0.01" required>
                                 </div>
                             </div>
                         </div>
@@ -55,8 +98,12 @@
                             <thead>
                                 <tr>
                                     <th>Data</th>
-                                    <th>Primeira Hora</th>
-                                    <th>Horas Adicionais</th>
+                                    <th>Carro (1ª hora)</th>
+                                    <th>Carro (Adicional)</th>
+                                    <th>Carro (Diária)</th>
+                                    <th>Moto (1ª hora)</th>
+                                    <th>Moto (Adicional)</th>
+                                    <th>Moto (Diária)</th>
                                     <th>Usuário</th>
                                 </tr>
                             </thead>
@@ -64,8 +111,12 @@
                                 {% for item in history %}
                                 <tr>
                                     <td>{{ item.updated_at.strftime('%d/%m/%Y %H:%M') }}</td>
-                                    <td>R$ {{ "%.2f"|format(item.first_hour_price) }}</td>
-                                    <td>R$ {{ "%.2f"|format(item.additional_hour_price) }}</td>
+                                    <td>R$ {{ "%.2f"|format(item.first_hour_car_price) }}</td>
+                                    <td>R$ {{ "%.2f"|format(item.additional_hour_car_price) }}</td>
+                                    <td>R$ {{ "%.2f"|format(item.daily_car_price) }}</td>
+                                    <td>R$ {{ "%.2f"|format(item.first_hour_motorcycle_price) }}</td>
+                                    <td>R$ {{ "%.2f"|format(item.additional_hour_motorcycle_price) }}</td>
+                                    <td>R$ {{ "%.2f"|format(item.daily_motorcycle_price) }}</td>
                                     <td>{{ item.user.username }}</td>
                                 </tr>
                                 {% endfor %}

@@ -20,6 +20,7 @@ class User(db.Model):
     is_admin = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=hora_brasilia)
     last_login = db.Column(db.DateTime)
+    dark_mode = db.Column(db.Boolean, default=False)  # Preferência de modo escuro
     
     def set_password(self, password):
         """Define a senha criptografada para o usuário"""

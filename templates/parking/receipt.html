@@ -19,7 +19,14 @@
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <h5>Informações do Veículo</h5>
-                            <p><strong>Placa:</strong> {{ record.plate }}</p>
+                            <p>
+                                <strong>Placa:</strong> {{ record.plate }}
+                                {% if record.vehicle_type == 'moto' %}
+                                    <span class="badge bg-info"><i class="fas fa-motorcycle me-1"></i> Moto</span>
+                                {% else %}
+                                    <span class="badge bg-secondary"><i class="fas fa-car me-1"></i> Carro</span>
+                                {% endif %}
+                            </p>
                             {% if record.car_model %}
                             <p><strong>Modelo:</strong> {{ record.car_model }}</p>
                             {% endif %}
@@ -32,6 +39,20 @@
                             <p><strong>Entrada:</strong> {{ record.entry_time.strftime('%d/%m/%Y %H:%M') }}</p>
                             <p><strong>Saída:</strong> {{ record.exit_time.strftime('%d/%m/%Y %H:%M') }}</p>
                             <p><strong>Permanência:</strong> {{ hours }} hora(s) e {{ minutes }} minuto(s)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h5>Informações de Cobrança</h5>
+                            <p>
+                                <strong>Tipo de Cobrança:</strong>
+                                {% if record.is_daily %}
+                                    <span class="badge bg-warning"><i class="fas fa-calendar-day me-1"></i> Diária</span>
+                                {% else %}
+                                    <span class="badge bg-success"><i class="fas fa-clock me-1"></i> Por hora</span>
+                                {% endif %}
+                            </p>
                         </div>
                     </div>
                     

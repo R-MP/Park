@@ -16,6 +16,8 @@ fuso_brasilia = pytz.timezone('America/Sao_Paulo')
 def register_entry():
     if request.method == 'POST':
         plate = request.form.get('plate')
+        vehicle_type = request.form.get('vehicle_type', 'carro')
+        is_daily = request.form.get('is_daily') == 'on'
         
         if not plate:
             flash('A placa do veículo é obrigatória.', 'danger')
@@ -35,7 +37,9 @@ def register_entry():
         
         new_entry = ParkingRecord(
             plate=plate.upper(),
-            user_id=session['user_id']
+            user_id=session['user_id'],
+            vehicle_type=vehicle_type,
+            is_daily=is_daily
             # car_model=car_model,
             # car_color=car_color
         )
@@ -64,6 +68,13 @@ def register_exit(record_id):
         
         if not price_config:
             price_config = PriceConfiguration(
+                first_hour_car_price=10.0,
+                additional_hour_car_price=5.0,
+                first_hour_motorcycle_price=5.0,
+                additional_hour_motorcycle_price=3.0,
+                daily_car_price=50.0,
+                daily_motorcycle_price=25.0,
+                # Mantendo campos originais para compatibilidade
                 first_hour_price=10.0,
                 additional_hour_price=5.0,
                 user_id=session['user_id']
@@ -84,10 +95,23 @@ def register_exit(record_id):
     price_config = PriceConfiguration.query.order_by(PriceConfiguration.id.desc()).first()
     
     if not price_config:
-        estimated_price = 10.0 if duration <= 1 else 10.0 + ((duration - 1) * 5.0)
+        if record.is_daily:
+            estimated_price = 50.0 if record.vehicle_type == 'carro' else 25.0
+        else:
+            if record.vehicle_type == 'carro':
+                estimated_price = 10.0 if duration <= 1 else 10.0 + ((duration - 1) * 5.0)
+            else:  # moto
+                estimated_price = 5.0 if duration <= 1 else 5.0 + ((duration - 1) * 3.0)
     else:
-        estimated_price = price_config.first_hour_price if duration <= 1 else \
-            price_config.first_hour_price + ((duration - 1) * price_config.additional_hour_price)
+        if record.is_daily:
+            estimated_price = price_config.daily_car_price if record.vehicle_type == 'carro' else price_config.daily_motorcycle_price
+        else:
+            if record.vehicle_type == 'carro':
+                estimated_price = price_config.first_hour_car_price if duration <= 1 else \
+                    price_config.first_hour_car_price + ((duration - 1) * price_config.additional_hour_car_price)
+            else:  # moto
+                estimated_price = price_config.first_hour_motorcycle_price if duration <= 1 else \
+                    price_config.first_hour_motorcycle_price + ((duration - 1) * price_config.additional_hour_motorcycle_price)
     
     return render_template(
         'parking/exit.html', 

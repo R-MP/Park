@@ -19,6 +19,35 @@
                             <div class="form-text">Digite a placa sem traços ou espaços</div>
                         </div>
                         
+                        <!-- Seleção de tipo de veículo -->
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de Veículo</label>
+                            <div class="d-flex">
+                                <div class="form-check me-4">
+                                    <input class="form-check-input" type="radio" name="vehicle_type" id="vehicle_car" value="carro" checked>
+                                    <label class="form-check-label" for="vehicle_car">
+                                        <i class="fas fa-car me-1"></i> Carro
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="vehicle_type" id="vehicle_motorcycle" value="moto">
+                                    <label class="form-check-label" for="vehicle_motorcycle">
+                                        <i class="fas fa-motorcycle me-1"></i> Moto
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Opção de diária -->
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="is_daily" name="is_daily">
+                                <label class="form-check-label" for="is_daily">
+                                    <i class="fas fa-calendar-day me-1"></i> Registrar como diária
+                                </label>
+                            </div>
+                        </div>
+                        
                         <!-- Campos opcionais (comentados conforme solicitado) -->
                         <div class="mb-3">
                             <label for="car_model" class="form-label">Modelo do Veículo (opcional)</label>
