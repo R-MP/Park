@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrar Saída{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-sign-out-alt me-2"></i>Registrar Saída de Veículo</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h5>Informações do Veículo</h5>
+                            <p><strong>Placa:</strong> {{ record.plate }}</p>
+                            <p><strong>Entrada:</strong> {{ record.entry_time.strftime('%d/%m/%Y %H:%M') }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Tempo de Permanência</h5>
+                            <p><strong>Tempo atual:</strong> 
+                                {% if duration < 1 %}
+                                    {{ (duration * 60)|int }} minutos
+                                {% else %}
+                                    {{ duration|int }} hora(s) e {{ ((duration % 1) * 60)|int }} minutos
+                                {% endif %}
+                            </p>
+                            <p><strong>Valor estimado:</strong> R$ {{ "%.2f"|format(estimated_price) }}</p>
+                        </div>
+                    </div>
+                    
+                    <form method="POST" action="{{ url_for('parking.register_exit', record_id=record.id) }}">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>Ao confirmar a saída, o sistema calculará o valor final com base no tempo de permanência.
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-check-circle me-2"></i>Confirmar Saída
+                            </button>
+                            <a href="{{ url_for('parking.active_entries') }}" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Voltar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -136,6 +136,13 @@ ENV/
 env.bak/
 venv.bak/
 
+# Database
+instance/
+
+# Misc
+init.bat
+req_hash.txt
+
 # Spyder project settings
 .spyderproject
 .spyproject

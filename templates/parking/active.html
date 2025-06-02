@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Veículos Ativos{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0"><i class="fas fa-clipboard-list me-2"></i>Veículos no Estacionamento</h4>
+                    <a href="{{ url_for('parking.register_entry') }}" class="btn btn-light btn-sm">
+                        <i class="fas fa-plus me-1"></i>Nova Entrada
+                    </a>
+                </div>
+                <div class="card-body">
+                    {% if records %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Placa</th>
+                                    <th>Entrada</th>
+                                    <th>Tempo</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for record in records %}
+                                <tr>
+                                    <td class="fw-bold">{{ record.plate }}</td>
+                                    <td>
+                                        {% set entrada_brasilia = record.entry_time.replace(tzinfo=pytz.utc).astimezone(fuso_brasilia) %}
+                                        {{ entrada_brasilia.strftime('%d/%m/%Y %H:%M') }}
+                                    </td>
+                                    <td>
+                                        {% set duration = (now - entrada_brasilia).total_seconds() // 60 %}
+                                        {% if duration < 60 %}
+                                            {{ duration|int }} minutos
+                                        {% else %}
+                                            {{ (duration // 60)|int }} horas e {{ (duration % 60)|int }} minutos
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="{{ url_for('parking.register_exit', record_id=record.id) }}" class="btn btn-success btn-sm">
+                                            <i class="fas fa-sign-out-alt me-1"></i>Registrar Saída
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>Não há veículos no estacionamento no momento.
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

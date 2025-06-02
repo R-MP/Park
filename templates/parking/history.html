@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Histórico de Veículos{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-history me-2"></i>Histórico de Veículos</h4>
+                </div>
+                <div class="card-body">
+                    <form method="GET" action="{{ url_for('parking.history') }}" class="mb-4">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label for="plate" class="form-label">Placa</label>
+                                <input type="text" class="form-control" id="plate" name="plate" value="{{ plate }}">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="date_from" class="form-label">Data Inicial</label>
+                                <input type="date" class="form-control" id="date_from" name="date_from" value="{{ date_from }}">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="date_to" class="form-label">Data Final</label>
+                                <input type="date" class="form-control" id="date_to" name="date_to" value="{{ date_to }}">
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-search me-1"></i>Filtrar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    {% if records %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Placa</th>
+                                    <th>Entrada</th>
+                                    <th>Saída</th>
+                                    <th>Duração</th>
+                                    <th>Valor</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for record in records %}
+                                <tr>
+                                    <td class="fw-bold">{{ record.plate }}</td>
+                                    <td>{{ record.entry_time.strftime('%d/%m/%Y %H:%M') }}</td>
+                                    <td>
+                                        {% if record.exit_time %}
+                                            {{ record.exit_time.strftime('%d/%m/%Y %H:%M') }}
+                                        {% else %}
+                                            <span class="badge bg-warning">Em aberto</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if record.exit_time %}
+                                            {% set duration = (record.exit_time - record.entry_time).total_seconds() // 60 %}
+                                            {% if duration < 60 %}
+                                                {{ duration|int }} minutos
+                                            {% else %}
+                                                {{ (duration // 60)|int }} horas e {{ (duration % 60)|int }} minutos
+                                            {% endif %}
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if record.total_value %}
+                                            R$ {{ "%.2f"|format(record.total_value) }}
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if record.exit_time %}
+                                            <a href="{{ url_for('parking.receipt', record_id=record.id) }}" class="btn btn-info btn-sm">
+                                                <i class="fas fa-receipt me-1"></i>Recibo
+                                            </a>
+                                        {% else %}
+                                            <a href="{{ url_for('parking.register_exit', record_id=record.id) }}" class="btn btn-success btn-sm">
+                                                <i class="fas fa-sign-out-alt me-1"></i>Saída
+                                            </a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>Nenhum registro encontrado com os filtros aplicados.
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

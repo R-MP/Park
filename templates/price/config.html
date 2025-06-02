@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Configuração de Preços{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-cog me-2"></i>Configuração de Preços</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('price.price_config') }}">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="first_hour_price" class="form-label">Valor da Primeira Hora (R$)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">R$</span>
+                                    <input type="number" class="form-control" id="first_hour_price" name="first_hour_price" 
+                                           value="{{ config.first_hour_price }}" step="0.01" min="0.01" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="additional_hour_price" class="form-label">Valor das Horas Adicionais (R$)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">R$</span>
+                                    <input type="number" class="form-control" id="additional_hour_price" name="additional_hour_price" 
+                                           value="{{ config.additional_hour_price }}" step="0.01" min="0.01" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>Os valores configurados serão aplicados a todos os novos registros de saída.
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Salvar Configurações
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            {% if history and history|length > 1 %}
+            <div class="card shadow mt-4">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0"><i class="fas fa-history me-2"></i>Histórico de Alterações</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Primeira Hora</th>
+                                    <th>Horas Adicionais</th>
+                                    <th>Usuário</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in history %}
+                                <tr>
+                                    <td>{{ item.updated_at.strftime('%d/%m/%Y %H:%M') }}</td>
+                                    <td>R$ {{ "%.2f"|format(item.first_hour_price) }}</td>
+                                    <td>R$ {{ "%.2f"|format(item.additional_hour_price) }}</td>
+                                    <td>{{ item.user.username }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

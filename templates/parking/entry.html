@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Entrada de Veículo{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-car-side me-2"></i>Registrar Entrada de Veículo</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('parking.register_entry') }}">
+                        <div class="mb-3">
+                            <label for="plate" class="form-label">Placa do Veículo</label>
+                            <input type="text" class="form-control" id="plate" name="plate" required 
+                                   placeholder="ABC1234" maxlength="8">
+                            <div class="form-text">Digite a placa sem traços ou espaços</div>
+                        </div>
+                        
+                        <!-- Campos opcionais (comentados conforme solicitado) -->
+                        <div class="mb-3">
+                            <label for="car_model" class="form-label">Modelo do Veículo (opcional)</label>
+                            <input type="text" class="form-control" id="car_model" name="car_model" 
+                                   placeholder="Ex: Gol, Civic, Corolla">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="car_color" class="form-label">Cor do Veículo (opcional)</label>
+                            <input type="text" class="form-control" id="car_color" name="car_color" 
+                                   placeholder="Ex: Branco, Preto, Prata">
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Registrar Entrada
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const plateInput = document.getElementById("plate");
+    const modelInput = document.getElementById("car_model");
+    const colorInput = document.getElementById("car_color");
+
+    let debounceTimeout = null;
+
+    plateInput.addEventListener("input", function () {
+        const plate = plateInput.value.toUpperCase().trim();
+
+        // Cancelar chamada anterior (debounce)
+        clearTimeout(debounceTimeout);
+
+        // Espera 500ms após o último caractere digitado
+        debounceTimeout = setTimeout(() => {
+            if (plate.length >= 7 && /^[A-Z]{3}[0-9A-Z]{4}$/.test(plate)) {
+                fetch("{{ url_for('parking.consulta_placa') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ plate }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.modelo) {
+                        modelInput.value = data.modelo;
+                    }
+                    if (data.cor) {
+                        colorInput.value = data.cor;
+                    }
+                })
+                .catch(err => console.error("Erro ao buscar placa:", err));
+            }
+        }, 500);
+    });
+});
+</script>
+{% endblock %}
