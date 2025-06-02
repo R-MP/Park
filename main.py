@@ -35,6 +35,7 @@ def inject_now():
     fuso_brasilia = pytz.timezone('America/Sao_Paulo')
     return {
         'now': datetime.now(fuso_brasilia),
+        'fuso_brasilia': fuso_brasilia,
         'pytz': pytz
     }
 
