@@ -1,0 +1,28 @@
+{
+  "models": [
+    "Abarth",
+    "Celta",
+    "City",
+    "Civic",
+    "Corolla",
+    "Corsa",
+    "Cruze",
+    "Fiesta",
+    "Fit",
+    "Focus",
+    "Fox",
+    "Fusca",
+    "Gol",
+    "HB20",
+    "Ka",
+    "Logan",
+    "Onix",
+    "Palio",
+    "Prisma",
+    "Sandero",
+    "Siena",
+    "Uno",
+    "Up",
+    "Voyage"
+  ]
+}

@@ -1,19 +1,27 @@
 from flask import Blueprint, request, jsonify, session, redirect, url_for, render_template, flash
 from datetime import datetime
-import requests
 import pytz
 from src.models.parking import ParkingRecord
 from src.models.price import PriceConfiguration
 from src.models.user import User, db
+from src.models.vehicle import Vehicle
+from src.utils.vehicle_data import VehicleDataManager
 from src.routes.auth import login_required, admin_required
 
 parking_bp = Blueprint('parking', __name__)
 
 fuso_brasilia = pytz.timezone('America/Sao_Paulo')
+vehicle_data = VehicleDataManager()
 
 @parking_bp.route('/entrada', methods=['GET', 'POST'])
 @login_required
 def register_entry():
+    # Carregar modelos e cores disponíveis para autocomplete
+    car_models = Vehicle.get_car_models()
+    motorcycle_models = Vehicle.get_motorcycle_models()
+    available_colors = Vehicle.get_available_colors()
+    registered_plates = Vehicle.get_registered_plates()
+    
     if request.method == 'POST':
         plate = request.form.get('plate')
         vehicle_type = request.form.get('vehicle_type', 'carro')
@@ -21,7 +29,11 @@ def register_entry():
         
         if not plate:
             flash('A placa do veículo é obrigatória.', 'danger')
-            return render_template('parking/entry.html')
+            return render_template('parking/entry.html', 
+                                  car_models=car_models,
+                                  motorcycle_models=motorcycle_models,
+                                  available_colors=available_colors,
+                                  registered_plates=registered_plates)
         
         existing_entry = ParkingRecord.query.filter_by(
             plate=plate, 
@@ -30,10 +42,23 @@ def register_entry():
         
         if existing_entry:
             flash('Este veículo já está registrado no estacionamento.', 'warning')
-            return render_template('parking/entry.html')
+            return render_template('parking/entry.html',
+                                  car_models=car_models,
+                                  motorcycle_models=motorcycle_models,
+                                  available_colors=available_colors,
+                                  registered_plates=registered_plates)
         
         car_model = request.form.get('car_model', '')
         car_color = request.form.get('car_color', '')
+        
+        # Registrar o veículo no banco de dados local
+        # Isso também atualizará os arquivos JSON automaticamente
+        Vehicle.create_or_update(
+            plate=plate.upper(),
+            model=car_model,
+            color=car_color,
+            vehicle_type=vehicle_type
+        )
         
         new_entry = ParkingRecord(
             plate=plate.upper(),
@@ -50,7 +75,11 @@ def register_entry():
         flash(f'Veículo com placa {plate.upper()} registrado com sucesso!', 'success')
         return redirect(url_for('parking.active_entries'))
     
-    return render_template('parking/entry.html')
+    return render_template('parking/entry.html', 
+                          car_models=car_models,
+                          motorcycle_models=motorcycle_models,
+                          available_colors=available_colors,
+                          registered_plates=registered_plates)
 
 @parking_bp.route('/saida/<int:record_id>', methods=['GET', 'POST'])
 @login_required
@@ -133,9 +162,13 @@ def receipt(record_id):
     hours = int(duration_seconds // 3600)
     minutes = int((duration_seconds % 3600) // 60)
     
+    # Buscar informações adicionais do veículo
+    vehicle = Vehicle.get_by_plate(record.plate)
+    
     return render_template(
         'parking/receipt.html', 
         record=record,
+        vehicle=vehicle,
         hours=hours,
         minutes=minutes
     )
@@ -144,7 +177,13 @@ def receipt(record_id):
 @login_required
 def active_entries():
     active_records = ParkingRecord.query.filter_by(exit_time=None).order_by(ParkingRecord.entry_time.desc()).all()
-    return render_template('parking/active.html', records=active_records)
+    
+    # Buscar informações adicionais dos veículos
+    vehicles = {}
+    for record in active_records:
+        vehicles[record.plate] = Vehicle.get_by_plate(record.plate)
+    
+    return render_template('parking/active.html', records=active_records, vehicles=vehicles)
 
 @parking_bp.route('/historico')
 @login_required
@@ -174,7 +213,12 @@ def history():
     
     records = query.order_by(ParkingRecord.entry_time.desc()).all()
     
-    return render_template('parking/history.html', records=records, plate=plate, date_from=date_from, date_to=date_to)
+    # Buscar informações adicionais dos veículos
+    vehicles = {}
+    for record in records:
+        vehicles[record.plate] = Vehicle.get_by_plate(record.plate)
+    
+    return render_template('parking/history.html', records=records, vehicles=vehicles, plate=plate, date_from=date_from, date_to=date_to)
 
 # 🚘 ROTA DE CONSULTA DE PLACA
 @parking_bp.route('/consulta_placa', methods=['POST'])
@@ -186,19 +230,50 @@ def consulta_placa():
     if not placa:
         return jsonify({'error': 'Placa não enviada'}), 400
 
-    try:
-        response = requests.post(
-            'https://placa-fipe.apibrasil.com.br/placa/consulta',
-            json={'placa': placa},
-            headers={'Content-Type': 'application/json'}
-        )
-        if response.status_code != 200:
-            return jsonify({'error': 'Erro na consulta'}), 500
-
-        resultado = response.json()
+    # Verificar se já temos o veículo no banco de dados local
+    vehicle = Vehicle.get_by_plate(placa)
+    if vehicle and vehicle.model and vehicle.color:
         return jsonify({
-            'modelo': resultado.get('modelo', ''),
-            'cor': resultado.get('cor', '')
+            'modelo': vehicle.model,
+            'cor': vehicle.color,
+            'tipo': vehicle.vehicle_type
         })
-    except Exception as e:
-        return jsonify({'error': 'Erro ao consultar placa', 'detalhe': str(e)}), 500
+    else:
+        return jsonify({'error': 'Veículo não encontrado no banco de dados', 'require_manual': True}), 404
+
+# Rota para obter modelos de carros para autocomplete
+@parking_bp.route('/modelos_carros', methods=['GET'])
+@login_required
+def get_car_models():
+    models = Vehicle.get_car_models()
+    return jsonify(models)
+
+# Rota para obter modelos de motos para autocomplete
+@parking_bp.route('/modelos_motos', methods=['GET'])
+@login_required
+def get_motorcycle_models():
+    models = Vehicle.get_motorcycle_models()
+    return jsonify(models)
+
+# Rota para obter cores disponíveis para autocomplete
+@parking_bp.route('/cores_disponiveis', methods=['GET'])
+@login_required
+def get_available_colors():
+    colors = Vehicle.get_available_colors()
+    return jsonify(colors)
+
+# Rota para obter placas registradas para autocomplete
+@parking_bp.route('/placas_registradas', methods=['GET'])
+@login_required
+def get_registered_plates():
+    plates = Vehicle.get_registered_plates()
+    return jsonify(plates)
+
+# Rota para atualizar as listas de modelos e cores (recarregar arquivos JSON)
+@parking_bp.route('/atualizar_dados', methods=['POST'])
+@login_required
+@admin_required
+def refresh_data():
+    vehicle_data.refresh_data()
+    flash('Dados de veículos atualizados com sucesso!', 'success')
+    return redirect(url_for('parking.register_entry'))
