@@ -1,0 +1,3470 @@
+[
+  {
+    "id": 437,
+    "fipe_code": "001124-0",
+    "model": "147 C/ CL",
+    "years": "1985 a 1987"
+  },
+  {
+    "id": 438,
+    "fipe_code": "001138-0",
+    "model": "147 Furgão (todos)",
+    "years": "1985 a 1987"
+  },
+  {
+    "id": 439,
+    "fipe_code": "001123-1",
+    "model": "147 Pick-Up (todas)",
+    "years": "1985 a 1988"
+  },
+  {
+    "id": 7097,
+    "fipe_code": "001429-0",
+    "model": "500 ABARTH MULTIAIR 1.4 TB 16V 3p",
+    "years": "2014 a 2015"
+  },
+  {
+    "id": 6885,
+    "fipe_code": "001420-6",
+    "model": "500 Cabrio Dualogic Flex 1.4 8V",
+    "years": "2014 a 2017"
+  },
+  {
+    "id": 6886,
+    "fipe_code": "001421-4",
+    "model": "500 Cabrio Flex 1.4 8V Mec.",
+    "years": "2014 a 2015"
+  },
+  {
+    "id": 6262,
+    "fipe_code": "001392-7",
+    "model": "500 Cabrio/500 Coupe Gucci/Flex 1.4 Aut.",
+    "years": "2012 a 2015"
+  },
+  {
+    "id": 5613,
+    "fipe_code": "001362-5",
+    "model": "500 Cult 1.4 Flex 8V EVO Dualogic",
+    "years": "2012 a 2015"
+  },
+  {
+    "id": 5614,
+    "fipe_code": "001361-7",
+    "model": "500 Cult 1.4 Flex 8V EVO Mec.",
+    "years": "2012 a 2017"
+  },
+  {
+    "id": 5059,
+    "fipe_code": "001296-3",
+    "model": "500 LOUNGE 1.4 16V 100cv  Mec.",
+    "years": "2010 a 2010"
+  },
+  {
+    "id": 5060,
+    "fipe_code": "001297-1",
+    "model": "500 LOUNGE 1.4 16V 100cv Dualogic",
+    "years": "2010 a 2012"
+  },
+  {
+    "id": 5615,
+    "fipe_code": "001360-9",
+    "model": "500 Lounge Air 1.4/ 1.4 Flex 16V Aut.",
+    "years": "2012 a 2014"
+  },
+  {
+    "id": 5061,
+    "fipe_code": "001295-5",
+    "model": "500 SPORT 1.4 16V 100cv  Dualogic",
+    "years": "2010 a 2010"
+  },
+  {
+    "id": 5062,
+    "fipe_code": "001290-4",
+    "model": "500 SPORT 1.4 16V 100cv Mec.",
+    "years": "2008 a 2010"
+  },
+  {
+    "id": 5616,
+    "fipe_code": "001359-5",
+    "model": "500 Sport Air 1.4 16V/1.4 Flex 16V Aut.",
+    "years": "2012 a 2015"
+  },
+  {
+    "id": 5617,
+    "fipe_code": "001358-7",
+    "model": "500 Sport Air 1.4 16V/1.4 Flex Mec.",
+    "years": "2012 a 2014"
+  },
+  {
+    "id": 9584,
+    "fipe_code": "001541-5",
+    "model": "500e ICON (Elétrico)",
+    "years": "2022 a Zero Km"
+  },
+  {
+    "id": 11401,
+    "fipe_code": "001509-1",
+    "model": "ARGO 1.0 6V Flex",
+    "years": "2018 a Zero Km"
+  },
+  {
+    "id": 7965,
+    "fipe_code": "001494-0",
+    "model": "ARGO DRIVE 1.0 6V Flex",
+    "years": "2018 a Zero Km"
+  },
+  {
+    "id": 7966,
+    "fipe_code": "001493-1",
+    "model": "ARGO DRIVE 1.3 8V Flex",
+    "years": "2018 a 2021"
+  },
+  {
+    "id": 10392,
+    "fipe_code": "001561-0",
+    "model": "ARGO DRIVE 1.3 8V Flex Aut.",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 7967,
+    "fipe_code": "001492-3",
+    "model": "ARGO DRIVE GSR 1.3 8V Flex",
+    "years": "2018 a 2020"
+  },
+  {
+    "id": 9543,
+    "fipe_code": "001540-7",
+    "model": "ARGO DRIVE S-DESIGN 1.3 8V Flex",
+    "years": "2022 a 2023"
+  },
+  {
+    "id": 11256,
+    "fipe_code": "001583-0",
+    "model": "ARGO DRIVE TRIBUTO 125 1.0 6V Flex",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 11213,
+    "fipe_code": "001576-8",
+    "model": "ARGO ENDURANCE 1.3 8V Flex",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 7968,
+    "fipe_code": "001488-5",
+    "model": "ARGO HGT 1.8 16V Flex Aut.",
+    "years": "2018 a 2021"
+  },
+  {
+    "id": 7969,
+    "fipe_code": "001490-7",
+    "model": "ARGO HGT 1.8 16V Flex Mec.",
+    "years": "2018 a 2019"
+  },
+  {
+    "id": 7971,
+    "fipe_code": "001489-3",
+    "model": "ARGO PRECISION 1.8 16V Flex Aut.",
+    "years": "2018 a 2020"
+  },
+  {
+    "id": 7970,
+    "fipe_code": "001491-5",
+    "model": "ARGO PRECISION 1.8 16V Flex Mec.",
+    "years": "2018 a 2019"
+  },
+  {
+    "id": 8690,
+    "fipe_code": "001519-9",
+    "model": "ARGO TREKKING 1.3 8V Flex",
+    "years": "2020 a Zero Km"
+  },
+  {
+    "id": 10393,
+    "fipe_code": "001562-8",
+    "model": "ARGO TREKKING 1.3 8V Flex Aut.",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 8947,
+    "fipe_code": "001524-5",
+    "model": "ARGO TREKKING 1.8 16V Flex Aut.",
+    "years": "2020 a 2021"
+  },
+  {
+    "id": 440,
+    "fipe_code": "001110-0",
+    "model": "Brava ELX  1.6 16V 4p",
+    "years": "2000 a 2003"
+  },
+  {
+    "id": 441,
+    "fipe_code": "001140-1",
+    "model": "Brava HGT 1.8 mpi 16V  4p",
+    "years": "2000 a 2003"
+  },
+  {
+    "id": 442,
+    "fipe_code": "001109-6",
+    "model": "Brava SX 1.6 16V 4p",
+    "years": "2000 a 2003"
+  },
+  {
+    "id": 5446,
+    "fipe_code": "001339-0",
+    "model": "Bravo ABSOLUTE 1.8 Flex 16V 5p",
+    "years": "2011 a 2012"
+  },
+  {
+    "id": 5447,
+    "fipe_code": "001340-4",
+    "model": "Bravo ABSOLUTE Dualogic 1.8 Flex 16V 5p",
+    "years": "2011 a 2014"
+  },
+  {
+    "id": 7132,
+    "fipe_code": "001435-4",
+    "model": "Bravo BlackMotion 1.8 Dualogic Flex 5p",
+    "years": "2015 a 2016"
+  },
+  {
+    "id": 7133,
+    "fipe_code": "001434-6",
+    "model": "Bravo BlackMotion 1.8 Flex 16v 5p",
+    "years": "2015 a 2016"
+  },
+  {
+    "id": 5448,
+    "fipe_code": "001337-4",
+    "model": "Bravo ESSENCE 1.8 Flex 16V 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 5449,
+    "fipe_code": "001338-2",
+    "model": "Bravo ESSENCE Dualogic 1.8 Flex 16V 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 6051,
+    "fipe_code": "001385-4",
+    "model": "Bravo SPORTING 1.8 Dualogic Flex 16V 5p",
+    "years": "2013 a 2016"
+  },
+  {
+    "id": 6052,
+    "fipe_code": "001384-6",
+    "model": "Bravo SPORTING 1.8 Flex 16V 5p",
+    "years": "2013 a 2016"
+  },
+  {
+    "id": 443,
+    "fipe_code": "001127-4",
+    "model": "Bravo SX 1.6",
+    "years": "1998 a 1999"
+  },
+  {
+    "id": 5591,
+    "fipe_code": "001356-0",
+    "model": "Bravo T-JET 1.4 16V Turbo 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 6515,
+    "fipe_code": "001403-6",
+    "model": "Bravo WOLVERINE 1.8 Dualogic Flex 16V 5p",
+    "years": "2014 a 2014"
+  },
+  {
+    "id": 6516,
+    "fipe_code": "001402-8",
+    "model": "Bravo WOLVERINE 1.8 Flex 16V 5p",
+    "years": "2014 a 2014"
+  },
+  {
+    "id": 444,
+    "fipe_code": "001128-2",
+    "model": "Cinquecento 0.7",
+    "years": "1995 a 1995"
+  },
+  {
+    "id": 445,
+    "fipe_code": "001057-0",
+    "model": "Coupe 16V",
+    "years": "1995 a 1997"
+  },
+  {
+    "id": 9988,
+    "fipe_code": "001552-0",
+    "model": "CRONOS 1.0 6V Flex",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 8199,
+    "fipe_code": "001506-7",
+    "model": "CRONOS 1.3 8V Flex",
+    "years": "2019 a 2022"
+  },
+  {
+    "id": 9590,
+    "fipe_code": "001523-7",
+    "model": "CRONOS 1.8 16V Flex Aut. ",
+    "years": "2020 a 2021"
+  },
+  {
+    "id": 9989,
+    "fipe_code": "001553-9",
+    "model": "CRONOS DRIVE 1.0 6V Flex",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 8200,
+    "fipe_code": "001505-9",
+    "model": "CRONOS DRIVE 1.3 8V Flex",
+    "years": "2018 a Zero Km"
+  },
+  {
+    "id": 9990,
+    "fipe_code": "001554-7",
+    "model": "CRONOS DRIVE 1.3 8V Flex Aut.",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 8518,
+    "fipe_code": "001517-2",
+    "model": "CRONOS DRIVE 1.8 16V Flex Aut.",
+    "years": "2019 a 2021"
+  },
+  {
+    "id": 8201,
+    "fipe_code": "001504-0",
+    "model": "CRONOS DRIVE GSR 1.3 8V Flex",
+    "years": "2018 a 2020"
+  },
+  {
+    "id": 8778,
+    "fipe_code": "001522-9",
+    "model": "CRONOS HGT 1.8 16V Flex Aut.",
+    "years": "2020 a 2021"
+  },
+  {
+    "id": 10394,
+    "fipe_code": "001555-5",
+    "model": "CRONOS PRECISION 1.3 8V Flex Aut.",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 8202,
+    "fipe_code": "001502-4",
+    "model": "CRONOS PRECISION 1.8 16V Flex Aut.",
+    "years": "2018 a 2021"
+  },
+  {
+    "id": 8203,
+    "fipe_code": "001503-2",
+    "model": "CRONOS PRECISION 1.8 16V Flex Mec.",
+    "years": "2018 a 2019"
+  },
+  {
+    "id": 5104,
+    "fipe_code": "001300-5",
+    "model": "Doblo  1.4 mpi Fire Flex  8V 4p",
+    "years": "2010 a 2011"
+  },
+  {
+    "id": 5105,
+    "fipe_code": "001302-1",
+    "model": "Doblo  Cargo 1.4 mpi Fire Flex 8V 3p",
+    "years": "2010 a 2016"
+  },
+  {
+    "id": 6053,
+    "fipe_code": "001382-0",
+    "model": "Doblo Adv. XINGU 1.8 Flex 16V 5p",
+    "years": "2013 a 2014"
+  },
+  {
+    "id": 6054,
+    "fipe_code": "001383-8",
+    "model": "Doblo Adv. XINGU LOCKER 1.8 Flex 16V 5p",
+    "years": "2013 a 2014"
+  },
+  {
+    "id": 7503,
+    "fipe_code": "001456-7",
+    "model": "Doblo Adv.Ext./Adv.Ext.Loc. 1.8 16V Flex",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 3933,
+    "fipe_code": "001234-3",
+    "model": "Doblo Adv/Adv TRYON/LOCKER 1.8 Flex",
+    "years": "2006 a 2020"
+  },
+  {
+    "id": 446,
+    "fipe_code": "001204-1",
+    "model": "Doblo Adventure/ Adv.ER 1.8 mpi 8V 103cv",
+    "years": "2004 a 2006"
+  },
+  {
+    "id": 5535,
+    "fipe_code": "001353-6",
+    "model": "Doblo ATTRACTIVE 1.4 Fire Flex 8V 5p",
+    "years": "2012 a 2016"
+  },
+  {
+    "id": 447,
+    "fipe_code": "001170-3",
+    "model": "Doblo Cargo 1.3 Fire 16V 4/5p",
+    "years": "2002 a 2006"
+  },
+  {
+    "id": 448,
+    "fipe_code": "001169-0",
+    "model": "Doblo Cargo 1.6 16V 4/5p",
+    "years": "2002 a 2003"
+  },
+  {
+    "id": 449,
+    "fipe_code": "001206-8",
+    "model": "Doblo Cargo 1.8 mpi 8V 103cv",
+    "years": "2004 a 2006"
+  },
+  {
+    "id": 3934,
+    "fipe_code": "001235-1",
+    "model": "Doblo Cargo 1.8 mpi Fire Flex 8V/16V 4p",
+    "years": "2006 a 2021"
+  },
+  {
+    "id": 5106,
+    "fipe_code": "001301-3",
+    "model": "Doblo ELX 1.4 mpi Fire Flex 8V 4p",
+    "years": "2010 a 2011"
+  },
+  {
+    "id": 450,
+    "fipe_code": "001168-1",
+    "model": "Doblo ELX 1.6 16V 4/5p",
+    "years": "2002 a 2003"
+  },
+  {
+    "id": 451,
+    "fipe_code": "001205-0",
+    "model": "Doblo ELX 1.8 mpi 8V 103cv",
+    "years": "2004 a 2006"
+  },
+  {
+    "id": 3935,
+    "fipe_code": "001236-0",
+    "model": "Doblo ELX 1.8 mpi 8V Flex",
+    "years": "2006 a 2010"
+  },
+  {
+    "id": 5536,
+    "fipe_code": "001352-8",
+    "model": "Doblo ESSENCE 1.8 Flex 16V 5p",
+    "years": "2012 a 2021"
+  },
+  {
+    "id": 452,
+    "fipe_code": "001167-3",
+    "model": "Doblo EX 1.3 Fire 16V 80cv 4/5p",
+    "years": "2002 a 2006"
+  },
+  {
+    "id": 4097,
+    "fipe_code": "001240-8",
+    "model": "Doblo HLX 1.8 mpi Flex 5p",
+    "years": "2007 a 2011"
+  },
+  {
+    "id": 10659,
+    "fipe_code": "001563-6",
+    "model": "Ducato Cargo 2.2 Diesel (E6)",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 453,
+    "fipe_code": "001190-8",
+    "model": "Ducato Cargo 2.8 Curto/Longo TB Diesel",
+    "years": "2003 a 2009"
+  },
+  {
+    "id": 8204,
+    "fipe_code": "001497-4",
+    "model": "Ducato Cargo Curto 2.3 16V Diesel",
+    "years": "2018 a 2021"
+  },
+  {
+    "id": 5022,
+    "fipe_code": "001282-3",
+    "model": "Ducato Cargo Curto 2.3 ME Diesel",
+    "years": "2010 a 2017"
+  },
+  {
+    "id": 5023,
+    "fipe_code": "001283-1",
+    "model": "Ducato Cargo Longo 2.3 ME Diesel",
+    "years": "2010 a 2017"
+  },
+  {
+    "id": 8205,
+    "fipe_code": "001498-2",
+    "model": "Ducato Cargo Médio 2.3 16V Diesel",
+    "years": "2018 a 2021"
+  },
+  {
+    "id": 8206,
+    "fipe_code": "001496-6",
+    "model": "Ducato Chassi 2.3 16V Diesel",
+    "years": "2018 a 2021"
+  },
+  {
+    "id": 5024,
+    "fipe_code": "001284-0",
+    "model": "Ducato Combinato 2.3 ME Diesel",
+    "years": "2010 a 2012"
+  },
+  {
+    "id": 454,
+    "fipe_code": "001098-7",
+    "model": "Ducato Combinato 2.8 Diesel",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 455,
+    "fipe_code": "001106-1",
+    "model": "Ducato Combinato 2.8 Turbo Diesel",
+    "years": "1998 a 2009"
+  },
+  {
+    "id": 8395,
+    "fipe_code": "001512-1",
+    "model": "Ducato Executivo 2.3 16V Diesel",
+    "years": "2018 a 2021"
+  },
+  {
+    "id": 456,
+    "fipe_code": "001096-0",
+    "model": "Ducato Furgão Maxi 2.8 Diesel",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 5025,
+    "fipe_code": "001288-2",
+    "model": "Ducato Maxi. Curta 2.3 T.Alto ME Diesel",
+    "years": "2010 a 2017"
+  },
+  {
+    "id": 5026,
+    "fipe_code": "001289-0",
+    "model": "Ducato Maxi. Long. 2.3 T.Alto ME Diesel",
+    "years": "2010 a 2017"
+  },
+  {
+    "id": 10660,
+    "fipe_code": "001564-4",
+    "model": "Ducato MaxiCargo 2.2 Diesel (E6)",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 8207,
+    "fipe_code": "001500-8",
+    "model": "Ducato MaxiCargo 2.3 16V Diesel",
+    "years": "2018 a 2021"
+  },
+  {
+    "id": 457,
+    "fipe_code": "001107-0",
+    "model": "Ducato MaxiCargo/Furgão Maxi 2.8 TB Dies",
+    "years": "1998 a 2009"
+  },
+  {
+    "id": 8208,
+    "fipe_code": "001501-6",
+    "model": "Ducato MaxiMulti 2.3 16V Diesel",
+    "years": "2018 a 2021"
+  },
+  {
+    "id": 10661,
+    "fipe_code": "001567-9",
+    "model": "Ducato Minibus 2.2 Comf.19L Diesel (E6)",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 10662,
+    "fipe_code": "001566-0",
+    "model": "Ducato Minibus 2.2 Exec. 17L Diesel (E6)",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 8396,
+    "fipe_code": "001513-0",
+    "model": "Ducato Minibus 2.3 16V Diesel",
+    "years": "2018 a 2019"
+  },
+  {
+    "id": 5027,
+    "fipe_code": "001285-8",
+    "model": "Ducato Minibus 2.3 ME Diesel",
+    "years": "2010 a 2017"
+  },
+  {
+    "id": 5028,
+    "fipe_code": "001286-6",
+    "model": "Ducato Minibus 2.3 T.Alto ME Diesel",
+    "years": "2010 a 2017"
+  },
+  {
+    "id": 458,
+    "fipe_code": "001100-2",
+    "model": "Ducato Minibus 2.8 Diesel",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 459,
+    "fipe_code": "001108-8",
+    "model": "Ducato Minibus 2.8 Turbo Diesel",
+    "years": "1998 a 2009"
+  },
+  {
+    "id": 8397,
+    "fipe_code": "001514-8",
+    "model": "Ducato Minibus Comfort 2.3 16v Diesel",
+    "years": "2018 a 2021"
+  },
+  {
+    "id": 460,
+    "fipe_code": "001159-2",
+    "model": "Ducato Mult/ Vetrato 2.8 T.Alto TB Dies.",
+    "years": "2001 a 2009"
+  },
+  {
+    "id": 461,
+    "fipe_code": "001160-6",
+    "model": "Ducato Mult/ Vetrato 2.8 T.Baixo TB Dies",
+    "years": "2001 a 2008"
+  },
+  {
+    "id": 10663,
+    "fipe_code": "001565-2",
+    "model": "Ducato Multi 2.2 Diesel (E6)",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 8209,
+    "fipe_code": "001499-0",
+    "model": "Ducato Multi 2.3 16V Diesel",
+    "years": "2018 a 2021"
+  },
+  {
+    "id": 5029,
+    "fipe_code": "001287-4",
+    "model": "Ducato Multi Long. 2.3 T.Alto ME Diesel",
+    "years": "2010 a 2017"
+  },
+  {
+    "id": 462,
+    "fipe_code": "001132-0",
+    "model": "Ducato Van 2.5  Diesel",
+    "years": "1998 a 1998"
+  },
+  {
+    "id": 8398,
+    "fipe_code": "001511-3",
+    "model": "Ducato Vip Bus 2.3 16V Diesel",
+    "years": "2018 a 2018"
+  },
+  {
+    "id": 463,
+    "fipe_code": "001130-4",
+    "model": "Ducato-10 Furgão 2.5 Diesel",
+    "years": "1997 a 1999"
+  },
+  {
+    "id": 464,
+    "fipe_code": "001134-7",
+    "model": "Ducato-15 2.8 Furgão TB Diesel",
+    "years": "1998 a 2002"
+  },
+  {
+    "id": 465,
+    "fipe_code": "001095-2",
+    "model": "Ducato-15 Furgão 2.8 Diesel",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 466,
+    "fipe_code": "001131-2",
+    "model": "Ducato-8 Furgão 2.5 Diesel",
+    "years": "1997 a 1999"
+  },
+  {
+    "id": 467,
+    "fipe_code": "001129-0",
+    "model": "Duna 1.6ie",
+    "years": "1994 a 1995"
+  },
+  {
+    "id": 10369,
+    "fipe_code": "001560-1",
+    "model": "E-Scudo (Elétrico)",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 468,
+    "fipe_code": "001025-1",
+    "model": "Elba 1.6i.e/Top/CSL/ 1.6i.e/1.5 2p e 4p",
+    "years": "1988 a 1996"
+  },
+  {
+    "id": 469,
+    "fipe_code": "001023-5",
+    "model": "Elba CS 1.6 / 1.5 /1.3",
+    "years": "1985 a 1992"
+  },
+  {
+    "id": 470,
+    "fipe_code": "001022-7",
+    "model": "Elba S 1.6/ 1.5ie / 1.5 / 1.3",
+    "years": "1985 a 1992"
+  },
+  {
+    "id": 471,
+    "fipe_code": "001024-3",
+    "model": "Elba Weekend 1.5 i.e. 2p e 4p",
+    "years": "1991 a 1996"
+  },
+  {
+    "id": 10754,
+    "fipe_code": "001568-7",
+    "model": "Fastback 1.0 200 Turbo Flex Aut",
+    "years": "2024 a Zero Km"
+  },
+  {
+    "id": 10881,
+    "fipe_code": "001572-5",
+    "model": "Fastback ABARTH Turbo Flex 1.3 Aut.",
+    "years": "2024 a Zero Km"
+  },
+  {
+    "id": 10101,
+    "fipe_code": "001558-0",
+    "model": "Fastback Audace 1.0 200 T. Flex Aut",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 11262,
+    "fipe_code": "001578-4",
+    "model": "Fastback Audace 200 TB Aut (Hibrído)",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 10102,
+    "fipe_code": "001557-1",
+    "model": "Fastback Impetus 1.0 200 T. Flex Aut",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 11263,
+    "fipe_code": "001577-6",
+    "model": "Fastback Impetus 200 T. Aut (Hibrído)",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 10103,
+    "fipe_code": "001556-3",
+    "model": "Fastback Limited Ed.1.3 270 T.Flex Aut.",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 11264,
+    "fipe_code": "001581-4",
+    "model": "Fastback Tributo 125 1.0 Turb. Flex Aut ",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 11376,
+    "fipe_code": "001589-0",
+    "model": "Fiorino Endurance 1.3 Flex 8V 2p",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 9194,
+    "fipe_code": "001531-8",
+    "model": "Fiorino Endurance EVO 1.4 Flex 8V 2p",
+    "years": "2021 a Zero Km"
+  },
+  {
+    "id": 473,
+    "fipe_code": "001027-8",
+    "model": "Fiorino Furg.1.5/1.3/1.3 Fire/1.3 F.Flex",
+    "years": "1986 a 2013"
+  },
+  {
+    "id": 472,
+    "fipe_code": "001026-0",
+    "model": "Fiorino Furgão 1.0",
+    "years": "1993 a 1997"
+  },
+  {
+    "id": 474,
+    "fipe_code": "001001-4",
+    "model": "Fiorino Furgão 1.5 mpi / i.e.",
+    "years": "1992 a 2005"
+  },
+  {
+    "id": 6662,
+    "fipe_code": "001414-1",
+    "model": "Fiorino Furgão Celeb. EVO 1.4 Flex 8V 2p",
+    "years": "2014 a 2016"
+  },
+  {
+    "id": 6663,
+    "fipe_code": "001413-3",
+    "model": "Fiorino Furgão EVO 1.4 Flex 8V 2p",
+    "years": "2014 a 2021"
+  },
+  {
+    "id": 7751,
+    "fipe_code": "001477-0",
+    "model": "Fiorino Furgão Work. HARD 1.4 Flex 8V 2p",
+    "years": "2017 a 2021"
+  },
+  {
+    "id": 475,
+    "fipe_code": "001028-6",
+    "model": "Fiorino Pick-Up 1.0",
+    "years": "1993 a 1997"
+  },
+  {
+    "id": 476,
+    "fipe_code": "001029-4",
+    "model": "Fiorino Pick-Up 1.5 i.e./1.3/1.5/HD",
+    "years": "1988 a 1997"
+  },
+  {
+    "id": 477,
+    "fipe_code": "001030-8",
+    "model": "Fiorino Pick-Up LX (todas)",
+    "years": "1988 a 1998"
+  },
+  {
+    "id": 478,
+    "fipe_code": "001003-0",
+    "model": "Fiorino Pick-Up Trekking 1.5 mpi / i.e.",
+    "years": "1995 a 1999"
+  },
+  {
+    "id": 479,
+    "fipe_code": "001002-2",
+    "model": "Fiorino Pick-Up Working 1.5 mpi / i.e.",
+    "years": "1996 a 1999"
+  },
+  {
+    "id": 9208,
+    "fipe_code": "001534-2",
+    "model": "Fiorino Working 1.4 Flex 8V 2p",
+    "years": "2021 a 2021"
+  },
+  {
+    "id": 5618,
+    "fipe_code": "001365-0",
+    "model": "FREEMONT EMOT./PRECISION 2.4 16V 5p Aut.",
+    "years": "2012 a 2016"
+  },
+  {
+    "id": 9209,
+    "fipe_code": "001533-4",
+    "model": "Grand Siena 1.0 EVO Flex 8V 4p",
+    "years": "2021 a 2021"
+  },
+  {
+    "id": 9210,
+    "fipe_code": "001532-6",
+    "model": "Grand Siena 1.4 EVO Flex 8V 4p",
+    "years": "2021 a 2021"
+  },
+  {
+    "id": 5925,
+    "fipe_code": "001378-1",
+    "model": "Grand Siena ATTRAC. 1.4 EVO F.Flex 8V",
+    "years": "2012 a 2021"
+  },
+  {
+    "id": 7824,
+    "fipe_code": "001481-8",
+    "model": "Grand Siena ATTRACTIVE 1.0 Flex 8V 4p",
+    "years": "2017 a 2021"
+  },
+  {
+    "id": 6955,
+    "fipe_code": "001423-0",
+    "model": "Grand Siena ESSEN. ITALIA Dual. 1.6 Flex",
+    "years": "2015 a 2015"
+  },
+  {
+    "id": 6488,
+    "fipe_code": "001399-4",
+    "model": "Grand Siena ESSEN.SUBLIME 1.6 Flex",
+    "years": "2013 a 2018"
+  },
+  {
+    "id": 6489,
+    "fipe_code": "001400-1",
+    "model": "Grand Siena ESSEN.SUBLIME Dual. 1.6 Flex",
+    "years": "2014 a 2018"
+  },
+  {
+    "id": 5926,
+    "fipe_code": "001379-0",
+    "model": "Grand Siena ESSENCE 1.6 Flex 16V",
+    "years": "2012 a 2018"
+  },
+  {
+    "id": 5927,
+    "fipe_code": "001380-3",
+    "model": "Grand Siena ESSENCE Dual. 1.6 Flex 16V",
+    "years": "2012 a 2018"
+  },
+  {
+    "id": 6956,
+    "fipe_code": "001422-2",
+    "model": "Grand Siena ESSENCE ITALIA 1.6 Flex 16V",
+    "years": "2015 a 2015"
+  },
+  {
+    "id": 5928,
+    "fipe_code": "001381-1",
+    "model": "Grand Siena TETRAFUEL 1.4 Evo F. Flex 8V",
+    "years": "2013 a 2016"
+  },
+  {
+    "id": 7504,
+    "fipe_code": "001454-0",
+    "model": "Idea A.Ext./A..Ext.Loc.Dual. 1.8 Flex 5p",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 4966,
+    "fipe_code": "001281-5",
+    "model": "Idea Adv./ Adv.LOCK.Dualogic 1.8 Flex 5p",
+    "years": "2010 a 2016"
+  },
+  {
+    "id": 7505,
+    "fipe_code": "001455-9",
+    "model": "Idea Adv.Ext./Adv.Ext. Loc. 1.8 Flex 5p",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 4160,
+    "fipe_code": "001242-4",
+    "model": "Idea Advent./ Adv.LOCKER 1.8 mpi Flex 5p",
+    "years": "2007 a 2016"
+  },
+  {
+    "id": 5340,
+    "fipe_code": "001328-5",
+    "model": "Idea ATTRACTIVE 1.4 Fire Flex 8V 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 480,
+    "fipe_code": "001228-9",
+    "model": "Idea ELX 1.4 mpi Fire Flex 8V 5p",
+    "years": "2006 a 2010"
+  },
+  {
+    "id": 4962,
+    "fipe_code": "001276-9",
+    "model": "Idea ELX 1.8 mpi Flex 8V 5p",
+    "years": "2010 a 2010"
+  },
+  {
+    "id": 5341,
+    "fipe_code": "001326-9",
+    "model": "Idea ESSENCE 1.6 Flex 16V 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 5342,
+    "fipe_code": "001327-7",
+    "model": "Idea ESSENCE Dualogic 1.6 Flex 16V 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 6711,
+    "fipe_code": "001416-8",
+    "model": "Idea ESSENCE SUBLIME 1.6 Flex 16V 5p",
+    "years": "2014 a 2016"
+  },
+  {
+    "id": 6712,
+    "fipe_code": "001417-6",
+    "model": "Idea ESSENCE SUBLIME Dual.1.6 Flex16V 5p",
+    "years": "2014 a 2016"
+  },
+  {
+    "id": 481,
+    "fipe_code": "001229-7",
+    "model": "Idea HLX 1.8 mpi Flex 8V 5p",
+    "years": "2006 a 2010"
+  },
+  {
+    "id": 5343,
+    "fipe_code": "001329-3",
+    "model": "Idea SPORTING 1.8 Flex 16V 5p",
+    "years": "2011 a 2012"
+  },
+  {
+    "id": 5344,
+    "fipe_code": "001330-7",
+    "model": "Idea SPORTING Dualogic 1.8 Flex 16V 5p",
+    "years": "2011 a 2012"
+  },
+  {
+    "id": 4748,
+    "fipe_code": "001258-0",
+    "model": "LINEA 1.9/ HLX 1.9/ 1.8 Flex 16V 4p",
+    "years": "2009 a 2011"
+  },
+  {
+    "id": 4750,
+    "fipe_code": "001259-9",
+    "model": "LINEA 1.9/ HLX 1.9/1.8 Flex  Dualogic 4p",
+    "years": "2009 a 2011"
+  },
+  {
+    "id": 4749,
+    "fipe_code": "001260-2",
+    "model": "LINEA ABSOLUTE 1.9/1.8 Flex Dualogic 4p",
+    "years": "2009 a 2016"
+  },
+  {
+    "id": 6581,
+    "fipe_code": "001409-5",
+    "model": "LINEA ESSEN.SUBLIME 1.8 Flex 16V 4p",
+    "years": "2013 a 2014"
+  },
+  {
+    "id": 6582,
+    "fipe_code": "001410-9",
+    "model": "LINEA ESSEN.SUBLIME Dual.1.8 Flex 16V 4p",
+    "years": "2013 a 2014"
+  },
+  {
+    "id": 5577,
+    "fipe_code": "001354-4",
+    "model": "LINEA ESSENCE 1.8 Flex 16V 4p",
+    "years": "2012 a 2016"
+  },
+  {
+    "id": 5578,
+    "fipe_code": "001355-2",
+    "model": "LINEA ESSENCE Dualogic 1.8 Flex 16V 4p",
+    "years": "2012 a 2016"
+  },
+  {
+    "id": 4921,
+    "fipe_code": "001274-2",
+    "model": "LINEA LX 1.9/ 1.8 Flex 16V 4p",
+    "years": "2010 a 2011"
+  },
+  {
+    "id": 4920,
+    "fipe_code": "001275-0",
+    "model": "LINEA LX 1.9/ 1.8 Flex 16V Dualogic 4p",
+    "years": "2010 a 2011"
+  },
+  {
+    "id": 4751,
+    "fipe_code": "001261-0",
+    "model": "LINEA T-JET 1.4 16V Turbo 4p",
+    "years": "2009 a 2012"
+  },
+  {
+    "id": 482,
+    "fipe_code": "001079-0",
+    "model": "Marea City",
+    "years": "1999 a 2000"
+  },
+  {
+    "id": 483,
+    "fipe_code": "001185-1",
+    "model": "Marea ELX 1.8 mpi 16V 132cv 4p",
+    "years": "2003 a 2007"
+  },
+  {
+    "id": 484,
+    "fipe_code": "001081-2",
+    "model": "Marea ELX 2.0 20V 4p",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 485,
+    "fipe_code": "001144-4",
+    "model": "Marea ELX 2.4 mpi 20V 4p",
+    "years": "2001 a 2003"
+  },
+  {
+    "id": 486,
+    "fipe_code": "001082-0",
+    "model": "Marea HLX 2.0 20V 4p",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 487,
+    "fipe_code": "001173-8",
+    "model": "Marea HLX 2.4 mpi 20V 4p Aut.",
+    "years": "2002 a 2007"
+  },
+  {
+    "id": 488,
+    "fipe_code": "001145-2",
+    "model": "Marea HLX 2.4 mpi 20V 4p Mec.",
+    "years": "2001 a 2002"
+  },
+  {
+    "id": 489,
+    "fipe_code": "001226-2",
+    "model": "Marea SX 1.6 mpi 16V 106cv 4p",
+    "years": "2006 a 2007"
+  },
+  {
+    "id": 490,
+    "fipe_code": "001114-2",
+    "model": "Marea SX 1.8 16V 4p",
+    "years": "1999 a 2005"
+  },
+  {
+    "id": 491,
+    "fipe_code": "001080-4",
+    "model": "Marea SX 2.0 20V 4p",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 492,
+    "fipe_code": "001083-9",
+    "model": "Marea Turbo 2.0 20V 4p",
+    "years": "1998 a 2007"
+  },
+  {
+    "id": 493,
+    "fipe_code": "001084-7",
+    "model": "Marea Weekend City 4p",
+    "years": "1999 a 2000"
+  },
+  {
+    "id": 494,
+    "fipe_code": "001186-0",
+    "model": "Marea Weekend ELX 1.8 mpi 16V 132cv 4p",
+    "years": "2003 a 2007"
+  },
+  {
+    "id": 495,
+    "fipe_code": "001086-3",
+    "model": "Marea Weekend ELX 2.0 20V 4p",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 496,
+    "fipe_code": "001146-0",
+    "model": "Marea Weekend ELX 2.4 mpi 20V 4p",
+    "years": "2001 a 2003"
+  },
+  {
+    "id": 497,
+    "fipe_code": "001087-1",
+    "model": "Marea Weekend HLX 2.0 20V 4p",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 498,
+    "fipe_code": "001174-6",
+    "model": "Marea Weekend HLX 2.4 mpi 20V 4p Aut.",
+    "years": "2002 a 2007"
+  },
+  {
+    "id": 499,
+    "fipe_code": "001147-9",
+    "model": "Marea Weekend HLX 2.4 mpi 20V 4p Mec.",
+    "years": "2001 a 2003"
+  },
+  {
+    "id": 500,
+    "fipe_code": "001227-0",
+    "model": "Marea Weekend SX 1.6 mpi 16V 106cv 4p",
+    "years": "2006 a 2007"
+  },
+  {
+    "id": 501,
+    "fipe_code": "001133-9",
+    "model": "Marea Weekend SX 1.8 16V 4p",
+    "years": "1999 a 2005"
+  },
+  {
+    "id": 502,
+    "fipe_code": "001085-5",
+    "model": "Marea Weekend SX 2.0 20V 4p",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 503,
+    "fipe_code": "001088-0",
+    "model": "Marea Weekend Turbo 2.0 20V 4p",
+    "years": "1998 a 2007"
+  },
+  {
+    "id": 7825,
+    "fipe_code": "001480-0",
+    "model": "MOBI DRIVE 1.0 Flex 6V 5p",
+    "years": "2017 a 2020"
+  },
+  {
+    "id": 7920,
+    "fipe_code": "001482-6",
+    "model": "MOBI DRIVE GSR 1.0 Flex 6V 5p",
+    "years": "2018 a 2020"
+  },
+  {
+    "id": 7538,
+    "fipe_code": "001463-0",
+    "model": "MOBI EASY 1.0 Fire Flex 5p.",
+    "years": "2017 a 2022"
+  },
+  {
+    "id": 8344,
+    "fipe_code": "001510-5",
+    "model": "MOBI EASY COMFORT 1.0 Flex 5p.",
+    "years": "2019 a 2020"
+  },
+  {
+    "id": 7539,
+    "fipe_code": "001464-8",
+    "model": "MOBI EASY on 1.0 Fire Flex 5p.",
+    "years": "2017 a 2017"
+  },
+  {
+    "id": 7540,
+    "fipe_code": "001461-3",
+    "model": "MOBI LIKE 1.0 Fire Flex 5p.",
+    "years": "2017 a Zero Km"
+  },
+  {
+    "id": 7541,
+    "fipe_code": "001462-1",
+    "model": "MOBI LIKE ON 1.0 Fire Flex 5p.",
+    "years": "2017 a 2017"
+  },
+  {
+    "id": 9228,
+    "fipe_code": "001536-9",
+    "model": "MOBI TREKKING 1.0 Flex 5p.",
+    "years": "2021 a Zero Km"
+  },
+  {
+    "id": 7612,
+    "fipe_code": "001466-4",
+    "model": "MOBI WAY 1.0 Fire Flex 5p.",
+    "years": "2017 a 2020"
+  },
+  {
+    "id": 7613,
+    "fipe_code": "001465-6",
+    "model": "MOBI WAY on 1.0 Fire Flex 5p.",
+    "years": "2017 a 2017"
+  },
+  {
+    "id": 504,
+    "fipe_code": "001105-3",
+    "model": "Oggi",
+    "years": "1985 a 1985"
+  },
+  {
+    "id": 4826,
+    "fipe_code": "001269-6",
+    "model": "Palio 1.0 Cel. ECON./ITALIA F.Flex 8V 4p",
+    "years": "2009 a 2014"
+  },
+  {
+    "id": 4825,
+    "fipe_code": "001268-8",
+    "model": "Palio 1.0 Celebr. ECONOMY F.Flex 8V 2p",
+    "years": "2009 a 2014"
+  },
+  {
+    "id": 4827,
+    "fipe_code": "001266-1",
+    "model": "Palio 1.0 ECONOMY Fire Flex 8V 2p",
+    "years": "2009 a 2014"
+  },
+  {
+    "id": 4828,
+    "fipe_code": "001267-0",
+    "model": "Palio 1.0 ECONOMY Fire Flex 8V 4p",
+    "years": "2009 a 2014"
+  },
+  {
+    "id": 505,
+    "fipe_code": "001176-2",
+    "model": "Palio 1.0/ Trofeo 1.0 Fire/ Fire Flex 2p",
+    "years": "2003 a 2016"
+  },
+  {
+    "id": 506,
+    "fipe_code": "001177-0",
+    "model": "Palio 1.0/ Trofeo 1.0 Fire/ Fire Flex 4p",
+    "years": "2003 a 2017"
+  },
+  {
+    "id": 507,
+    "fipe_code": "001200-9",
+    "model": "Palio 1.5 mpi 8V 2p",
+    "years": "2002 a 2003"
+  },
+  {
+    "id": 508,
+    "fipe_code": "001201-7",
+    "model": "Palio 1.5 mpi 8V 4p",
+    "years": "2002 a 2003"
+  },
+  {
+    "id": 509,
+    "fipe_code": "001009-0",
+    "model": "Palio 1.6 mpi 16V 2p",
+    "years": "1996 a 2000"
+  },
+  {
+    "id": 510,
+    "fipe_code": "001070-7",
+    "model": "Palio 1.6 mpi 16V 4p",
+    "years": "1996 a 2000"
+  },
+  {
+    "id": 4290,
+    "fipe_code": "001244-0",
+    "model": "Palio 1.8R mpi Flex 8V 2p",
+    "years": "2007 a 2010"
+  },
+  {
+    "id": 3883,
+    "fipe_code": "001231-9",
+    "model": "Palio 1.8R mpi Flex 8V 4p",
+    "years": "2006 a 2010"
+  },
+  {
+    "id": 7180,
+    "fipe_code": "001439-7",
+    "model": "Palio ATTRA. Best Seller 1.0 EVO Flex 5p",
+    "years": "2015 a 2016"
+  },
+  {
+    "id": 7181,
+    "fipe_code": "001438-9",
+    "model": "Palio ATTRA. Best Seller 1.4 EVO Flex 5p",
+    "years": "2015 a 2016"
+  },
+  {
+    "id": 5271,
+    "fipe_code": "001314-5",
+    "model": "Palio ATTRA./ITÁLIA 1.4 EVO F.Flex 8V 5p",
+    "years": "2011 a 2017"
+  },
+  {
+    "id": 5721,
+    "fipe_code": "001372-2",
+    "model": "Palio ATTRACTIVE 1.0 EVO Fire Flex 8v 5p",
+    "years": "2012 a 2017"
+  },
+  {
+    "id": 3965,
+    "fipe_code": "001237-8",
+    "model": "Palio Celebration 1.0 Fire Flex 8V 2p",
+    "years": "2007 a 2016"
+  },
+  {
+    "id": 3966,
+    "fipe_code": "001238-6",
+    "model": "Palio Celebration 1.0 Fire Flex 8V 4p",
+    "years": "2007 a 2016"
+  },
+  {
+    "id": 511,
+    "fipe_code": "001067-7",
+    "model": "Palio City 1.0 4p",
+    "years": "1999 a 2000"
+  },
+  {
+    "id": 512,
+    "fipe_code": "001069-3",
+    "model": "Palio City 1.5/1.6 4p",
+    "years": "1999 a 2000"
+  },
+  {
+    "id": 513,
+    "fipe_code": "001115-0",
+    "model": "Palio CityMatic 1.0 mpi",
+    "years": "1999 a 2000"
+  },
+  {
+    "id": 514,
+    "fipe_code": "001006-5",
+    "model": "Palio ED 1.0 mpi 2p e 4p",
+    "years": "1996 a 1999"
+  },
+  {
+    "id": 515,
+    "fipe_code": "001007-3",
+    "model": "Palio EDX 1.0 mpi 2p",
+    "years": "1996 a 1999"
+  },
+  {
+    "id": 516,
+    "fipe_code": "001008-1",
+    "model": "Palio EDX 1.0 mpi 4p",
+    "years": "1996 a 1999"
+  },
+  {
+    "id": 517,
+    "fipe_code": "001031-6",
+    "model": "Palio EL 1.5 mpi 2p e 4p",
+    "years": "1996 a 2000"
+  },
+  {
+    "id": 518,
+    "fipe_code": "001063-4",
+    "model": "Palio EL 1.6 spi 2p e 4p",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 521,
+    "fipe_code": "001207-6",
+    "model": "Palio ELX 1.0 Fire/30 Anos F. Flex 8V 4p",
+    "years": "2004 a 2011"
+  },
+  {
+    "id": 520,
+    "fipe_code": "001151-7",
+    "model": "Palio ELX 1.0 mpi Fire 16v 4p (25 anos)",
+    "years": "2001 a 2003"
+  },
+  {
+    "id": 519,
+    "fipe_code": "001066-9",
+    "model": "Palio ELX 1.0/ 1.0 Fire Flex 8V 2p",
+    "years": "1999 a 2011"
+  },
+  {
+    "id": 522,
+    "fipe_code": "001142-8",
+    "model": "Palio ELX 1.3 mpi  Fire 16V 4p",
+    "years": "2000 a 2003"
+  },
+  {
+    "id": 523,
+    "fipe_code": "001208-4",
+    "model": "Palio ELX 1.3 mpi Flex 8V 4p",
+    "years": "2004 a 2005"
+  },
+  {
+    "id": 524,
+    "fipe_code": "001223-8",
+    "model": "Palio ELX 1.4 Fire/30 Anos F. Flex 8V 4p",
+    "years": "2006 a 2010"
+  },
+  {
+    "id": 525,
+    "fipe_code": "001071-5",
+    "model": "Palio ELX 1.5 4p",
+    "years": "1999 a 2001"
+  },
+  {
+    "id": 526,
+    "fipe_code": "001068-5",
+    "model": "Palio ELX 1.6 4p",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 527,
+    "fipe_code": "001152-5",
+    "model": "Palio ELX 1.6 mpi 16v 4p",
+    "years": "2001 a 2003"
+  },
+  {
+    "id": 528,
+    "fipe_code": "001196-7",
+    "model": "Palio ELX 1.8/ 1.8 mpi Flex 8V 4p",
+    "years": "2003 a 2010"
+  },
+  {
+    "id": 4967,
+    "fipe_code": "001278-5",
+    "model": "Palio ELX Dualogic 1.8 mpi Flex 8V 4p",
+    "years": "2010 a 2010"
+  },
+  {
+    "id": 529,
+    "fipe_code": "001065-0",
+    "model": "Palio ELX/ 500 1.0 4p",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 5293,
+    "fipe_code": "001324-2",
+    "model": "Palio ESSENCE 1.6 Flex 16V 5p",
+    "years": "2011 a 2017"
+  },
+  {
+    "id": 5294,
+    "fipe_code": "001325-0",
+    "model": "Palio ESSENCE Dualogic 1.6 Flex 16V 5p",
+    "years": "2011 a 2017"
+  },
+  {
+    "id": 530,
+    "fipe_code": "001004-9",
+    "model": "Palio EX 1.0 mpi 2p",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 531,
+    "fipe_code": "001005-7",
+    "model": "Palio EX 1.0 mpi 4p",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 533,
+    "fipe_code": "001154-1",
+    "model": "Palio EX 1.0 mpi Fire 8v 4p",
+    "years": "2001 a 2003"
+  },
+  {
+    "id": 532,
+    "fipe_code": "001153-3",
+    "model": "Palio EX 1.0 mpi Fire/ Fire Flex 8v 2p",
+    "years": "2001 a 2008"
+  },
+  {
+    "id": 534,
+    "fipe_code": "001178-9",
+    "model": "Palio EX 1.3 mpi Fire 8V 67cv 2p",
+    "years": "2003 a 2004"
+  },
+  {
+    "id": 535,
+    "fipe_code": "001179-7",
+    "model": "Palio EX 1.3 mpi Fire 8V 67cv 4p",
+    "years": "2003 a 2003"
+  },
+  {
+    "id": 536,
+    "fipe_code": "001195-9",
+    "model": "Palio EX 1.8 mpi 8V 103cv 4p",
+    "years": "2003 a 2003"
+  },
+  {
+    "id": 537,
+    "fipe_code": "001171-1",
+    "model": "Palio EX Century 1.0 mpi Fire 16v 2p",
+    "years": "2002 a 2003"
+  },
+  {
+    "id": 538,
+    "fipe_code": "001172-0",
+    "model": "Palio EX Century 1.0 mpi Fire 16v 4p",
+    "years": "2002 a 2003"
+  },
+  {
+    "id": 539,
+    "fipe_code": "001209-2",
+    "model": "Palio HLX 1.8 mpi 8V 103cv 4p",
+    "years": "2004 a 2004"
+  },
+  {
+    "id": 540,
+    "fipe_code": "001210-6",
+    "model": "Palio HLX 1.8 mpi Flex 8V 4p",
+    "years": "2004 a 2007"
+  },
+  {
+    "id": 7026,
+    "fipe_code": "001426-5",
+    "model": "Palio Rua 1.0 Fire Flex 8V 5p",
+    "years": "2015 a 2015"
+  },
+  {
+    "id": 6318,
+    "fipe_code": "001397-8",
+    "model": "Palio SPORT.INTERLAGOS 1.6 Flex 16V",
+    "years": "2013 a 2015"
+  },
+  {
+    "id": 6319,
+    "fipe_code": "001398-6",
+    "model": "Palio SPORT.INTERLAGOS Dual.1.6 Flex 16V",
+    "years": "2013 a 2015"
+  },
+  {
+    "id": 5696,
+    "fipe_code": "001370-6",
+    "model": "Palio SPORTING 1.6 Flex 16V 5p",
+    "years": "2012 a 2017"
+  },
+  {
+    "id": 7614,
+    "fipe_code": "001467-2",
+    "model": "Palio SPORTING B.Edit. 1.6 Flex 16V 5p",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 7615,
+    "fipe_code": "001468-0",
+    "model": "Palio SPORTING Dual. B.Edit. 1.6 Flex 5p",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 5697,
+    "fipe_code": "001371-4",
+    "model": "Palio SPORTING Dualogic 1.6 Flex 16V 5p",
+    "years": "2012 a 2017"
+  },
+  {
+    "id": 541,
+    "fipe_code": "001155-0",
+    "model": "Palio Stile 1.6 mpi 16v 4p",
+    "years": "2001 a 2003"
+  },
+  {
+    "id": 5879,
+    "fipe_code": "001376-5",
+    "model": "Palio W.Adv. LOC. ITAL.Dual.1.8 Flex 16V",
+    "years": "2012 a 2012"
+  },
+  {
+    "id": 5881,
+    "fipe_code": "001374-9",
+    "model": "Palio W.ADV. LOCK. ITALIA 1.8 Flex 16V",
+    "years": "2012 a 2012"
+  },
+  {
+    "id": 6836,
+    "fipe_code": "001418-4",
+    "model": "Palio Way 1.0 Fire Flex 8V 5p",
+    "years": "2015 a 2017"
+  },
+  {
+    "id": 6837,
+    "fipe_code": "001419-2",
+    "model": "Palio Way Celebration 1.0 F. Flex 8V 5p",
+    "years": "2015 a 2016"
+  },
+  {
+    "id": 5619,
+    "fipe_code": "001357-9",
+    "model": "Palio Week. Adv. Dualogic 1.8 Flex",
+    "years": "2011 a 2018"
+  },
+  {
+    "id": 5880,
+    "fipe_code": "001373-0",
+    "model": "Palio Week. Adv. ITALIA 1.8 Flex 16V",
+    "years": "2012 a 2012"
+  },
+  {
+    "id": 547,
+    "fipe_code": "001216-5",
+    "model": "Palio Week. Adv/Adv TRYON 1.8 mpi Flex",
+    "years": "2004 a 2020"
+  },
+  {
+    "id": 5272,
+    "fipe_code": "001315-3",
+    "model": "Palio Week. ATTRACTIVE 1.4 Fire Flex 8V",
+    "years": "2010 a 2020"
+  },
+  {
+    "id": 5882,
+    "fipe_code": "001375-7",
+    "model": "Palio Week.Adv. ITAL. Dual. 1.8 Flex 16V",
+    "years": "2012 a 2012"
+  },
+  {
+    "id": 4968,
+    "fipe_code": "001280-7",
+    "model": "Palio Week.Adv.LOCK.Dualogic 1.8 Flex",
+    "years": "2010 a 2017"
+  },
+  {
+    "id": 542,
+    "fipe_code": "001104-5",
+    "model": "Palio Weekend 1.0 6-marchas",
+    "years": "1999 a 2000"
+  },
+  {
+    "id": 543,
+    "fipe_code": "001010-3",
+    "model": "Palio Weekend 1.5 mpi 4p",
+    "years": "1997 a 2004"
+  },
+  {
+    "id": 544,
+    "fipe_code": "001011-1",
+    "model": "Palio Weekend 1.6 mpi 16V 4p",
+    "years": "1997 a 1999"
+  },
+  {
+    "id": 7542,
+    "fipe_code": "001459-1",
+    "model": "Palio Weekend Adv. Ext. 1.8 Dual. Flex",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 7543,
+    "fipe_code": "001457-5",
+    "model": "Palio Weekend Adv. Ext. 1.8 Flex",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 7544,
+    "fipe_code": "001460-5",
+    "model": "Palio Weekend Adv. Loc.Ext.1.8 Dual.Flex",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 7545,
+    "fipe_code": "001458-3",
+    "model": "Palio Weekend Adv. LOCKER Ext. 1.8 Flex",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 545,
+    "fipe_code": "001111-8",
+    "model": "Palio Weekend Adventure 1.6 8V/16V",
+    "years": "1999 a 2003"
+  },
+  {
+    "id": 546,
+    "fipe_code": "001194-0",
+    "model": "Palio Weekend Adventure 1.8 8V 103cv 4p",
+    "years": "2003 a 2004"
+  },
+  {
+    "id": 4673,
+    "fipe_code": "001255-6",
+    "model": "Palio Weekend Adventure LOCKER 1.8 Flex",
+    "years": "2009 a 2020"
+  },
+  {
+    "id": 548,
+    "fipe_code": "001136-3",
+    "model": "Palio Weekend City 1.5/ 1.6 4p",
+    "years": "1999 a 2000"
+  },
+  {
+    "id": 549,
+    "fipe_code": "001156-8",
+    "model": "Palio Weekend ELX 1.0 mpi Fire 16V",
+    "years": "2001 a 2003"
+  },
+  {
+    "id": 550,
+    "fipe_code": "001143-6",
+    "model": "Palio Weekend ELX 1.3 mpi  Fire 16V",
+    "years": "2000 a 2003"
+  },
+  {
+    "id": 551,
+    "fipe_code": "001214-9",
+    "model": "Palio Weekend ELX 1.3 mpi Flex 8V 4p",
+    "years": "2005 a 2005"
+  },
+  {
+    "id": 552,
+    "fipe_code": "001225-4",
+    "model": "Palio Weekend ELX 1.4 mpi Fire Flex 8V",
+    "years": "2006 a 2010"
+  },
+  {
+    "id": 553,
+    "fipe_code": "001075-8",
+    "model": "Palio Weekend ELX 1.5 mpi 4p",
+    "years": "1998 a 2001"
+  },
+  {
+    "id": 554,
+    "fipe_code": "001073-1",
+    "model": "Palio Weekend ELX 1.6 mpi",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 555,
+    "fipe_code": "001191-6",
+    "model": "Palio Weekend EX 1.3 mpi Fire 8V 67cv 4p",
+    "years": "2003 a 2004"
+  },
+  {
+    "id": 556,
+    "fipe_code": "001074-0",
+    "model": "Palio Weekend EX 1.5 mpi",
+    "years": "1999 a 2000"
+  },
+  {
+    "id": 557,
+    "fipe_code": "001192-4",
+    "model": "Palio Weekend EX 1.8 mpi 8V 103cv 4p",
+    "years": "2003 a 2004"
+  },
+  {
+    "id": 558,
+    "fipe_code": "001215-7",
+    "model": "Palio Weekend HLX 1.8 mpi Flex 4p",
+    "years": "2005 a 2008"
+  },
+  {
+    "id": 559,
+    "fipe_code": "001013-8",
+    "model": "Palio Weekend Sport 1.6 mpi 16V 4p",
+    "years": "1997 a 2000"
+  },
+  {
+    "id": 560,
+    "fipe_code": "001012-0",
+    "model": "Palio Weekend Stile 1.6 mpi 16V 4p",
+    "years": "1997 a 2003"
+  },
+  {
+    "id": 561,
+    "fipe_code": "001193-2",
+    "model": "Palio Weekend Stile 1.8 mpi 8V 103cv 4p",
+    "years": "2003 a 2005"
+  },
+  {
+    "id": 4674,
+    "fipe_code": "001256-4",
+    "model": "Palio Weekend Trekking 1.4 Fire Flex 8V",
+    "years": "2009 a 2011"
+  },
+  {
+    "id": 5412,
+    "fipe_code": "001336-6",
+    "model": "Palio Weekend Trekking 1.6 Flex 16V 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 5063,
+    "fipe_code": "001294-7",
+    "model": "Palio Weekend Trekking 1.8 mpi Flex 8V",
+    "years": "2010 a 2010"
+  },
+  {
+    "id": 562,
+    "fipe_code": "001149-5",
+    "model": "Palio Young 1.0 mpi 8v 2p",
+    "years": "2001 a 2002"
+  },
+  {
+    "id": 563,
+    "fipe_code": "001150-9",
+    "model": "Palio Young 1.0 mpi 8v 4p",
+    "years": "2001 a 2002"
+  },
+  {
+    "id": 564,
+    "fipe_code": "001165-7",
+    "model": "Palio Young 1.0 mpi Fire 8V 2p",
+    "years": "2002 a 2002"
+  },
+  {
+    "id": 565,
+    "fipe_code": "001166-5",
+    "model": "Palio Young 1.0 mpi Fire 8V 4p",
+    "years": "2002 a 2002"
+  },
+  {
+    "id": 566,
+    "fipe_code": "001116-9",
+    "model": "Panorama C/CL",
+    "years": "1985 a 1986"
+  },
+  {
+    "id": 567,
+    "fipe_code": "001034-0",
+    "model": "Premio CS 1.5 i.e. 2p/ SL 1.6/1.5/1.3 4p",
+    "years": "1988 a 1994"
+  },
+  {
+    "id": 568,
+    "fipe_code": "001033-2",
+    "model": "Premio CS 1.6/ 1.5/ 1.3 2p",
+    "years": "1985 a 1994"
+  },
+  {
+    "id": 569,
+    "fipe_code": "001036-7",
+    "model": "Premio CSL 1.6 i.e./ 1.5 4p",
+    "years": "1988 a 1994"
+  },
+  {
+    "id": 570,
+    "fipe_code": "001035-9",
+    "model": "Premio CSL 1.6/ 1.5",
+    "years": "1986 a 1994"
+  },
+  {
+    "id": 571,
+    "fipe_code": "001032-4",
+    "model": "Premio S 1.5 i.e./ 1.5 / 1.3",
+    "years": "1985 a 1993"
+  },
+  {
+    "id": 10219,
+    "fipe_code": "001559-8",
+    "model": "PULSE ABARTH 1.3 Turbo 16V Flex Aut.",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 9645,
+    "fipe_code": "001542-3",
+    "model": "PULSE AUDACE 1.0 Turbo 200 Flex Aut.",
+    "years": "2022 a Zero Km"
+  },
+  {
+    "id": 11269,
+    "fipe_code": "001579-2",
+    "model": "PULSE AUDACE Turbo 200  Aut. (Hibrído)",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 9646,
+    "fipe_code": "001543-1",
+    "model": "PULSE DRIVE 1.0 Turbo 200 Flex Aut.",
+    "years": "2022 a Zero Km"
+  },
+  {
+    "id": 9647,
+    "fipe_code": "001544-0",
+    "model": "PULSE DRIVE 1.3 8V Flex Aut.",
+    "years": "2022 a Zero Km"
+  },
+  {
+    "id": 9648,
+    "fipe_code": "001545-8",
+    "model": "PULSE DRIVE 1.3 8V Flex Mec. ",
+    "years": "2022 a Zero Km"
+  },
+  {
+    "id": 9649,
+    "fipe_code": "001546-6",
+    "model": "PULSE IMPETUS 1.0 TURBO 200 Flex Aut.",
+    "years": "2022 a Zero Km"
+  },
+  {
+    "id": 11270,
+    "fipe_code": "001580-6",
+    "model": "PULSE IMPETUS T. 200 Aut. (Hibrído)",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 11271,
+    "fipe_code": "001582-2",
+    "model": "PULSE TRIBUTO 125 1.0 TB. 200 Flex Aut.",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 4421,
+    "fipe_code": "001249-1",
+    "model": "Punto  ELX 1.4 Fire Flex 8V 5p",
+    "years": "2008 a 2011"
+  },
+  {
+    "id": 4422,
+    "fipe_code": "001248-3",
+    "model": "Punto 1.4 Fire Flex 8V 5p",
+    "years": "2008 a 2011"
+  },
+  {
+    "id": 5273,
+    "fipe_code": "001313-7",
+    "model": "Punto ATTRACTIVE 1.4 Fire Flex 8V 5p",
+    "years": "2011 a 2017"
+  },
+  {
+    "id": 5883,
+    "fipe_code": "001377-3",
+    "model": "Punto ATTRACTIVE ITALIA 1.4 F.Flex 8V 5p",
+    "years": "2012 a 2017"
+  },
+  {
+    "id": 6560,
+    "fipe_code": "001407-9",
+    "model": "Punto BLACKMOTION 1.8 Flex 16V 5p.",
+    "years": "2014 a 2017"
+  },
+  {
+    "id": 6561,
+    "fipe_code": "001408-7",
+    "model": "Punto BLACKMOTION Dual. 1.8 Flex 16v 5p",
+    "years": "2014 a 2017"
+  },
+  {
+    "id": 572,
+    "fipe_code": "001120-7",
+    "model": "Punto Cabrio",
+    "years": "1995 a 1995"
+  },
+  {
+    "id": 573,
+    "fipe_code": "001117-7",
+    "model": "Punto EL/ELX",
+    "years": "1995 a 1995"
+  },
+  {
+    "id": 5295,
+    "fipe_code": "001316-1",
+    "model": "Punto ESSENCE 1.6 Flex 16V 5p",
+    "years": "2011 a 2017"
+  },
+  {
+    "id": 5296,
+    "fipe_code": "001317-0",
+    "model": "Punto ESSENCE 1.8 Flex 16V 5p",
+    "years": "2011 a 2012"
+  },
+  {
+    "id": 5463,
+    "fipe_code": "001342-0",
+    "model": "Punto ESSENCE Dualogic 1.6 Flex 16V 5p",
+    "years": "2011 a 2017"
+  },
+  {
+    "id": 5297,
+    "fipe_code": "001318-8",
+    "model": "Punto ESSENCE Dualogic 1.8 Flex 16V 5p",
+    "years": "2011 a 2012"
+  },
+  {
+    "id": 7182,
+    "fipe_code": "001437-0",
+    "model": "Punto ESSENCE SP 1.6 Flex 16V 5p",
+    "years": "2014 a 2016"
+  },
+  {
+    "id": 7226,
+    "fipe_code": "001442-7",
+    "model": "Punto ESSENCE SP Dualogic 1.6 Flex 16V",
+    "years": "2014 a 2016"
+  },
+  {
+    "id": 4423,
+    "fipe_code": "001250-5",
+    "model": "Punto HLX 1.8 Flex 8V 5p",
+    "years": "2008 a 2010"
+  },
+  {
+    "id": 574,
+    "fipe_code": "001118-5",
+    "model": "Punto S",
+    "years": "1995 a 1995"
+  },
+  {
+    "id": 4424,
+    "fipe_code": "001251-3",
+    "model": "Punto Sporting 1.8 Flex 8V/16V 5p",
+    "years": "2008 a 2016"
+  },
+  {
+    "id": 5298,
+    "fipe_code": "001319-6",
+    "model": "Punto Sporting Dualogic 1.8 Flex 16V 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 575,
+    "fipe_code": "001119-3",
+    "model": "Punto SX",
+    "years": "1995 a 1995"
+  },
+  {
+    "id": 4859,
+    "fipe_code": "001271-8",
+    "model": "Punto T-JET 1.4 16V Turbo 5p",
+    "years": "2009 a 2016"
+  },
+  {
+    "id": 9919,
+    "fipe_code": "001550-4",
+    "model": "Scudo Cargo 1.5 16V Turbo Diesel",
+    "years": "2022 a Zero Km"
+  },
+  {
+    "id": 9920,
+    "fipe_code": "001551-2",
+    "model": "Scudo Multi 1.5 16 V Turbo Diesel",
+    "years": "2023 a Zero Km"
+  },
+  {
+    "id": 576,
+    "fipe_code": "001078-2",
+    "model": "Siena 1.0 mpi/ 500 1.0 mpi",
+    "years": "1999 a 2000"
+  },
+  {
+    "id": 577,
+    "fipe_code": "001175-4",
+    "model": "Siena 1.0/ EX 1.0 mpi Fire/ Fire Flex 8v",
+    "years": "2001 a 2012"
+  },
+  {
+    "id": 578,
+    "fipe_code": "001202-5",
+    "model": "Siena 1.5 mpi 8V 4p",
+    "years": "2003 a 2004"
+  },
+  {
+    "id": 5299,
+    "fipe_code": "001320-0",
+    "model": "Siena ATTRACTIVE 1.0 Fire Flex 8V 4p",
+    "years": "2011 a 2011"
+  },
+  {
+    "id": 5300,
+    "fipe_code": "001321-8",
+    "model": "Siena ATTRACTIVE 1.4 Fire Flex 8V 4p",
+    "years": "2011 a 2011"
+  },
+  {
+    "id": 3967,
+    "fipe_code": "001239-4",
+    "model": "Siena Celebration 1.0 Fire Flex 8V 4p",
+    "years": "2007 a 2012"
+  },
+  {
+    "id": 579,
+    "fipe_code": "001076-6",
+    "model": "Siena City 4p",
+    "years": "1999 a 2000"
+  },
+  {
+    "id": 4860,
+    "fipe_code": "001272-6",
+    "model": "Siena EL 1.0 mpi Fire Flex 8V 4p",
+    "years": "2010 a 2016"
+  },
+  {
+    "id": 5361,
+    "fipe_code": "001331-5",
+    "model": "Siena EL 1.4 mpi Fire Flex 8V 4p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 580,
+    "fipe_code": "001015-4",
+    "model": "Siena EL 1.6 mpi 16V",
+    "years": "1997 a 1999"
+  },
+  {
+    "id": 581,
+    "fipe_code": "001014-6",
+    "model": "Siena EL 1.6 spi",
+    "years": "1998 a 2000"
+  },
+  {
+    "id": 4861,
+    "fipe_code": "001273-4",
+    "model": "Siena EL Celeb. 1.0 mpi Fire Flex 8V 4p",
+    "years": "2010 a 2016"
+  },
+  {
+    "id": 5362,
+    "fipe_code": "001332-3",
+    "model": "Siena EL Celeb. 1.4 mpi Fire Flex 8V 4p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 582,
+    "fipe_code": "001158-4",
+    "model": "Siena ELX 1.0 mpi Fire 16v 4p (25 anos)",
+    "years": "2001 a 2003"
+  },
+  {
+    "id": 583,
+    "fipe_code": "001211-4",
+    "model": "Siena ELX 1.0 mpi Fire/Fire Flex 8V 4p",
+    "years": "2003 a 2010"
+  },
+  {
+    "id": 584,
+    "fipe_code": "001141-0",
+    "model": "Siena ELX 1.3 mpi Fire 16V 4p",
+    "years": "2000 a 2005"
+  },
+  {
+    "id": 585,
+    "fipe_code": "001212-2",
+    "model": "Siena ELX 1.3 mpi Flex 8V 4p",
+    "years": "2004 a 2005"
+  },
+  {
+    "id": 586,
+    "fipe_code": "001224-6",
+    "model": "Siena ELX 1.4 mpi Fire Flex 8V 4p",
+    "years": "2006 a 2010"
+  },
+  {
+    "id": 587,
+    "fipe_code": "001112-6",
+    "model": "Siena ELX 1.5 mpi 4p",
+    "years": "2000 a 2000"
+  },
+  {
+    "id": 588,
+    "fipe_code": "001077-4",
+    "model": "Siena ELX 1.6 mpi 8V/16V 4p",
+    "years": "1998 a 2003"
+  },
+  {
+    "id": 589,
+    "fipe_code": "001199-1",
+    "model": "Siena ELX 1.8 mpi 8V 103cv 4p",
+    "years": "2003 a 2004"
+  },
+  {
+    "id": 5301,
+    "fipe_code": "001322-6",
+    "model": "Siena ESSENCE 1.6 Flex 16V 4p",
+    "years": "2011 a 2012"
+  },
+  {
+    "id": 5302,
+    "fipe_code": "001323-4",
+    "model": "Siena ESSENCE Dualogic 1.6 Flex 16V 4p",
+    "years": "2011 a 2012"
+  },
+  {
+    "id": 590,
+    "fipe_code": "001157-6",
+    "model": "Siena EX 1.0 mpi Fire 16v 4p",
+    "years": "2001 a 2002"
+  },
+  {
+    "id": 591,
+    "fipe_code": "001198-3",
+    "model": "Siena EX 1.3 mpi Fire 8V 67cv 4p",
+    "years": "2003 a 2004"
+  },
+  {
+    "id": 592,
+    "fipe_code": "001197-5",
+    "model": "Siena EX 1.8 mpi 8V 103cv 4p",
+    "years": "2003 a 2004"
+  },
+  {
+    "id": 593,
+    "fipe_code": "001016-2",
+    "model": "Siena HL 1.6 mpi 16V",
+    "years": "1997 a 1998"
+  },
+  {
+    "id": 594,
+    "fipe_code": "001213-0",
+    "model": "Siena HLX 1.8 mpi Flex 8V 4p",
+    "years": "2004 a 2010"
+  },
+  {
+    "id": 4969,
+    "fipe_code": "001279-3",
+    "model": "Siena HLX Dualogic 1.8 mpi Flex 8V 4p",
+    "years": "2010 a 2010"
+  },
+  {
+    "id": 5363,
+    "fipe_code": "001333-1",
+    "model": "Siena Sporting 1.6 Flex 16V 4p",
+    "years": "2011 a 2011"
+  },
+  {
+    "id": 5364,
+    "fipe_code": "001334-0",
+    "model": "Siena Sporting Dualogic 1.6 Flex 16V 4p",
+    "years": "2011 a 2011"
+  },
+  {
+    "id": 595,
+    "fipe_code": "001017-0",
+    "model": "Siena Stile/Sport MTV 1.6 mpi 16V",
+    "years": "1998 a 1999"
+  },
+  {
+    "id": 4133,
+    "fipe_code": "001241-6",
+    "model": "Siena TETRAFUEL 1.4 mpi Fire Flex 8v 4p",
+    "years": "2007 a 2012"
+  },
+  {
+    "id": 5064,
+    "fipe_code": "001298-0",
+    "model": "Stilo 1.8 ATTRACTIVE Flex 8V 5p",
+    "years": "2010 a 2011"
+  },
+  {
+    "id": 597,
+    "fipe_code": "001220-3",
+    "model": "Stilo 1.8 MS Lim.Edit./ MS Season 16V",
+    "years": "2005 a 2007"
+  },
+  {
+    "id": 4187,
+    "fipe_code": "001243-2",
+    "model": "Stilo 1.8 SP Flex 8V 5p",
+    "years": "2007 a 2011"
+  },
+  {
+    "id": 4329,
+    "fipe_code": "001247-5",
+    "model": "Stilo 1.8 Sporting Flex 8V 5P",
+    "years": "2007 a 2011"
+  },
+  {
+    "id": 596,
+    "fipe_code": "001180-0",
+    "model": "Stilo 1.8/ 1.8 Connect 8V 103cv 5p",
+    "years": "2003 a 2006"
+  },
+  {
+    "id": 3813,
+    "fipe_code": "001230-0",
+    "model": "Stilo 1.8/ 1.8 Connect Flex 8V 5p",
+    "years": "2006 a 2011"
+  },
+  {
+    "id": 598,
+    "fipe_code": "001181-9",
+    "model": "Stilo 1.8/ 1.8 SP/ Connect 16V 122cv 5p",
+    "years": "2003 a 2007"
+  },
+  {
+    "id": 599,
+    "fipe_code": "001182-7",
+    "model": "Stilo 2.4 Abarth 20V 167cv 5p",
+    "years": "2003 a 2009"
+  },
+  {
+    "id": 10065,
+    "fipe_code": "001299-8",
+    "model": "Stilo Dualogic 1.8 ATTRACTIVE Flex 8V 5p",
+    "years": "2010 a 2011"
+  },
+  {
+    "id": 4862,
+    "fipe_code": "001270-0",
+    "model": "Stilo Dualogic 1.8 BlackMotion Flex 8V",
+    "years": "2009 a 2011"
+  },
+  {
+    "id": 4529,
+    "fipe_code": "001252-1",
+    "model": "Stilo Dualogic 1.8 Flex 8V 5p",
+    "years": "2008 a 2011"
+  },
+  {
+    "id": 4530,
+    "fipe_code": "001253-0",
+    "model": "Stilo Dualogic 1.8 SP Flex 8V 5p",
+    "years": "2008 a 2011"
+  },
+  {
+    "id": 4531,
+    "fipe_code": "001254-8",
+    "model": "Stilo Dualogic 1.8 Sporting Flex 8V 5p",
+    "years": "2008 a 2011"
+  },
+  {
+    "id": 600,
+    "fipe_code": "001184-3",
+    "model": "Strada 1.3 mpi Fire 8V 67cv CE",
+    "years": "2003 a 2005"
+  },
+  {
+    "id": 601,
+    "fipe_code": "001183-5",
+    "model": "Strada 1.3 mpi Fire 8V 67cv CS",
+    "years": "2003 a 2005"
+  },
+  {
+    "id": 602,
+    "fipe_code": "001222-0",
+    "model": "Strada 1.4 mpi Fire Flex 8V CE",
+    "years": "2006 a 2012"
+  },
+  {
+    "id": 603,
+    "fipe_code": "001221-1",
+    "model": "Strada 1.4 mpi Fire Flex 8V CS",
+    "years": "2006 a 2012"
+  },
+  {
+    "id": 7450,
+    "fipe_code": "001446-0",
+    "model": "Strada Adv. Ext. 1.8 LOCKER Dual.Flex CE",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 7451,
+    "fipe_code": "001448-6",
+    "model": "Strada Adv. Ext./ Ext.1.8 LOCKER Flex CE",
+    "years": "2016 a 2017"
+  },
+  {
+    "id": 7452,
+    "fipe_code": "001447-8",
+    "model": "Strada Adv. Extreme 1.8 Dual. Flex CE",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 6517,
+    "fipe_code": "001404-4",
+    "model": "Strada Adv. M. March. 1.8 Flex 16V CD",
+    "years": "2013 a 2013"
+  },
+  {
+    "id": 6518,
+    "fipe_code": "001405-2",
+    "model": "Strada Adv. M. March.1.8 Dual. Flex CD",
+    "years": "2013 a 2013"
+  },
+  {
+    "id": 6636,
+    "fipe_code": "001412-5",
+    "model": "Strada Adv.1.8 16V  LOCKER Dual. Flex CE",
+    "years": "2014 a 2016"
+  },
+  {
+    "id": 5620,
+    "fipe_code": "001363-3",
+    "model": "Strada Adv.1.8 16V Dualogic Flex CD",
+    "years": "2012 a 2017"
+  },
+  {
+    "id": 6637,
+    "fipe_code": "001411-7",
+    "model": "Strada Adv.1.8 16V Dualogic Flex CE",
+    "years": "2014 a 2016"
+  },
+  {
+    "id": 5621,
+    "fipe_code": "001364-1",
+    "model": "Strada Adv.1.8 16V LOCKER Dualo. Flex CD",
+    "years": "2012 a 2017"
+  },
+  {
+    "id": 7453,
+    "fipe_code": "001443-5",
+    "model": "Strada Adv.Ext. 1.8 LOCKER Dual. Flex CD",
+    "years": "2016 a 2017"
+  },
+  {
+    "id": 7454,
+    "fipe_code": "001445-1",
+    "model": "Strada Adv.Ext./ Ext. 1.8 LOCKER Flex CD",
+    "years": "2016 a 2017"
+  },
+  {
+    "id": 606,
+    "fipe_code": "001219-0",
+    "model": "Strada Adv/Adv TRYON 1.8 mpi Flex 8V CE",
+    "years": "2005 a 2009"
+  },
+  {
+    "id": 604,
+    "fipe_code": "001163-0",
+    "model": "Strada Adventure 1.6 mpi 16V CE",
+    "years": "2002 a 2002"
+  },
+  {
+    "id": 605,
+    "fipe_code": "001189-4",
+    "model": "Strada Adventure 1.8 mpi 8V 103cv CE",
+    "years": "2003 a 2004"
+  },
+  {
+    "id": 4733,
+    "fipe_code": "001257-2",
+    "model": "Strada Adventure 1.8/ 1.8 LOCKER Flex CE",
+    "years": "2009 a 2018"
+  },
+  {
+    "id": 7455,
+    "fipe_code": "001444-3",
+    "model": "Strada Adventure Ext. 1.8  Dual. Flex CD",
+    "years": "2016 a 2017"
+  },
+  {
+    "id": 4970,
+    "fipe_code": "001277-7",
+    "model": "Strada Adventure1.8/ 1.8 LOCKER Flex CD",
+    "years": "2010 a 2020"
+  },
+  {
+    "id": 5274,
+    "fipe_code": "001312-9",
+    "model": "Strada Celeb. 1.4 mpi Fire Flex 8V CE",
+    "years": "2011 a 2012"
+  },
+  {
+    "id": 5275,
+    "fipe_code": "001311-0",
+    "model": "Strada Celeb. 1.4 mpi Fire Flex 8V CS",
+    "years": "2010 a 2012"
+  },
+  {
+    "id": 11109,
+    "fipe_code": "001569-5",
+    "model": "Strada Endurance 1.3 Flex 8V CS Plus",
+    "years": "2024 a Zero Km"
+  },
+  {
+    "id": 9108,
+    "fipe_code": "001529-6",
+    "model": "Strada Endurance 1.4 Flex 8V CD",
+    "years": "2021 a 2022"
+  },
+  {
+    "id": 9109,
+    "fipe_code": "001526-1",
+    "model": "Strada Endurance 1.4 Flex 8V CS Plus",
+    "years": "2021 a Zero Km"
+  },
+  {
+    "id": 9110,
+    "fipe_code": "001527-0",
+    "model": "Strada Freedom 1.3 Flex 8V  CS Plus",
+    "years": "2021 a Zero Km"
+  },
+  {
+    "id": 9111,
+    "fipe_code": "001530-0",
+    "model": "Strada Freedom 1.3 Flex 8V CD",
+    "years": "2021 a Zero Km"
+  },
+  {
+    "id": 8399,
+    "fipe_code": "001515-6",
+    "model": "Strada Freedom 1.4 Flex 8V CD",
+    "years": "2019 a 2020"
+  },
+  {
+    "id": 8544,
+    "fipe_code": "001518-0",
+    "model": "Strada Freedom 1.4 Flex 8V CS",
+    "years": "2019 a 2020"
+  },
+  {
+    "id": 607,
+    "fipe_code": "001113-4",
+    "model": "Strada LX 1.6 16V CE",
+    "years": "1999 a 2002"
+  },
+  {
+    "id": 608,
+    "fipe_code": "001091-0",
+    "model": "Strada LX 1.6 mpi 16V",
+    "years": "1999 a 2001"
+  },
+  {
+    "id": 9229,
+    "fipe_code": "001535-0",
+    "model": "Strada Opening Edition 1.3 Flex 8V CD",
+    "years": "2021 a 2021"
+  },
+  {
+    "id": 10836,
+    "fipe_code": "001570-9",
+    "model": "Strada Ranch 1.0 Flex Turbo CD Aut.",
+    "years": "2024 a Zero Km"
+  },
+  {
+    "id": 9723,
+    "fipe_code": "001548-2",
+    "model": "Strada Ranch 1.3 Flex 8V CD Aut.",
+    "years": "2022 a 2023"
+  },
+  {
+    "id": 5464,
+    "fipe_code": "001335-8",
+    "model": "Strada Sporting 1.8 Flex 16V CE",
+    "years": "2011 a 2012"
+  },
+  {
+    "id": 6519,
+    "fipe_code": "001406-0",
+    "model": "Strada Trek. M. March. 1.6 Flex 16V CE",
+    "years": "2013 a 2013"
+  },
+  {
+    "id": 3884,
+    "fipe_code": "001233-5",
+    "model": "Strada Trekking 1.4 mpi Fire Flex 8V CE",
+    "years": "2006 a 2012"
+  },
+  {
+    "id": 3885,
+    "fipe_code": "001232-7",
+    "model": "Strada Trekking 1.4 mpi Fire Flex 8V CS",
+    "years": "2006 a 2012"
+  },
+  {
+    "id": 6055,
+    "fipe_code": "001388-9",
+    "model": "Strada Trekking 1.6 16V Flex CD",
+    "years": "2013 a 2016"
+  },
+  {
+    "id": 6056,
+    "fipe_code": "001387-0",
+    "model": "Strada Trekking 1.6 16V Flex CE",
+    "years": "2013 a 2013"
+  },
+  {
+    "id": 6057,
+    "fipe_code": "001386-2",
+    "model": "Strada Trekking 1.6 16V Flex CS",
+    "years": "2013 a 2013"
+  },
+  {
+    "id": 7227,
+    "fipe_code": "001441-9",
+    "model": "Strada Trekking 1.6 16V LOCKER Flex  CD",
+    "years": "2014 a 2016"
+  },
+  {
+    "id": 609,
+    "fipe_code": "001090-1",
+    "model": "Strada Trekking 1.6 mpi",
+    "years": "1999 a 2000"
+  },
+  {
+    "id": 610,
+    "fipe_code": "001218-1",
+    "model": "Strada Trekking 1.8 mpi Flex 8V CE",
+    "years": "2005 a 2010"
+  },
+  {
+    "id": 611,
+    "fipe_code": "001217-3",
+    "model": "Strada Trekking 1.8 mpi Flex 8V CS",
+    "years": "2004 a 2012"
+  },
+  {
+    "id": 10837,
+    "fipe_code": "001571-7",
+    "model": "Strada Ultra 1.0 Flex Turbo CD Aut.",
+    "years": "2024 a Zero Km"
+  },
+  {
+    "id": 11279,
+    "fipe_code": "001584-9",
+    "model": "Strada Volc.TRIBUTO 125 1.3 Flex CD Aut.",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 9112,
+    "fipe_code": "001528-8",
+    "model": "Strada Volcano 1.3 Flex 8V CD",
+    "years": "2021 a Zero Km"
+  },
+  {
+    "id": 9724,
+    "fipe_code": "001549-0",
+    "model": "Strada Volcano 1.3 Flex 8V CD Aut.",
+    "years": "2022 a Zero Km"
+  },
+  {
+    "id": 5066,
+    "fipe_code": "001293-9",
+    "model": "Strada Working 1.4 mpi Fire Flex 8V CD",
+    "years": "2010 a 2016"
+  },
+  {
+    "id": 5067,
+    "fipe_code": "001292-0",
+    "model": "Strada Working 1.4 mpi Fire Flex 8V CE",
+    "years": "2010 a 2016"
+  },
+  {
+    "id": 5068,
+    "fipe_code": "001291-2",
+    "model": "Strada Working 1.4 mpi Fire Flex 8V CS",
+    "years": "2010 a 2020"
+  },
+  {
+    "id": 612,
+    "fipe_code": "001148-7",
+    "model": "Strada Working 1.6 mpi 16V CE",
+    "years": "2001 a 2001"
+  },
+  {
+    "id": 613,
+    "fipe_code": "001164-9",
+    "model": "Strada Working 1.6 mpi 16V CS",
+    "years": "2002 a 2002"
+  },
+  {
+    "id": 614,
+    "fipe_code": "001188-6",
+    "model": "Strada Working 1.8 mpi 8v 103cv CE",
+    "years": "2003 a 2004"
+  },
+  {
+    "id": 615,
+    "fipe_code": "001187-8",
+    "model": "Strada Working 1.8 mpi 8V 103cv CS",
+    "years": "2003 a 2004"
+  },
+  {
+    "id": 6096,
+    "fipe_code": "001391-9",
+    "model": "Strada Working Celeb.1.4 Fire Flex 8V CD",
+    "years": "2010 a 2016"
+  },
+  {
+    "id": 6097,
+    "fipe_code": "001390-0",
+    "model": "Strada Working Celeb.1.4 Fire Flex 8V CE",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 6098,
+    "fipe_code": "001389-7",
+    "model": "Strada Working Celeb.1.4 Fire Flex 8V CS",
+    "years": "2012 a 2016"
+  },
+  {
+    "id": 7134,
+    "fipe_code": "001431-1",
+    "model": "Strada Working HARD 1.4 Fire Flex 8V CD",
+    "years": "2015 a 2020"
+  },
+  {
+    "id": 7135,
+    "fipe_code": "001432-0",
+    "model": "Strada Working HARD 1.4 Fire Flex 8V CE",
+    "years": "2015 a 2020"
+  },
+  {
+    "id": 7136,
+    "fipe_code": "001433-8",
+    "model": "Strada Working HARD 1.4 Fire Flex 8V CS",
+    "years": "2015 a 2020"
+  },
+  {
+    "id": 7752,
+    "fipe_code": "001478-8",
+    "model": "Strada Working Plus 1.4 8V Flex CS",
+    "years": "2017 a 2017"
+  },
+  {
+    "id": 616,
+    "fipe_code": "001122-3",
+    "model": "Strada/ Strada Working 1.5 mpi 8V CE",
+    "years": "1999 a 2004"
+  },
+  {
+    "id": 617,
+    "fipe_code": "001089-8",
+    "model": "Strada/ Strada Working 1.5 mpi 8V CS",
+    "years": "1999 a 2004"
+  },
+  {
+    "id": 618,
+    "fipe_code": "001037-5",
+    "model": "Tempra 2.0 i.e 16V 2p e 4p",
+    "years": "1994 a 1996"
+  },
+  {
+    "id": 619,
+    "fipe_code": "001092-8",
+    "model": "Tempra 2.0 i.e. 8V 2p e 4p",
+    "years": "1994 a 1996"
+  },
+  {
+    "id": 620,
+    "fipe_code": "001093-6",
+    "model": "Tempra 2.0 mpi 16V",
+    "years": "1999 a 1999"
+  },
+  {
+    "id": 621,
+    "fipe_code": "001102-9",
+    "model": "Tempra 8V/ City 8V",
+    "years": "1999 a 1999"
+  },
+  {
+    "id": 622,
+    "fipe_code": "001042-1",
+    "model": "Tempra HLX 2.0 16V 4p",
+    "years": "1996 a 1999"
+  },
+  {
+    "id": 623,
+    "fipe_code": "001040-5",
+    "model": "Tempra Ouro 16V 2p e 4p",
+    "years": "1993 a 1996"
+  },
+  {
+    "id": 624,
+    "fipe_code": "001038-3",
+    "model": "Tempra Ouro/Prata 2.0 2p e 4p",
+    "years": "1992 a 1994"
+  },
+  {
+    "id": 625,
+    "fipe_code": "001044-8",
+    "model": "Tempra Stile 2.0 i.e. Turbo 4p",
+    "years": "1995 a 1998"
+  },
+  {
+    "id": 626,
+    "fipe_code": "001058-8",
+    "model": "Tempra SW SLX 2.0 i.e.",
+    "years": "1995 a 1997"
+  },
+  {
+    "id": 627,
+    "fipe_code": "001041-3",
+    "model": "Tempra SX 2.0 16V 4p",
+    "years": "1996 a 1998"
+  },
+  {
+    "id": 628,
+    "fipe_code": "001039-1",
+    "model": "Tempra SX 2.0 i.e. 8V 4p",
+    "years": "1996 a 1999"
+  },
+  {
+    "id": 629,
+    "fipe_code": "001043-0",
+    "model": "Tempra Turbo 2.0 i.e. 2p",
+    "years": "1994 a 1997"
+  },
+  {
+    "id": 630,
+    "fipe_code": "001059-6",
+    "model": "Tipo 1.6 i.e. 2p e 4p",
+    "years": "1993 a 1995"
+  },
+  {
+    "id": 631,
+    "fipe_code": "001045-6",
+    "model": "Tipo 1.6 mpi 4p",
+    "years": "1996 a 1997"
+  },
+  {
+    "id": 632,
+    "fipe_code": "001061-8",
+    "model": "Tipo 2.0 16V 2p/4p",
+    "years": "1995 a 1995"
+  },
+  {
+    "id": 633,
+    "fipe_code": "001062-6",
+    "model": "Tipo 2.0 SLX 4p",
+    "years": "1994 a 1996"
+  },
+  {
+    "id": 10999,
+    "fipe_code": "001573-3",
+    "model": "Titano Endurance 2.2 16V 4x4 TB Die. Mec",
+    "years": "2024 a Zero Km"
+  },
+  {
+    "id": 11000,
+    "fipe_code": "001575-0",
+    "model": "Titano Ranch 2.2 16V 4x4 TB Diesel Aut.",
+    "years": "2024 a Zero Km"
+  },
+  {
+    "id": 11001,
+    "fipe_code": "001574-1",
+    "model": "Titano Volcano 2.2 16V 4x4 TB Die. Aut.",
+    "years": "2024 a Zero Km"
+  },
+  {
+    "id": 8046,
+    "fipe_code": "001495-8",
+    "model": "Toro Blackjack 2.4 16V flex Aut",
+    "years": "2018 a 2019"
+  },
+  {
+    "id": 9493,
+    "fipe_code": "001537-7",
+    "model": "Toro Endurance 1.3 T270 4x2 Flex Aut.",
+    "years": "2022 a Zero Km"
+  },
+  {
+    "id": 8236,
+    "fipe_code": "001508-3",
+    "model": "Toro Endurance 1.8 16V Flex Aut.",
+    "years": "2019 a 2022"
+  },
+  {
+    "id": 8741,
+    "fipe_code": "001521-0",
+    "model": "Toro Endurance 1.8 16V Flex Mec.",
+    "years": "2020 a 2021"
+  },
+  {
+    "id": 8742,
+    "fipe_code": "001520-2",
+    "model": "Toro Endurance 2.0 16V 4x4 Diesel Aut.",
+    "years": "2020 a 2022"
+  },
+  {
+    "id": 9494,
+    "fipe_code": "001538-5",
+    "model": "Toro Freedom 1.3 T270 4x2 Flex Aut.",
+    "years": "2022 a Zero Km"
+  },
+  {
+    "id": 7475,
+    "fipe_code": "001449-4",
+    "model": "Toro Freedom 1.8 16V Flex Aut.",
+    "years": "2016 a 2021"
+  },
+  {
+    "id": 7476,
+    "fipe_code": "001451-6",
+    "model": "Toro Freedom 2.0 16V 4x2 TB Diesel Mec.",
+    "years": "2016 a 2018"
+  },
+  {
+    "id": 10069,
+    "fipe_code": "001487-7",
+    "model": "Toro Freedom 2.0 16V 4x4 TB Diesel Aut.",
+    "years": "2018 a 2023"
+  },
+  {
+    "id": 7477,
+    "fipe_code": "001452-4",
+    "model": "Toro Freedom 2.0 16V 4x4 TB Diesel Mec.",
+    "years": "2016 a 2018"
+  },
+  {
+    "id": 7789,
+    "fipe_code": "001479-6",
+    "model": "Toro Freedom 2.4 16V Flex Aut.",
+    "years": "2017 a 2018"
+  },
+  {
+    "id": 7950,
+    "fipe_code": "001484-2",
+    "model": "Toro Freedom Road 1.8 16V Flex Aut.",
+    "years": "2018 a 2018"
+  },
+  {
+    "id": 7951,
+    "fipe_code": "001485-0",
+    "model": "Toro Freedom Road 2.4 16V Flex Aut.",
+    "years": "2018 a 2018"
+  },
+  {
+    "id": 7921,
+    "fipe_code": "001483-4",
+    "model": "Toro Opening Ed. Plus 1.8 16V Flex Aut.",
+    "years": "2017 a 2017"
+  },
+  {
+    "id": 7478,
+    "fipe_code": "001450-8",
+    "model": "Toro Opening Edition 1.8 16V Flex Aut.",
+    "years": "2017 a 2017"
+  },
+  {
+    "id": 10070,
+    "fipe_code": "001516-4",
+    "model": "Toro Ranch 2.0 16V 4x4 TB Diesel Aut.",
+    "years": "2019 a Zero Km"
+  },
+  {
+    "id": 11346,
+    "fipe_code": "001587-3",
+    "model": "Toro Ranch 2.2 16V 4x4 TB Diesel Aut.",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 11347,
+    "fipe_code": "001588-1",
+    "model": "Toro Ultra 1.3 16V 4x2 TB Flex Aut.",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 10071,
+    "fipe_code": "001525-3",
+    "model": "Toro Ultra 2.0 16V 4x4 TB Diesel Aut.",
+    "years": "2020 a Zero Km"
+  },
+  {
+    "id": 11280,
+    "fipe_code": "001585-7",
+    "model": "Toro Vol. TRIBUTO 125 1.3 T270 Flex Aut.",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 9495,
+    "fipe_code": "001539-3",
+    "model": "Toro Volcano 1.3 T270 4x2 Flex Aut.",
+    "years": "2022 a Zero Km"
+  },
+  {
+    "id": 7479,
+    "fipe_code": "001453-2",
+    "model": "Toro Volcano 2.0 16V 4x4 TB Diesel Aut.",
+    "years": "2016 a Zero Km"
+  },
+  {
+    "id": 11348,
+    "fipe_code": "001586-5",
+    "model": "Toro Volcano 2.2 16V 4x4 TB Diesel Aut.",
+    "years": "2025 a Zero Km"
+  },
+  {
+    "id": 8237,
+    "fipe_code": "001507-5",
+    "model": "Toro Volcano 2.4 16V Flex Aut.",
+    "years": "2019 a 2021"
+  },
+  {
+    "id": 634,
+    "fipe_code": "001054-5",
+    "model": "Uno 1.6 mpi 2p e 4p",
+    "years": "1994 a 1997"
+  },
+  {
+    "id": 635,
+    "fipe_code": "001055-3",
+    "model": "Uno 1.6R mpi / 1.6R / 1.5R",
+    "years": "1987 a 1994"
+  },
+  {
+    "id": 5480,
+    "fipe_code": "001348-0",
+    "model": "UNO ATTRACTI. Celeb.1.4 EVO F.Flex 8V 2p",
+    "years": "2012 a 2012"
+  },
+  {
+    "id": 5240,
+    "fipe_code": "001308-0",
+    "model": "UNO ATTRACTI. Celeb.1.4 EVO F.Flex 8V 4p",
+    "years": "2011 a 2012"
+  },
+  {
+    "id": 6957,
+    "fipe_code": "001424-9",
+    "model": "UNO ATTRACTIVE 1.0 Fire Flex 8V 5p",
+    "years": "2015 a 2021"
+  },
+  {
+    "id": 7732,
+    "fipe_code": "001475-3",
+    "model": "UNO ATTRACTIVE 1.0 Flex 6V 5p",
+    "years": "2017 a 2017"
+  },
+  {
+    "id": 5481,
+    "fipe_code": "001347-1",
+    "model": "UNO ATTRACTIVE 1.4 EVO Fire Flex 8V 2p",
+    "years": "2012 a 2012"
+  },
+  {
+    "id": 5239,
+    "fipe_code": "001304-8",
+    "model": "UNO ATTRACTIVE 1.4 EVO Fire Flex 8V 4p",
+    "years": "2011 a 2012"
+  },
+  {
+    "id": 9725,
+    "fipe_code": "001547-4",
+    "model": "UNO CIAO 1.0 Fire Flex 8V 5p",
+    "years": "2021 a 2021"
+  },
+  {
+    "id": 636,
+    "fipe_code": "001094-4",
+    "model": "Uno City / Smart City 1.0 4p",
+    "years": "1999 a 2001"
+  },
+  {
+    "id": 637,
+    "fipe_code": "001051-0",
+    "model": "Uno CS/Top/Sport 1.5 i.e. / 1.5 /1.3",
+    "years": "1985 a 1997"
+  },
+  {
+    "id": 638,
+    "fipe_code": "001052-9",
+    "model": "Uno CS/Top/Sport 1.5 i.e. / 1.5 4p",
+    "years": "1993 a 1996"
+  },
+  {
+    "id": 639,
+    "fipe_code": "001053-7",
+    "model": "Uno CSL 1.6 4p (Argentino)",
+    "years": "1991 a 1993"
+  },
+  {
+    "id": 7952,
+    "fipe_code": "001486-9",
+    "model": "UNO DRIVE 1.0 Flex 6V 5p",
+    "years": "2018 a 2021"
+  },
+  {
+    "id": 5664,
+    "fipe_code": "001366-8",
+    "model": "UNO ECONOMY 1.4 EVO Fire Flex 8V 2p",
+    "years": "2012 a 2013"
+  },
+  {
+    "id": 5665,
+    "fipe_code": "001367-6",
+    "model": "UNO ECONOMY 1.4 EVO Fire Flex 8V 4p",
+    "years": "2012 a 2014"
+  },
+  {
+    "id": 5666,
+    "fipe_code": "001368-4",
+    "model": "UNO ECONOMY Celeb. 1.4 EVO F. Flex 8V 2p",
+    "years": "2012 a 2013"
+  },
+  {
+    "id": 5667,
+    "fipe_code": "001369-2",
+    "model": "UNO ECONOMY Celeb. 1.4 EVO F. Flex 8V 4p",
+    "years": "2012 a 2014"
+  },
+  {
+    "id": 6958,
+    "fipe_code": "001425-7",
+    "model": "UNO EVOLUTION 1.4 Fire Flex 8V 5p",
+    "years": "2015 a 2016"
+  },
+  {
+    "id": 7119,
+    "fipe_code": "001430-3",
+    "model": "UNO Furgão 1.0 Fire Flex 8V 3p",
+    "years": "2014 a 2016"
+  },
+  {
+    "id": 640,
+    "fipe_code": "001203-3",
+    "model": "Uno Furgão 1.3 mpi Fire/ Fire Flex 8V",
+    "years": "2003 a 2013"
+  },
+  {
+    "id": 641,
+    "fipe_code": "001021-9",
+    "model": "Uno Furgão 1.5 mpi/i.e.",
+    "years": "1993 a 2002"
+  },
+  {
+    "id": 642,
+    "fipe_code": "001049-9",
+    "model": "Uno Furgão 1.5/ 1.3",
+    "years": "1988 a 1993"
+  },
+  {
+    "id": 643,
+    "fipe_code": "001048-0",
+    "model": "Uno Mille  ELX  2p e 4p",
+    "years": "1994 a 1997"
+  },
+  {
+    "id": 646,
+    "fipe_code": "001047-2",
+    "model": "Uno Mille 1.0 Electronic 4p",
+    "years": "1993 a 1996"
+  },
+  {
+    "id": 644,
+    "fipe_code": "001161-4",
+    "model": "Uno Mille 1.0 Fire/ F.Flex/ ECONOMY 2p",
+    "years": "2002 a 2013"
+  },
+  {
+    "id": 645,
+    "fipe_code": "001162-2",
+    "model": "Uno Mille 1.0 Fire/ F.Flex/ ECONOMY 4p",
+    "years": "2002 a 2013"
+  },
+  {
+    "id": 647,
+    "fipe_code": "001046-4",
+    "model": "Uno Mille 1.0/ i.e./Electronic/Brio 2p",
+    "years": "1990 a 1997"
+  },
+  {
+    "id": 4763,
+    "fipe_code": "001264-5",
+    "model": "Uno Mille Celeb. WAY ECON. 1.0 F.Flex 2p",
+    "years": "2009 a 2013"
+  },
+  {
+    "id": 4764,
+    "fipe_code": "001265-3",
+    "model": "Uno Mille Celeb. WAY ECON. 1.0 F.Flex 4p",
+    "years": "2009 a 2013"
+  },
+  {
+    "id": 4316,
+    "fipe_code": "001245-9",
+    "model": "Uno Mille Celeb/Celeb.ECON 1.0 F.Flex 2p",
+    "years": "2008 a 2013"
+  },
+  {
+    "id": 4317,
+    "fipe_code": "001246-7",
+    "model": "Uno Mille Celeb/Celeb.ECON 1.0 F.Flex 4p",
+    "years": "2008 a 2013"
+  },
+  {
+    "id": 648,
+    "fipe_code": "001064-2",
+    "model": "Uno Mille EP 2p e 4p",
+    "years": "1996 a 1997"
+  },
+  {
+    "id": 6692,
+    "fipe_code": "001415-0",
+    "model": "Uno Mille Grazie 1.0 Fire Flex 8v 4p",
+    "years": "2013 a 2013"
+  },
+  {
+    "id": 650,
+    "fipe_code": "001020-0",
+    "model": "Uno Mille SX 2p e 4p",
+    "years": "1996 a 1998"
+  },
+  {
+    "id": 651,
+    "fipe_code": "001103-7",
+    "model": "Uno Mille SX Young 1.0 IE",
+    "years": "1998 a 1999"
+  },
+  {
+    "id": 6320,
+    "fipe_code": "001393-5",
+    "model": "UNO MILLE WAY ECO.XINGU 1.0 F.Flex 8v 5p",
+    "years": "2013 a 2013"
+  },
+  {
+    "id": 4765,
+    "fipe_code": "001262-9",
+    "model": "Uno Mille WAY ECONOMY 1.0 F.Flex 2p",
+    "years": "2009 a 2013"
+  },
+  {
+    "id": 4766,
+    "fipe_code": "001263-7",
+    "model": "Uno Mille WAY ECONOMY 1.0 F.Flex 4p",
+    "years": "2009 a 2013"
+  },
+  {
+    "id": 649,
+    "fipe_code": "001018-9",
+    "model": "Uno Mille/ Mille EX/ Smart 2p",
+    "years": "1997 a 2004"
+  },
+  {
+    "id": 652,
+    "fipe_code": "001137-1",
+    "model": "Uno Mille/ Mille EX/ Smart 4p",
+    "years": "1997 a 2004"
+  },
+  {
+    "id": 653,
+    "fipe_code": "001050-2",
+    "model": "Uno S 1.5 i.e. / 1.5 / 1.3/ SX 1.3",
+    "years": "1985 a 1994"
+  },
+  {
+    "id": 7616,
+    "fipe_code": "001469-9",
+    "model": "UNO SPORT. Dual. 1.4 B.Edit. Flex 8V 5p",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 6321,
+    "fipe_code": "001396-0",
+    "model": "UNO SPORT.INTERLAGOS 1.4 EVO F.Flex 8v",
+    "years": "2013 a 2014"
+  },
+  {
+    "id": 7733,
+    "fipe_code": "001471-0",
+    "model": "UNO SPORTING 1.3 Flex 8V 5p",
+    "years": "2017 a 2018"
+  },
+  {
+    "id": 7617,
+    "fipe_code": "001470-2",
+    "model": "UNO SPORTING 1.4 B.Edit. Flex 8V 5p",
+    "years": "2016 a 2016"
+  },
+  {
+    "id": 5482,
+    "fipe_code": "001351-0",
+    "model": "UNO SPORTING 1.4 EVO Fire Flex 8V 2p",
+    "years": "2012 a 2012"
+  },
+  {
+    "id": 5465,
+    "fipe_code": "001341-2",
+    "model": "UNO SPORTING 1.4 EVO Fire Flex 8V 4p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 7734,
+    "fipe_code": "001472-9",
+    "model": "UNO SPORTING Dual./GSR 1.3 Flex 8V 5p",
+    "years": "2017 a 2018"
+  },
+  {
+    "id": 7070,
+    "fipe_code": "001428-1",
+    "model": "UNO SPORTING Dualogic 1.4 EVO Flex 8V 4p",
+    "years": "2015 a 2016"
+  },
+  {
+    "id": 654,
+    "fipe_code": "001056-1",
+    "model": "Uno Turbo 1.4 i.e. 2p",
+    "years": "1994 a 1996"
+  },
+  {
+    "id": 5483,
+    "fipe_code": "001343-9",
+    "model": "UNO VIVACE 1.0 EVO Fire Flex 8V 3p",
+    "years": "2012 a 2016"
+  },
+  {
+    "id": 5484,
+    "fipe_code": "001344-7",
+    "model": "UNO VIVACE Celeb. 1.0 EVO F. Flex 8V 3p",
+    "years": "2012 a 2016"
+  },
+  {
+    "id": 5242,
+    "fipe_code": "001307-2",
+    "model": "UNO VIVACE Celeb. 1.0 EVO F.Flex 8V 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 6520,
+    "fipe_code": "001401-0",
+    "model": "UNO VIVACE College 1.0 EVO FireFlex 5p",
+    "years": "2014 a 2014"
+  },
+  {
+    "id": 7149,
+    "fipe_code": "001436-2",
+    "model": "UNO VIVACE ITALIA 1.0 EVO F. Flex 8V 5p",
+    "years": "2013 a 2015"
+  },
+  {
+    "id": 5241,
+    "fipe_code": "001303-0",
+    "model": "UNO VIVACE/RUA 1.0 EVO Fire Flex 8V 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 5485,
+    "fipe_code": "001345-5",
+    "model": "UNO WAY 1.0 EVO Fire Flex 8V 2p",
+    "years": "2012 a 2013"
+  },
+  {
+    "id": 5243,
+    "fipe_code": "001305-6",
+    "model": "UNO WAY 1.0 EVO Fire Flex 8V 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 7735,
+    "fipe_code": "001474-5",
+    "model": "UNO WAY 1.0 Flex 6V 5p",
+    "years": "2017 a 2021"
+  },
+  {
+    "id": 7736,
+    "fipe_code": "001473-7",
+    "model": "UNO WAY 1.3 Flex 8V 5p",
+    "years": "2017 a 2021"
+  },
+  {
+    "id": 7027,
+    "fipe_code": "001427-3",
+    "model": "UNO WAY 1.4 EVO Dualogic Flex 8V 5p",
+    "years": "2015 a 2016"
+  },
+  {
+    "id": 5486,
+    "fipe_code": "001349-8",
+    "model": "UNO WAY 1.4 EVO Fire Flex 8V 2p",
+    "years": "2012 a 2013"
+  },
+  {
+    "id": 5244,
+    "fipe_code": "001306-4",
+    "model": "UNO WAY 1.4 EVO Fire Flex 8V 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 5487,
+    "fipe_code": "001346-3",
+    "model": "UNO WAY Celeb. 1.0 EVO Fire Flex 8V 2p",
+    "years": "2012 a 2012"
+  },
+  {
+    "id": 5245,
+    "fipe_code": "001309-9",
+    "model": "UNO WAY Celeb. 1.0 EVO Fire Flex 8V 5p",
+    "years": "2011 a 2016"
+  },
+  {
+    "id": 5488,
+    "fipe_code": "001350-1",
+    "model": "UNO WAY Celeb. 1.4 EVO Fire Flex 8V 2p",
+    "years": "2012 a 2012"
+  },
+  {
+    "id": 5246,
+    "fipe_code": "001310-2",
+    "model": "UNO WAY Celeb. 1.4 EVO Fire Flex 8V 5p",
+    "years": "2011 a 2015"
+  },
+  {
+    "id": 7737,
+    "fipe_code": "001476-1",
+    "model": "UNO WAY Dual./GSR 1.3 Flex 8V 5p",
+    "years": "2017 a 2018"
+  },
+  {
+    "id": 7183,
+    "fipe_code": "001440-0",
+    "model": "UNO WAY RIO 450 1.0 EVO Flex 8V 5p",
+    "years": "2015 a 2016"
+  },
+  {
+    "id": 6322,
+    "fipe_code": "001394-3",
+    "model": "UNO WAY XINGU 1.0 EVO F.Flex 8V 5P",
+    "years": "2013 a 2014"
+  },
+  {
+    "id": 6323,
+    "fipe_code": "001395-1",
+    "model": "UNO WAY XINGU 1.4 EVO F.Flex 8V 5p",
+    "years": "2013 a 2014"
+  }
+]

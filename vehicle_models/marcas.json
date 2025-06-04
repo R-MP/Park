@@ -1,0 +1,44 @@
+{
+  "marcas": [
+    {
+      "nome": "Fiat",
+      "id": 21,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Ford",
+      "id": 22,
+      "tipo": "carro"
+    },
+    {
+      "nome": "GM - Chevrolet",
+      "id": 23,
+      "tipo": "carro"
+    },
+    {
+      "nome": "VW - VolksWagen",
+      "id": 59,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Toyota",
+      "id": 56,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Honda",
+      "id": 25,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Honda Motos",
+      "id": 80,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Yamaha",
+      "id": 60,
+      "tipo": "moto"
+    }
+  ]
+}

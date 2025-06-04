@@ -1,9 +1,11 @@
 from flask import Blueprint, request, jsonify, session, redirect, url_for, render_template, flash
 from werkzeug.security import generate_password_hash, check_password_hash
+from src.utils.vehicle_data import VehicleDataManager
 from src.models.user import User, db
 import functools
 
 auth_bp = Blueprint('auth', __name__)
+data_manager = VehicleDataManager()
 
 # Decorator para verificar se o usuário está logado
 def login_required(view):

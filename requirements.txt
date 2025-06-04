@@ -6,3 +6,4 @@ cryptography==36.0.2
 chardet==4.0.0
 requests
 pytz==2024.1
+python-dotenv==1.0.0

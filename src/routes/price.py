@@ -1,9 +1,11 @@
-from flask import Blueprint, request, jsonify, session, redirect, url_for, render_template, flash
+from flask import Blueprint, request, redirect, url_for, render_template, flash, session
 from src.models.price import PriceConfiguration
 from src.models.user import User, db
 from src.routes.auth import login_required, admin_required
+from src.utils.vehicle_data import VehicleDataManager
 
 price_bp = Blueprint('price', __name__)
+vehicle_data = VehicleDataManager()
 
 @price_bp.route('/configuracao', methods=['GET', 'POST'])
 @login_required
@@ -38,7 +40,7 @@ def price_config():
         # Verificar se o usuário é administrador
         if not session.get('is_admin', False):
             flash('Você não tem permissão para alterar as configurações de preço.', 'danger')
-            return redirect(url_for('index'))
+            return redirect(url_for('price.price_config'))
         
         # Obter valores do formulário
         try:
@@ -90,4 +92,59 @@ def price_config():
     # Histórico de configurações (para auditoria)
     config_history = PriceConfiguration.query.order_by(PriceConfiguration.updated_at.desc()).all()
     
-    return render_template('price/config.html', config=current_config, history=config_history)
+    # Carregar marcas para o dropdown
+    car_brands = vehicle_data.get_car_brands()
+    motorcycle_brands = vehicle_data.get_motorcycle_brands()
+    
+    return render_template(
+        'price/config.html', 
+        config=current_config, 
+        history=config_history,
+        car_brands=car_brands,
+        motorcycle_brands=motorcycle_brands
+    )
+    
+@price_bp.route('/refresh-autocomplete')
+def refresh_autocomplete():
+    try:
+        data = vehicle_data.refresh_data()
+        return render_template('/config.html', data=data)
+    except Exception as e:
+        return f"Erro ao atualizar autocomplete: {str(e)}", 500
+
+@price_bp.route('/download-models', methods=['POST'])
+@login_required
+@admin_required
+def download_models():
+    """Rota para baixar modelos de veículos da API Invertexto"""
+    try:
+        # Obter parâmetros do formulário
+        brand_id = int(request.form.get('brand_id', 0))
+        brand_name = request.form.get('brand_name', '')
+        vehicle_type = request.form.get('vehicle_type', '')
+        
+        # Validação básica
+        if not brand_id or not brand_name or not vehicle_type:
+            flash('Parâmetros inválidos. Selecione uma marca e tipo de veículo.', 'danger')
+            return redirect(url_for('price.price_config'))
+        
+        # Verificar se o tipo de veículo é válido
+        if vehicle_type not in ['carro', 'moto']:
+            flash('Tipo de veículo inválido.', 'danger')
+            return redirect(url_for('price.price_config'))
+        
+        # Baixar modelos da API
+        success, message, count = vehicle_data.download_models_from_api(brand_id, brand_name, vehicle_type)
+        
+        # vehicle_data.refresh_data()
+        
+        if success:
+            flash(f'Modelos de {brand_name} baixados com sucesso! Total: {count} modelos.', 'success')
+        else:
+            flash(f'Erro ao baixar modelos: {message}', 'danger')
+        
+        return redirect(url_for('price.price_config'))
+        
+    except Exception as e:
+        flash(f'Erro ao processar solicitação: {str(e)}', 'danger')
+        return redirect(url_for('price.price_config'))

@@ -87,6 +87,64 @@
                 </div>
             </div>
             
+            <!-- Nova seção para download de modelos de veículos -->
+            <div class="card shadow mt-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="fas fa-download me-2"></i>Download de Modelos de Veículos</h5>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('price.download_models') }}">
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Tipo de Veículo</label>
+                                <div class="d-flex">
+                                    <div class="form-check me-4">
+                                        <input class="form-check-input" type="radio" name="vehicle_type" id="vehicle_car" value="carro" checked>
+                                        <label class="form-check-label" for="vehicle_car">
+                                            <i class="fas fa-car me-1"></i> Carro
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="vehicle_type" id="vehicle_motorcycle" value="moto">
+                                        <label class="form-check-label" for="vehicle_motorcycle">
+                                            <i class="fas fa-motorcycle me-1"></i> Moto
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-8">
+                                <label for="brand_select" class="form-label">Marca</label>
+                                <select class="form-select" id="brand_select" name="brand_id" required>
+                                    <option value="" selected disabled>Selecione uma marca...</option>
+                                    <optgroup label="Carros" id="car_brands_group">
+                                        {% for brand in car_brands %}
+                                        <option value="{{ brand.id }}" data-name="{{ brand.nome }}" data-type="carro">{{ brand.nome }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                    <optgroup label="Motos" id="motorcycle_brands_group">
+                                        {% for brand in motorcycle_brands %}
+                                        <option value="{{ brand.id }}" data-name="{{ brand.nome }}" data-type="moto">{{ brand.nome }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                </select>
+                                <input type="hidden" id="brand_name" name="brand_name" value="">
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>Esta função baixa modelos de veículos da API Invertexto e os adiciona ao sistema para autocomplete.
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-success" id="download_button">
+                                <i class="fas fa-download me-2"></i>Baixar Modelos
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
             {% if history and history|length > 1 %}
             <div class="card shadow mt-4">
                 <div class="card-header bg-secondary text-white">
@@ -129,4 +187,82 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const vehicleCarRadio = document.getElementById("vehicle_car");
+    const vehicleMotorcycleRadio = document.getElementById("vehicle_motorcycle");
+    const brandSelect = document.getElementById("brand_select");
+    const brandNameInput = document.getElementById("brand_name");
+    const carBrandsGroup = document.getElementById("car_brands_group");
+    const motorcycleBrandsGroup = document.getElementById("motorcycle_brands_group");
+    const downloadButton = document.getElementById("download_button");
+    
+    // Função para atualizar a visibilidade das marcas com base no tipo de veículo
+    function updateBrandVisibility() {
+        if (vehicleCarRadio.checked) {
+            carBrandsGroup.style.display = "";
+            motorcycleBrandsGroup.style.display = "none";
+            
+            // Selecionar a primeira marca de carro se nenhuma estiver selecionada
+            if (brandSelect.selectedIndex === 0) {
+                for (let i = 0; i < brandSelect.options.length; i++) {
+                    if (brandSelect.options[i].getAttribute('data-type') === 'carro') {
+                        brandSelect.selectedIndex = i;
+                        updateBrandName();
+                        break;
+                    }
+                }
+            }
+        } else {
+            carBrandsGroup.style.display = "none";
+            motorcycleBrandsGroup.style.display = "";
+            
+            // Selecionar a primeira marca de moto se nenhuma estiver selecionada
+            if (brandSelect.selectedIndex === 0) {
+                for (let i = 0; i < brandSelect.options.length; i++) {
+                    if (brandSelect.options[i].getAttribute('data-type') === 'moto') {
+                        brandSelect.selectedIndex = i;
+                        updateBrandName();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    
+    // Função para atualizar o campo oculto com o nome da marca
+    function updateBrandName() {
+        const selectedOption = brandSelect.options[brandSelect.selectedIndex];
+        if (selectedOption && selectedOption.getAttribute('data-name')) {
+            brandNameInput.value = selectedOption.getAttribute('data-name');
+        } else {
+            brandNameInput.value = "";
+        }
+    }
+    
+    // Inicializar a visibilidade das marcas
+    updateBrandVisibility();
+    
+    // Atualizar quando o tipo de veículo mudar
+    vehicleCarRadio.addEventListener('change', updateBrandVisibility);
+    vehicleMotorcycleRadio.addEventListener('change', updateBrandVisibility);
+    
+    // Atualizar o nome da marca quando a seleção mudar
+    brandSelect.addEventListener('change', updateBrandName);
+    
+    // Inicializar o nome da marca
+    updateBrandName();
+    
+    // Validar antes de enviar
+    downloadButton.addEventListener('click', function(e) {
+        if (!brandNameInput.value) {
+            e.preventDefault();
+            alert("Por favor, selecione uma marca válida.");
+        }
+    });
+});
+</script>
 {% endblock %}

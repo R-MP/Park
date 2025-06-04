@@ -1,9 +1,12 @@
+from src.utils.vehicle_data import VehicleDataManager
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
 import json
 from .user import db
 import pytz
+
+data_manager = VehicleDataManager()
 
 fuso_brasilia = pytz.timezone('America/Sao_Paulo')
 
@@ -53,8 +56,6 @@ class Vehicle(db.Model):
         db.session.commit()
         
         # Atualiza os arquivos JSON se necessário
-        if model:
-            Vehicle.add_model_to_json(model, vehicle_type)
         if color:
             Vehicle.add_color_to_json(color)
             
@@ -62,39 +63,11 @@ class Vehicle(db.Model):
     
     @staticmethod
     def get_car_models():
-        """Retorna uma lista de modelos de carros disponíveis"""
-        # Busca modelos de carros no banco de dados
-        models = db.session.query(Vehicle.model).distinct().filter(
-            Vehicle.model.isnot(None),
-            Vehicle.vehicle_type == 'carro'
-        ).all()
-        models = [model[0] for model in models if model[0]]
-        
-        # Adiciona modelos do arquivo JSON de carros
-        json_models = Vehicle._load_json_models('carros.json')
-        if json_models:
-            models.extend(json_models)
-        
-        # Remove duplicatas e ordena
-        return sorted(list(set(models)))
+        return data_manager.load_car_models()
     
     @staticmethod
     def get_motorcycle_models():
-        """Retorna uma lista de modelos de motos disponíveis"""
-        # Busca modelos de motos no banco de dados
-        models = db.session.query(Vehicle.model).distinct().filter(
-            Vehicle.model.isnot(None),
-            Vehicle.vehicle_type == 'moto'
-        ).all()
-        models = [model[0] for model in models if model[0]]
-        
-        # Adiciona modelos do arquivo JSON de motos
-        json_models = Vehicle._load_json_models('motos.json')
-        if json_models:
-            models.extend(json_models)
-        
-        # Remove duplicatas e ordena
-        return sorted(list(set(models)))
+        return data_manager.load_motorcycle_models()
     
     @staticmethod
     def get_available_colors():
