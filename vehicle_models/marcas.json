@@ -1,8 +1,313 @@
 {
   "marcas": [
     {
+      "nome": "Acura",
+      "id": 1,
+      "tipo": "carro"
+    },
+    {
+      "nome": "AGRALE",
+      "id": 61,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Agrale",
+      "id": 2,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Alfa Romeo",
+      "id": 3,
+      "tipo": "carro"
+    },
+    {
+      "nome": "AM Gen",
+      "id": 4,
+      "tipo": "carro"
+    },
+    {
+      "nome": "AMAZONAS",
+      "id": 131,
+      "tipo": "moto"
+    },
+    {
+      "nome": "APRILIA",
+      "id": 62,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Asia Motors",
+      "id": 5,
+      "tipo": "carro"
+    },
+    {
+      "nome": "ASTON MARTIN",
+      "id": 189,
+      "tipo": "carro"
+    },
+    {
+      "nome": "ATALA",
+      "id": 63,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Audi",
+      "id": 6,
+      "tipo": "carro"
+    },
+    {
+      "nome": "AVELLOZ",
+      "id": 216,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Baby",
+      "id": 207,
+      "tipo": "carro"
+    },
+    {
+      "nome": "BAJAJ",
+      "id": 64,
+      "tipo": "moto"
+    },
+    {
+      "nome": "BEE",
+      "id": 205,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Benelli",
+      "id": 162,
+      "tipo": "moto"
+    },
+    {
+      "nome": "BETA",
+      "id": 65,
+      "tipo": "moto"
+    },
+    {
+      "nome": "BIMOTA",
+      "id": 66,
+      "tipo": "moto"
+    },
+    {
+      "nome": "BMW",
+      "id": 67,
+      "tipo": "moto"
+    },
+    {
+      "nome": "BMW",
+      "id": 7,
+      "tipo": "carro"
+    },
+    {
+      "nome": "BRANDY",
+      "id": 68,
+      "tipo": "moto"
+    },
+    {
+      "nome": "BRAVA",
+      "id": 130,
+      "tipo": "moto"
+    },
+    {
+      "nome": "BRM",
+      "id": 8,
+      "tipo": "carro"
+    },
+    {
+      "nome": "BRP",
+      "id": 150,
+      "tipo": "moto"
+    },
+    {
+      "nome": "BUELL",
+      "id": 117,
+      "tipo": "moto"
+    },
+    {
+      "nome": "BUENO",
+      "id": 155,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Bugre",
+      "id": 123,
+      "tipo": "carro"
+    },
+    {
+      "nome": "BULL",
+      "id": 212,
+      "tipo": "moto"
+    },
+    {
+      "nome": "byCristo",
+      "id": 69,
+      "tipo": "moto"
+    },
+    {
+      "nome": "BYD",
+      "id": 238,
+      "tipo": "carro"
+    },
+    {
+      "nome": "CAB Motors",
+      "id": 236,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Cadillac",
+      "id": 10,
+      "tipo": "carro"
+    },
+    {
+      "nome": "CAGIVA",
+      "id": 70,
+      "tipo": "moto"
+    },
+    {
+      "nome": "CALOI",
+      "id": 71,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Caoa Chery",
+      "id": 245,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Caoa Chery/Chery",
+      "id": 161,
+      "tipo": "carro"
+    },
+    {
+      "nome": "CBT Jipe",
+      "id": 11,
+      "tipo": "carro"
+    },
+    {
+      "nome": "CHANA",
+      "id": 136,
+      "tipo": "carro"
+    },
+    {
+      "nome": "CHANGAN",
+      "id": 182,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Chrysler",
+      "id": 12,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Citroën",
+      "id": 13,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Cross Lander",
+      "id": 14,
+      "tipo": "carro"
+    },
+    {
+      "nome": "D2D Motors",
+      "id": 241,
+      "tipo": "carro"
+    },
+    {
+      "nome": "DAELIM",
+      "id": 72,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Daewoo",
+      "id": 15,
+      "tipo": "carro"
+    },
+    {
+      "nome": "DAFRA",
+      "id": 145,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Daihatsu",
+      "id": 16,
+      "tipo": "carro"
+    },
+    {
+      "nome": "DAYANG",
+      "id": 137,
+      "tipo": "moto"
+    },
+    {
+      "nome": "DAYUN",
+      "id": 142,
+      "tipo": "moto"
+    },
+    {
+      "nome": "DERBI",
+      "id": 73,
+      "tipo": "moto"
+    },
+    {
+      "nome": "DFSK",
+      "id": 246,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Dodge",
+      "id": 17,
+      "tipo": "carro"
+    },
+    {
+      "nome": "DUCATI",
+      "id": 74,
+      "tipo": "moto"
+    },
+    {
+      "nome": "EFFA",
+      "id": 147,
+      "tipo": "carro"
+    },
+    {
+      "nome": "EMME",
+      "id": 75,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Engesa",
+      "id": 18,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Envemo",
+      "id": 19,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Ferrari",
+      "id": 20,
+      "tipo": "carro"
+    },
+    {
+      "nome": "FEVER",
+      "id": 248,
+      "tipo": "moto"
+    },
+    {
+      "nome": "FEVER",
+      "id": 249,
+      "tipo": "carro"
+    },
+    {
       "nome": "Fiat",
       "id": 21,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Fibravan",
+      "id": 149,
       "tipo": "carro"
     },
     {
@@ -11,18 +316,103 @@
       "tipo": "carro"
     },
     {
+      "nome": "FOTON",
+      "id": 190,
+      "tipo": "carro"
+    },
+    {
+      "nome": "FOX",
+      "id": 132,
+      "tipo": "moto"
+    },
+    {
+      "nome": "FUSCO MOTOSEGURA",
+      "id": 209,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Fyber",
+      "id": 170,
+      "tipo": "carro"
+    },
+    {
+      "nome": "FYM",
+      "id": 128,
+      "tipo": "moto"
+    },
+    {
+      "nome": "GARINNI",
+      "id": 143,
+      "tipo": "moto"
+    },
+    {
+      "nome": "GAS GAS",
+      "id": 76,
+      "tipo": "moto"
+    },
+    {
+      "nome": "GEELY",
+      "id": 199,
+      "tipo": "carro"
+    },
+    {
       "nome": "GM - Chevrolet",
       "id": 23,
       "tipo": "carro"
     },
     {
-      "nome": "VW - VolksWagen",
-      "id": 59,
+      "nome": "GREAT WALL",
+      "id": 153,
       "tipo": "carro"
     },
     {
-      "nome": "Toyota",
-      "id": 56,
+      "nome": "GREEN",
+      "id": 133,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Gurgel",
+      "id": 24,
+      "tipo": "carro"
+    },
+    {
+      "nome": "GWM",
+      "id": 240,
+      "tipo": "carro"
+    },
+    {
+      "nome": "HAFEI",
+      "id": 152,
+      "tipo": "carro"
+    },
+    {
+      "nome": "HAOBAO",
+      "id": 138,
+      "tipo": "moto"
+    },
+    {
+      "nome": "HAOJUE",
+      "id": 203,
+      "tipo": "moto"
+    },
+    {
+      "nome": "HARLEY-DAVIDSON",
+      "id": 77,
+      "tipo": "moto"
+    },
+    {
+      "nome": "HARTFORD",
+      "id": 78,
+      "tipo": "moto"
+    },
+    {
+      "nome": "HERO",
+      "id": 79,
+      "tipo": "moto"
+    },
+    {
+      "nome": "HITECH ELECTRIC",
+      "id": 214,
       "tipo": "carro"
     },
     {
@@ -36,8 +426,558 @@
       "tipo": "moto"
     },
     {
+      "nome": "HUSABERG",
+      "id": 81,
+      "tipo": "moto"
+    },
+    {
+      "nome": "HUSQVARNA",
+      "id": 82,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Hyundai",
+      "id": 26,
+      "tipo": "carro"
+    },
+    {
+      "nome": "INDIAN",
+      "id": 202,
+      "tipo": "moto"
+    },
+    {
+      "nome": "IROS",
+      "id": 158,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Isuzu",
+      "id": 27,
+      "tipo": "carro"
+    },
+    {
+      "nome": "IVECO",
+      "id": 208,
+      "tipo": "carro"
+    },
+    {
+      "nome": "JAC",
+      "id": 177,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Jaecoo",
+      "id": 251,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Jaguar",
+      "id": 28,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Jeep",
+      "id": 29,
+      "tipo": "carro"
+    },
+    {
+      "nome": "JIAPENG VOLCANO",
+      "id": 141,
+      "tipo": "moto"
+    },
+    {
+      "nome": "JINBEI",
+      "id": 154,
+      "tipo": "carro"
+    },
+    {
+      "nome": "JOHNNYPAG",
+      "id": 174,
+      "tipo": "moto"
+    },
+    {
+      "nome": "JONNY",
+      "id": 151,
+      "tipo": "moto"
+    },
+    {
+      "nome": "JPX",
+      "id": 30,
+      "tipo": "carro"
+    },
+    {
+      "nome": "KAHENA",
+      "id": 129,
+      "tipo": "moto"
+    },
+    {
+      "nome": "KASINSKI",
+      "id": 118,
+      "tipo": "moto"
+    },
+    {
+      "nome": "KAWASAKI",
+      "id": 85,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Kia Motors",
+      "id": 31,
+      "tipo": "carro"
+    },
+    {
+      "nome": "KTM",
+      "id": 87,
+      "tipo": "moto"
+    },
+    {
+      "nome": "KYMCO",
+      "id": 204,
+      "tipo": "moto"
+    },
+    {
+      "nome": "L'AQUILA",
+      "id": 88,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Lada",
+      "id": 32,
+      "tipo": "carro"
+    },
+    {
+      "nome": "LAMBORGHINI",
+      "id": 171,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Land Rover",
+      "id": 33,
+      "tipo": "carro"
+    },
+    {
+      "nome": "LANDUM",
+      "id": 159,
+      "tipo": "moto"
+    },
+    {
+      "nome": "LAVRALE",
+      "id": 89,
+      "tipo": "moto"
+    },
+    {
+      "nome": "LERIVO",
+      "id": 139,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Lexus",
+      "id": 34,
+      "tipo": "carro"
+    },
+    {
+      "nome": "LIFAN",
+      "id": 178,
+      "tipo": "moto"
+    },
+    {
+      "nome": "LIFAN",
+      "id": 168,
+      "tipo": "carro"
+    },
+    {
+      "nome": "LOBINI",
+      "id": 127,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Lon-V",
+      "id": 148,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Lotus",
+      "id": 35,
+      "tipo": "carro"
+    },
+    {
+      "nome": "MAGRÃO TRICICLOS",
+      "id": 175,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Mahindra",
+      "id": 140,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Malaguti",
+      "id": 146,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Maserati",
+      "id": 36,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Matra",
+      "id": 37,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Mazda",
+      "id": 38,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Mclaren",
+      "id": 211,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Mercedes-Benz",
+      "id": 39,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Mercury",
+      "id": 40,
+      "tipo": "carro"
+    },
+    {
+      "nome": "MG",
+      "id": 167,
+      "tipo": "carro"
+    },
+    {
+      "nome": "MINI",
+      "id": 156,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Mitsubishi",
+      "id": 41,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Miura",
+      "id": 42,
+      "tipo": "carro"
+    },
+    {
+      "nome": "MIZA",
+      "id": 126,
+      "tipo": "moto"
+    },
+    {
+      "nome": "MOTO GUZZI",
+      "id": 90,
+      "tipo": "moto"
+    },
+    {
+      "nome": "MOTOCAR",
+      "id": 201,
+      "tipo": "moto"
+    },
+    {
+      "nome": "MOTORINO",
+      "id": 200,
+      "tipo": "moto"
+    },
+    {
+      "nome": "MRX",
+      "id": 160,
+      "tipo": "moto"
+    },
+    {
+      "nome": "MV AGUSTA",
+      "id": 91,
+      "tipo": "moto"
+    },
+    {
+      "nome": "MVK",
+      "id": 92,
+      "tipo": "moto"
+    },
+    {
+      "nome": "NETA",
+      "id": 250,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Nissan",
+      "id": 43,
+      "tipo": "carro"
+    },
+    {
+      "nome": "NIU",
+      "id": 239,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Omoda",
+      "id": 252,
+      "tipo": "carro"
+    },
+    {
+      "nome": "ORCA",
+      "id": 93,
+      "tipo": "moto"
+    },
+    {
+      "nome": "PEGASSI",
+      "id": 164,
+      "tipo": "moto"
+    },
+    {
+      "nome": "PEUGEOT",
+      "id": 94,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Peugeot",
+      "id": 44,
+      "tipo": "carro"
+    },
+    {
+      "nome": "PIAGGIO",
+      "id": 95,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Plymouth",
+      "id": 45,
+      "tipo": "carro"
+    },
+    {
+      "nome": "POLARIS",
+      "id": 210,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Pontiac",
+      "id": 46,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Porsche",
+      "id": 47,
+      "tipo": "carro"
+    },
+    {
+      "nome": "RAM",
+      "id": 185,
+      "tipo": "carro"
+    },
+    {
+      "nome": "REGAL RAPTOR",
+      "id": 173,
+      "tipo": "moto"
+    },
+    {
+      "nome": "RELY",
+      "id": 186,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Renault",
+      "id": 48,
+      "tipo": "carro"
+    },
+    {
+      "nome": "RIGUETE",
+      "id": 198,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Rolls-Royce",
+      "id": 195,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Rover",
+      "id": 49,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Royal Enfield",
+      "id": 192,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Saab",
+      "id": 50,
+      "tipo": "carro"
+    },
+    {
+      "nome": "SANYANG",
+      "id": 96,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Saturn",
+      "id": 51,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Seat",
+      "id": 52,
+      "tipo": "carro"
+    },
+    {
+      "nome": "SERES",
+      "id": 247,
+      "tipo": "carro"
+    },
+    {
+      "nome": "SHINERAY",
+      "id": 134,
+      "tipo": "moto"
+    },
+    {
+      "nome": "SHINERAY",
+      "id": 183,
+      "tipo": "carro"
+    },
+    {
+      "nome": "SIAMOTO",
+      "id": 97,
+      "tipo": "moto"
+    },
+    {
+      "nome": "smart",
+      "id": 157,
+      "tipo": "carro"
+    },
+    {
+      "nome": "SSANGYONG",
+      "id": 125,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Subaru",
+      "id": 54,
+      "tipo": "carro"
+    },
+    {
+      "nome": "SUNDOWN",
+      "id": 98,
+      "tipo": "moto"
+    },
+    {
+      "nome": "SUPER SOCO",
+      "id": 237,
+      "tipo": "moto"
+    },
+    {
+      "nome": "SUZUKI",
+      "id": 99,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Suzuki",
+      "id": 55,
+      "tipo": "carro"
+    },
+    {
+      "nome": "TAC",
+      "id": 165,
+      "tipo": "carro"
+    },
+    {
+      "nome": "TARGOS",
+      "id": 176,
+      "tipo": "moto"
+    },
+    {
+      "nome": "TIGER",
+      "id": 187,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Toyota",
+      "id": 56,
+      "tipo": "carro"
+    },
+    {
+      "nome": "TRAXX",
+      "id": 119,
+      "tipo": "moto"
+    },
+    {
+      "nome": "TRIUMPH",
+      "id": 100,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Troller",
+      "id": 57,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Ventane Motors",
+      "id": 244,
+      "tipo": "moto"
+    },
+    {
+      "nome": "VENTO",
+      "id": 180,
+      "tipo": "moto"
+    },
+    {
+      "nome": "VOLTZ",
+      "id": 215,
+      "tipo": "moto"
+    },
+    {
+      "nome": "Volvo",
+      "id": 58,
+      "tipo": "carro"
+    },
+    {
+      "nome": "VW - VolksWagen",
+      "id": 59,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Wake",
+      "id": 163,
+      "tipo": "carro"
+    },
+    {
+      "nome": "Walk",
+      "id": 120,
+      "tipo": "carro"
+    },
+    {
+      "nome": "WATTS",
+      "id": 243,
+      "tipo": "moto"
+    },
+    {
+      "nome": "WUYANG",
+      "id": 135,
+      "tipo": "moto"
+    },
+    {
       "nome": "Yamaha",
       "id": 60,
+      "tipo": "moto"
+    },
+    {
+      "nome": "YAMAHA",
+      "id": 101,
+      "tipo": "moto"
+    },
+    {
+      "nome": "ZEEKR",
+      "id": 253,
+      "tipo": "carro"
+    },
+    {
+      "nome": "ZONTES",
+      "id": 242,
       "tipo": "moto"
     }
   ]

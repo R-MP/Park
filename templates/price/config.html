@@ -1,268 +1,471 @@
-{% extends 'base.html' %}
-
-{% block title %}Configuração de Preços{% endblock %}
-
+{% extends 'base.html' %} {% block title %}Configuração de Preços{% endblock %}
 {% block content %}
 <div class="container mt-3">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card shadow">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0"><i class="fas fa-cog me-2"></i>Configuração de Preços</h4>
-                </div>
-                <div class="card-body">
-                    <form method="POST" action="{{ url_for('price.price_config') }}">
-                        <div class="row mb-4">
-                            <div class="col-12">
-                                <h5><i class="fas fa-car me-2"></i>Preços para Carros</h5>
-                                <hr>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="first_hour_car_price" class="form-label">Primeira Hora (R$)</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">R$</span>
-                                    <input type="number" class="form-control" id="first_hour_car_price" name="first_hour_car_price" 
-                                           value="{{ config.first_hour_car_price }}" step="0.01" min="0.01" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="additional_hour_car_price" class="form-label">Horas Adicionais (R$)</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">R$</span>
-                                    <input type="number" class="form-control" id="additional_hour_car_price" name="additional_hour_car_price" 
-                                           value="{{ config.additional_hour_car_price }}" step="0.01" min="0.01" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="daily_car_price" class="form-label">Diária (R$)</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">R$</span>
-                                    <input type="number" class="form-control" id="daily_car_price" name="daily_car_price" 
-                                           value="{{ config.daily_car_price }}" step="0.01" min="0.01" required>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row mb-4">
-                            <div class="col-12">
-                                <h5><i class="fas fa-motorcycle me-2"></i>Preços para Motos</h5>
-                                <hr>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="first_hour_motorcycle_price" class="form-label">Primeira Hora (R$)</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">R$</span>
-                                    <input type="number" class="form-control" id="first_hour_motorcycle_price" name="first_hour_motorcycle_price" 
-                                           value="{{ config.first_hour_motorcycle_price }}" step="0.01" min="0.01" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="additional_hour_motorcycle_price" class="form-label">Horas Adicionais (R$)</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">R$</span>
-                                    <input type="number" class="form-control" id="additional_hour_motorcycle_price" name="additional_hour_motorcycle_price" 
-                                           value="{{ config.additional_hour_motorcycle_price }}" step="0.01" min="0.01" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="daily_motorcycle_price" class="form-label">Diária (R$)</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">R$</span>
-                                    <input type="number" class="form-control" id="daily_motorcycle_price" name="daily_motorcycle_price" 
-                                           value="{{ config.daily_motorcycle_price }}" step="0.01" min="0.01" required>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="alert alert-info">
-                            <i class="fas fa-info-circle me-2"></i>Os valores configurados serão aplicados a todos os novos registros de saída.
-                        </div>
-                        
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save me-2"></i>Salvar Configurações
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            
-            <!-- Nova seção para download de modelos de veículos -->
-            <div class="card shadow mt-4">
-                <div class="card-header bg-success text-white">
-                    <h5 class="mb-0"><i class="fas fa-download me-2"></i>Download de Modelos de Veículos</h5>
-                </div>
-                <div class="card-body">
-                    <form method="POST" action="{{ url_for('price.download_models') }}">
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <label class="form-label">Tipo de Veículo</label>
-                                <div class="d-flex">
-                                    <div class="form-check me-4">
-                                        <input class="form-check-input" type="radio" name="vehicle_type" id="vehicle_car" value="carro" checked>
-                                        <label class="form-check-label" for="vehicle_car">
-                                            <i class="fas fa-car me-1"></i> Carro
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="vehicle_type" id="vehicle_motorcycle" value="moto">
-                                        <label class="form-check-label" for="vehicle_motorcycle">
-                                            <i class="fas fa-motorcycle me-1"></i> Moto
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-8">
-                                <label for="brand_select" class="form-label">Marca</label>
-                                <select class="form-select" id="brand_select" name="brand_id" required>
-                                    <option value="" selected disabled>Selecione uma marca...</option>
-                                    <optgroup label="Carros" id="car_brands_group">
-                                        {% for brand in car_brands %}
-                                        <option value="{{ brand.id }}" data-name="{{ brand.nome }}" data-type="carro">{{ brand.nome }}</option>
-                                        {% endfor %}
-                                    </optgroup>
-                                    <optgroup label="Motos" id="motorcycle_brands_group">
-                                        {% for brand in motorcycle_brands %}
-                                        <option value="{{ brand.id }}" data-name="{{ brand.nome }}" data-type="moto">{{ brand.nome }}</option>
-                                        {% endfor %}
-                                    </optgroup>
-                                </select>
-                                <input type="hidden" id="brand_name" name="brand_name" value="">
-                            </div>
-                        </div>
-                        
-                        <div class="alert alert-info">
-                            <i class="fas fa-info-circle me-2"></i>Esta função baixa modelos de veículos da API Invertexto e os adiciona ao sistema para autocomplete.
-                        </div>
-                        
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-success" id="download_button">
-                                <i class="fas fa-download me-2"></i>Baixar Modelos
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            
-            {% if history and history|length > 1 %}
-            <div class="card shadow mt-4">
-                <div class="card-header bg-secondary text-white">
-                    <h5 class="mb-0"><i class="fas fa-history me-2"></i>Histórico de Alterações</h5>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Data</th>
-                                    <th>Carro (1ª hora)</th>
-                                    <th>Carro (Adicional)</th>
-                                    <th>Carro (Diária)</th>
-                                    <th>Moto (1ª hora)</th>
-                                    <th>Moto (Adicional)</th>
-                                    <th>Moto (Diária)</th>
-                                    <th>Usuário</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for item in history %}
-                                <tr>
-                                    <td>{{ item.updated_at.strftime('%d/%m/%Y %H:%M') }}</td>
-                                    <td>R$ {{ "%.2f"|format(item.first_hour_car_price) }}</td>
-                                    <td>R$ {{ "%.2f"|format(item.additional_hour_car_price) }}</td>
-                                    <td>R$ {{ "%.2f"|format(item.daily_car_price) }}</td>
-                                    <td>R$ {{ "%.2f"|format(item.first_hour_motorcycle_price) }}</td>
-                                    <td>R$ {{ "%.2f"|format(item.additional_hour_motorcycle_price) }}</td>
-                                    <td>R$ {{ "%.2f"|format(item.daily_motorcycle_price) }}</td>
-                                    <td>{{ item.user.username }}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-        </div>
-    </div>
-</div>
-{% endblock %}
+	<div class="row justify-content-center">
+		<div class="col-md-10">
+			<div class="card shadow">
+				<div class="card-header bg-primary text-white">
+					<h4 class="mb-0">
+						<i class="fas fa-cog me-2"></i>Configuração de Preços
+					</h4>
+				</div>
+				<div class="card-body">
+					<form method="POST" action="{{ url_for('price.price_config') }}">
+						<div class="row mb-4">
+							<div class="col-12">
+								<h5><i class="fas fa-car me-2"></i>Preços para Carros</h5>
+								<hr />
+							</div>
+							<div class="col-md-4">
+								<label for="first_hour_car_price" class="form-label"
+									>Primeira Hora (R$)</label
+								>
+								<div class="input-group">
+									<span class="input-group-text">R$</span>
+									<input
+										type="number"
+										class="form-control"
+										id="first_hour_car_price"
+										name="first_hour_car_price"
+										value="{{ config.first_hour_car_price }}"
+										step="0.01"
+										min="0.01"
+										required
+									/>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label for="additional_hour_car_price" class="form-label"
+									>Horas Adicionais (R$)</label
+								>
+								<div class="input-group">
+									<span class="input-group-text">R$</span>
+									<input
+										type="number"
+										class="form-control"
+										id="additional_hour_car_price"
+										name="additional_hour_car_price"
+										value="{{ config.additional_hour_car_price }}"
+										step="0.01"
+										min="0.01"
+										required
+									/>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label for="daily_car_price" class="form-label"
+									>Diária (R$)</label
+								>
+								<div class="input-group">
+									<span class="input-group-text">R$</span>
+									<input
+										type="number"
+										class="form-control"
+										id="daily_car_price"
+										name="daily_car_price"
+										value="{{ config.daily_car_price }}"
+										step="0.01"
+										min="0.01"
+										required
+									/>
+								</div>
+							</div>
+						</div>
 
-{% block scripts %}
+						<div class="row mb-4">
+							<div class="col-12">
+								<h5><i class="fas fa-motorcycle me-2"></i>Preços para Motos</h5>
+								<hr />
+							</div>
+							<div class="col-md-4">
+								<label for="first_hour_motorcycle_price" class="form-label"
+									>Primeira Hora (R$)</label
+								>
+								<div class="input-group">
+									<span class="input-group-text">R$</span>
+									<input
+										type="number"
+										class="form-control"
+										id="first_hour_motorcycle_price"
+										name="first_hour_motorcycle_price"
+										value="{{ config.first_hour_motorcycle_price }}"
+										step="0.01"
+										min="0.01"
+										required
+									/>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label for="additional_hour_motorcycle_price" class="form-label"
+									>Horas Adicionais (R$)</label
+								>
+								<div class="input-group">
+									<span class="input-group-text">R$</span>
+									<input
+										type="number"
+										class="form-control"
+										id="additional_hour_motorcycle_price"
+										name="additional_hour_motorcycle_price"
+										value="{{ config.additional_hour_motorcycle_price }}"
+										step="0.01"
+										min="0.01"
+										required
+									/>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<label for="daily_motorcycle_price" class="form-label"
+									>Diária (R$)</label
+								>
+								<div class="input-group">
+									<span class="input-group-text">R$</span>
+									<input
+										type="number"
+										class="form-control"
+										id="daily_motorcycle_price"
+										name="daily_motorcycle_price"
+										value="{{ config.daily_motorcycle_price }}"
+										step="0.01"
+										min="0.01"
+										required
+									/>
+								</div>
+							</div>
+						</div>
+
+                        <!-- --- Novo campo: Time Tolerance --- -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5><i class="fa fa-cogs me-2"></i>Geral</h5>
+                                <hr />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="time_tolerance" class="form-label">Tolerância (minutos)</label>
+                                <div class="input-group">
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        id="time_tolerance"
+                                        name="time_tolerance"
+                                        value="{{ config.time_tolerance or 5 }}"
+                                        min="0"
+                                        required
+                                    />
+                                    <span class="input-group-text">min</span>
+                                </div>
+                                <small class="form-text text-muted">
+                                    Minutos de tolerância antes de cobrar hora adicional.
+                                </small>
+                            </div>
+                        </div>
+                        <!-- --- Fim do campo de tolerância --- -->
+
+						<div class="alert alert-info">
+							<i class="fas fa-info-circle me-2"></i>Os valores configurados
+							serão aplicados a todos os novos registros de saída.
+						</div>
+
+						<div class="d-grid gap-2">
+							<button type="submit" class="btn btn-primary">
+								<i class="fas fa-save me-2"></i>Salvar Configurações
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<!-- Nova seção para download de modelos de veículos -->
+			<div class="card shadow mt-4">
+				<div class="card-header bg-success text-white">
+					<h5 class="mb-0">
+						<i class="fas fa-download me-2"></i>Download de Modelos de Veículos
+					</h5>
+				</div>
+				<div class="card-body">
+					<form method="POST" action="{{ url_for('price.download_models') }}">
+						<div class="row mb-3">
+							<div class="col-md-4">
+								<label class="form-label">Tipo de Veículo</label>
+								<div class="d-flex">
+									<div class="form-check me-4">
+										<input
+											class="form-check-input"
+											type="radio"
+											name="vehicle_type"
+											id="vehicle_car"
+											value="carro"
+											checked
+										/>
+										<label class="form-check-label" for="vehicle_car">
+											<i class="fas fa-car me-1"></i> Carro
+										</label>
+									</div>
+									<div class="form-check">
+										<input
+											class="form-check-input"
+											type="radio"
+											name="vehicle_type"
+											id="vehicle_motorcycle"
+											value="moto"
+										/>
+										<label class="form-check-label" for="vehicle_motorcycle">
+											<i class="fas fa-motorcycle me-1"></i> Moto
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-8">
+								<label for="brand_select" class="form-label">Marca</label>
+								<select
+									class="form-select"
+									id="brand_select"
+									name="brand_id"
+									required
+								>
+									<option value="" selected disabled>
+										Selecione uma marca...
+									</option>
+									<optgroup label="Carros" id="car_brands_group">
+										{% for brand in car_brands %}
+										<option
+											value="{{ brand.id }}"
+											data-name="{{ brand.nome }}"
+											data-type="carro"
+										>
+											{{ brand.nome }}
+										</option>
+										{% endfor %}
+									</optgroup>
+									<optgroup label="Motos" id="motorcycle_brands_group">
+										{% for brand in motorcycle_brands %}
+										<option
+											value="{{ brand.id }}"
+											data-name="{{ brand.nome }}"
+											data-type="moto"
+										>
+											{{ brand.nome }}
+										</option>
+										{% endfor %}
+									</optgroup>
+								</select>
+								<input
+									type="hidden"
+									id="brand_name"
+									name="brand_name"
+									value=""
+								/>
+							</div>
+						</div>
+
+						<div class="alert alert-info">
+							<i class="fas fa-info-circle me-2"></i>Esta função baixa modelos
+							de veículos da API Invertexto e os adiciona ao sistema para
+							autocomplete.
+						</div>
+
+						<div class="d-grid gap-2">
+							<button
+								type="submit"
+								class="btn btn-success"
+								id="download_button"
+							>
+								<i class="fas fa-download me-2"></i>Baixar Modelos
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<!-- Nova seção para download de marcas de veículos -->
+			<div class="card shadow mt-4">
+				<div class="card-header bg-success text-white">
+					<h5 class="mb-0">
+						<i class="fas fa-download me-2"></i>Download de Marcas de Veículos
+					</h5>
+				</div>
+				<div class="card-body">
+					<form method="POST" action="{{ url_for('price.download_brands') }}">
+						<div class="row mb-3">
+							<div class="col-md-4">
+								<label class="form-label">Tipo de Veículo</label>
+								<div class="d-flex">
+									<div class="form-check me-4">
+										<input
+											class="form-check-input"
+											type="radio"
+											name="brand_type"
+											id="brand_car"
+											value="1"
+											checked
+										/>
+										<label class="form-check-label" for="brand_car">
+											<i class="fas fa-car me-1"></i> Carro
+										</label>
+									</div>
+									<div class="form-check">
+										<input
+											class="form-check-input"
+											type="radio"
+											name="brand_type"
+											id="brand_motorcycle"
+											value="2"
+										/>
+										<label class="form-check-label" for="brand_motorcycle">
+											<i class="fas fa-motorcycle me-1"></i> Moto
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="alert alert-info">
+							<i class="fas fa-info-circle me-2"></i>Esta função baixa marcas de
+							modelos de veículos da API Invertexto e os adiciona ao sistema
+							para autocomplete.
+						</div>
+
+						<div class="d-grid gap-2">
+							<button
+								type="submit"
+								class="btn btn-success"
+								id="download_button"
+							>
+								<i class="fas fa-download me-2"></i>Baixar Marcas
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			{% if history and history|length > 1 %}
+			<div class="card shadow mt-4">
+				<div class="card-header bg-secondary text-white">
+					<h5 class="mb-0">
+						<i class="fas fa-history me-2"></i>Histórico de Alterações
+					</h5>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Data</th>
+									<th>Carro (1ª hora)</th>
+									<th>Carro (Adicional)</th>
+									<th>Carro (Diária)</th>
+									<th>Moto (1ª hora)</th>
+									<th>Moto (Adicional)</th>
+									<th>Moto (Diária)</th>
+									<th>Usuário</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for item in history %}
+								<tr>
+									<td>{{ item.updated_at.strftime('%d/%m/%Y %H:%M') }}</td>
+									<td>R$ {{ "%.2f"|format(item.first_hour_car_price) }}</td>
+									<td>
+										R$ {{ "%.2f"|format(item.additional_hour_car_price) }}
+									</td>
+									<td>R$ {{ "%.2f"|format(item.daily_car_price) }}</td>
+									<td>
+										R$ {{ "%.2f"|format(item.first_hour_motorcycle_price) }}
+									</td>
+									<td>
+										R$ {{ "%.2f"|format(item.additional_hour_motorcycle_price)
+										}}
+									</td>
+									<td>R$ {{ "%.2f"|format(item.daily_motorcycle_price) }}</td>
+									<td>{{ item.user.username }}</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %} {% block scripts %}
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const vehicleCarRadio = document.getElementById("vehicle_car");
-    const vehicleMotorcycleRadio = document.getElementById("vehicle_motorcycle");
-    const brandSelect = document.getElementById("brand_select");
-    const brandNameInput = document.getElementById("brand_name");
-    const carBrandsGroup = document.getElementById("car_brands_group");
-    const motorcycleBrandsGroup = document.getElementById("motorcycle_brands_group");
-    const downloadButton = document.getElementById("download_button");
-    
-    // Função para atualizar a visibilidade das marcas com base no tipo de veículo
-    function updateBrandVisibility() {
-        if (vehicleCarRadio.checked) {
-            carBrandsGroup.style.display = "";
-            motorcycleBrandsGroup.style.display = "none";
-            
-            // Selecionar a primeira marca de carro se nenhuma estiver selecionada
-            if (brandSelect.selectedIndex === 0) {
-                for (let i = 0; i < brandSelect.options.length; i++) {
-                    if (brandSelect.options[i].getAttribute('data-type') === 'carro') {
-                        brandSelect.selectedIndex = i;
-                        updateBrandName();
-                        break;
-                    }
-                }
-            }
-        } else {
-            carBrandsGroup.style.display = "none";
-            motorcycleBrandsGroup.style.display = "";
-            
-            // Selecionar a primeira marca de moto se nenhuma estiver selecionada
-            if (brandSelect.selectedIndex === 0) {
-                for (let i = 0; i < brandSelect.options.length; i++) {
-                    if (brandSelect.options[i].getAttribute('data-type') === 'moto') {
-                        brandSelect.selectedIndex = i;
-                        updateBrandName();
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    
-    // Função para atualizar o campo oculto com o nome da marca
-    function updateBrandName() {
-        const selectedOption = brandSelect.options[brandSelect.selectedIndex];
-        if (selectedOption && selectedOption.getAttribute('data-name')) {
-            brandNameInput.value = selectedOption.getAttribute('data-name');
-        } else {
-            brandNameInput.value = "";
-        }
-    }
-    
-    // Inicializar a visibilidade das marcas
-    updateBrandVisibility();
-    
-    // Atualizar quando o tipo de veículo mudar
-    vehicleCarRadio.addEventListener('change', updateBrandVisibility);
-    vehicleMotorcycleRadio.addEventListener('change', updateBrandVisibility);
-    
-    // Atualizar o nome da marca quando a seleção mudar
-    brandSelect.addEventListener('change', updateBrandName);
-    
-    // Inicializar o nome da marca
-    updateBrandName();
-    
-    // Validar antes de enviar
-    downloadButton.addEventListener('click', function(e) {
-        if (!brandNameInput.value) {
-            e.preventDefault();
-            alert("Por favor, selecione uma marca válida.");
-        }
-    });
-});
+	document.addEventListener("DOMContentLoaded", function () {
+		const vehicleCarRadio = document.getElementById("vehicle_car");
+		const vehicleMotorcycleRadio =
+			document.getElementById("vehicle_motorcycle");
+		const brandSelect = document.getElementById("brand_select");
+		const brandNameInput = document.getElementById("brand_name");
+		const carBrandsGroup = document.getElementById("car_brands_group");
+		const motorcycleBrandsGroup = document.getElementById(
+			"motorcycle_brands_group"
+		);
+		const downloadButton = document.getElementById("download_button");
+
+		// Função para atualizar a visibilidade das marcas com base no tipo de veículo
+		function updateBrandVisibility() {
+			if (vehicleCarRadio.checked) {
+				carBrandsGroup.style.display = "";
+				motorcycleBrandsGroup.style.display = "none";
+
+				// Selecionar a primeira marca de carro se nenhuma estiver selecionada
+				if (brandSelect.selectedIndex === 0) {
+					for (let i = 0; i < brandSelect.options.length; i++) {
+						if (brandSelect.options[i].getAttribute("data-type") === "carro") {
+							brandSelect.selectedIndex = i;
+							updateBrandName();
+							break;
+						}
+					}
+				}
+			} else {
+				carBrandsGroup.style.display = "none";
+				motorcycleBrandsGroup.style.display = "";
+
+				// Selecionar a primeira marca de moto se nenhuma estiver selecionada
+				if (brandSelect.selectedIndex === 0) {
+					for (let i = 0; i < brandSelect.options.length; i++) {
+						if (brandSelect.options[i].getAttribute("data-type") === "moto") {
+							brandSelect.selectedIndex = i;
+							updateBrandName();
+							break;
+						}
+					}
+				}
+			}
+		}
+
+		// Função para atualizar o campo oculto com o nome da marca
+		function updateBrandName() {
+			const selectedOption = brandSelect.options[brandSelect.selectedIndex];
+			if (selectedOption && selectedOption.getAttribute("data-name")) {
+				brandNameInput.value = selectedOption.getAttribute("data-name");
+			} else {
+				brandNameInput.value = "";
+			}
+		}
+
+		// Inicializar a visibilidade das marcas
+		updateBrandVisibility();
+
+		// Atualizar quando o tipo de veículo mudar
+		vehicleCarRadio.addEventListener("change", updateBrandVisibility);
+		vehicleMotorcycleRadio.addEventListener("change", updateBrandVisibility);
+
+		// Atualizar o nome da marca quando a seleção mudar
+		brandSelect.addEventListener("change", updateBrandName);
+
+		// Inicializar o nome da marca
+		updateBrandName();
+
+		// Validar antes de enviar
+		downloadButton.addEventListener("click", function (e) {
+			if (!brandNameInput.value) {
+				e.preventDefault();
+				alert("Por favor, selecione uma marca válida.");
+			}
+		});
+	});
 </script>
 {% endblock %}

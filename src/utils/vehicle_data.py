@@ -221,7 +221,8 @@ class VehicleDataManager:
             model_names = sorted(set(model_names))
             target_dir = self.cars_dir if vehicle_type == 'carro' else self.motorcycles_dir
             os.makedirs(target_dir, exist_ok=True)  # garante que a pasta exista
-            file_path = os.path.join(target_dir, f"{brand_name}.json")
+            safe_name = brand_name.replace('/', '_').replace('\\', '_').strip()
+            file_path = os.path.join(target_dir, f"{safe_name}.json")
             with open(file_path, 'w', encoding='utf-8') as f:
                 json.dump({"models": model_names}, f, ensure_ascii=False, indent=2)
             
@@ -230,6 +231,92 @@ class VehicleDataManager:
         except Exception as e:
             logger.error(f"Erro ao baixar modelos (brand_id={brand_id}): {str(e)}")
             return False, f"Erro ao baixar modelos: {str(e)}", 0
+        
+    def download_brands_from_api(self, vehicle_type):
+        """
+        Baixa marcas da API Invertexto e mescla no JSON de marcas existente.
+
+        Args:
+            vehicle_type (int|str): 1 para carro ou 2 para moto.
+
+        Returns:
+            tuple: (success, message, added_count)
+        """
+        try:
+            # 1) Normaliza o tipo
+            vehicle_type_str = str(vehicle_type)
+            if vehicle_type_str == '1':
+                tipo = 'carro'
+            elif vehicle_type_str == '2':
+                tipo = 'moto'
+            else:
+                return False, f"Tipo de veículo inválido: {vehicle_type}", 0
+
+            # 2) Requisição à API
+            url = f"https://api.invertexto.com/v1/fipe/brands/{vehicle_type_str}?token={self.api_token}"
+            response = requests.get(url, timeout=10)
+            if response.status_code != 200:
+                return False, f"Erro na API: código {response.status_code}", 0
+
+            data = response.json()
+            logger.info(f"DEBUG | Resposta da API Invertexto (brands/{vehicle_type_str}): {data}")
+
+            # 3) Extrai a lista de marcas
+            if isinstance(data, list):
+                raw_brands = data
+            elif isinstance(data, dict) and 'brands' in data and isinstance(data['brands'], list):
+                raw_brands = data['brands']
+            else:
+                return False, "Formato de resposta inválido", 0
+
+            # 4) Transforma no formato interno
+            new_brands = []
+            for item in raw_brands:
+                if not isinstance(item, dict):
+                    continue
+                brand_id = item.get('id')
+                brand_name = item.get('brand')
+                if isinstance(brand_id, int) and isinstance(brand_name, str):
+                    new_brands.append({
+                        "nome": brand_name.strip(),
+                        "id": brand_id,
+                        "tipo": tipo
+                    })
+
+            if not new_brands:
+                return False, "Nenhuma marca válida encontrada na resposta", 0
+
+            # 5) Carrega JSON existente
+            brands_file = os.path.join(self.models_dir, 'marcas.json')
+            if os.path.exists(brands_file):
+                with open(brands_file, 'r', encoding='utf-8') as f:
+                    existing_data = json.load(f)
+                existing_brands = existing_data.get('marcas', [])
+            else:
+                existing_brands = []
+
+            # 6) Mescla sem duplicar (por id)
+            existing_ids = {b['id'] for b in existing_brands}
+            added = 0
+            for b in new_brands:
+                if b['id'] not in existing_ids:
+                    existing_brands.append(b)
+                    existing_ids.add(b['id'])
+                    added += 1
+
+            # 7) Ordena alfabeticamente por "nome"
+            existing_brands = sorted(existing_brands, key=lambda x: x['nome'].lower())
+
+            # 8) Salva de volta
+            with open(brands_file, 'w', encoding='utf-8') as f:
+                json.dump({"marcas": existing_brands}, f, ensure_ascii=False, indent=2)
+
+            return True, f"Marcas importadas: {len(new_brands)} (novas adicionadas: {added})", added
+
+        except Exception as e:
+            logger.error(f"Erro ao baixar/mesclar marcas (tipo={vehicle_type}): {e}")
+            return False, f"Erro ao processar marcas: {e}", 0
+
 
     
     def refresh_data(self):

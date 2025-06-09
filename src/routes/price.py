@@ -27,6 +27,9 @@ def price_config():
             additional_hour_motorcycle_price=3.0,
             daily_motorcycle_price=25.0,
             
+            # Tolerancia
+            time_tolerance=5,
+            
             # Mantendo campos originais para compatibilidade
             first_hour_price=10.0,
             additional_hour_price=5.0,
@@ -54,11 +57,17 @@ def price_config():
             additional_hour_motorcycle_price = float(request.form.get('additional_hour_motorcycle_price', 0))
             daily_motorcycle_price = float(request.form.get('daily_motorcycle_price', 0))
             
+            # Tolerancia
+            time_tolerance = int(request.form.get('time_tolerance', 5))
+            
             # Validação básica
             if (first_hour_car_price <= 0 or additional_hour_car_price <= 0 or daily_car_price <= 0 or
                 first_hour_motorcycle_price <= 0 or additional_hour_motorcycle_price <= 0 or daily_motorcycle_price <= 0):
                 flash('Todos os valores de preço devem ser maiores que zero.', 'danger')
                 return render_template('price/config.html', config=current_config)
+            
+            if time_tolerance < 0:
+                raise ValueError("Tolerância negativa")
                 
             # Criar nova configuração
             new_config = PriceConfiguration(
@@ -71,6 +80,9 @@ def price_config():
                 first_hour_motorcycle_price=first_hour_motorcycle_price,
                 additional_hour_motorcycle_price=additional_hour_motorcycle_price,
                 daily_motorcycle_price=daily_motorcycle_price,
+                
+                # Tolerancia
+                time_tolerance=time_tolerance,
                 
                 # Mantendo campos originais para compatibilidade
                 first_hour_price=first_hour_car_price,
@@ -86,7 +98,7 @@ def price_config():
             return redirect(url_for('price.price_config'))
             
         except ValueError:
-            flash('Os valores de preço devem ser números válidos.', 'danger')
+            flash('Valores inválidos: preços e tolerância devem ser numéricos e não-negativos.', 'danger')
             return render_template('price/config.html', config=current_config)
     
     # Histórico de configurações (para auditoria)
@@ -142,6 +154,36 @@ def download_models():
             flash(f'Modelos de {brand_name} baixados com sucesso! Total: {count} modelos.', 'success')
         else:
             flash(f'Erro ao baixar modelos: {message}', 'danger')
+        
+        return redirect(url_for('price.price_config'))
+        
+    except Exception as e:
+        flash(f'Erro ao processar solicitação: {str(e)}', 'danger')
+        return redirect(url_for('price.price_config'))
+    
+@price_bp.route('/download-brands', methods=['POST'])
+@login_required
+@admin_required
+def download_brands():
+    """Rota para baixar marcas de veículos da API Invertexto"""
+    try:
+        # Obter parâmetros do formulário
+        vehicle_type = request.form.get('brand_type', '')
+        
+        # Verificar se o tipo de veículo é válido
+        if vehicle_type not in ['1', '2']:
+            flash('Tipo de veículo inválido.', 'danger')
+            return redirect(url_for('price.price_config'))
+        
+        # Baixar modelos da API
+        success, message, count = vehicle_data.download_brands_from_api(vehicle_type)
+        
+        # vehicle_data.refresh_data()
+        
+        if success:
+            flash(f'Marcas baixadas com sucesso! Total: {count} marcas.', 'success')
+        else:
+            flash(f'Erro ao baixar marcas: {message}', 'danger')
         
         return redirect(url_for('price.price_config'))
         

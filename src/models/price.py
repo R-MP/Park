@@ -24,6 +24,9 @@ class PriceConfiguration(db.Model):
     additional_hour_motorcycle_price = db.Column(db.Float, nullable=False, default=3.0)
     daily_motorcycle_price = db.Column(db.Float, nullable=False, default=25.0)
     
+    # Tolerancia
+    time_tolerance = db.Column(db.Integer, default=5, nullable=False)
+    
     # Mantendo os campos originais para compatibilidade com código existente
     first_hour_price = db.Column(db.Float, nullable=False, default=10.0)
     additional_hour_price = db.Column(db.Float, nullable=False, default=5.0)

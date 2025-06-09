@@ -118,7 +118,7 @@ class Vehicle(db.Model):
         models_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'vehicle_models')
         
         if os.path.exists(models_dir):
-            file_path = os.path.join(models_dir, 'cores.json')
+            file_path = os.path.join(models_dir, 'colors.json')
             if os.path.exists(file_path):
                 try:
                     with open(file_path, 'r', encoding='utf-8') as f:
@@ -196,7 +196,7 @@ class Vehicle(db.Model):
         if not os.path.exists(models_dir):
             os.makedirs(models_dir)
             
-        file_path = os.path.join(models_dir, 'cores.json')
+        file_path = os.path.join(models_dir, 'colors.json')
         
         # Carrega as cores existentes
         existing_colors = []

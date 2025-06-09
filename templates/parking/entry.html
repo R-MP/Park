@@ -1,231 +1,291 @@
-{% extends 'base.html' %}
-
-{% block title %}Entrada de Veículo{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% block title %}Entrada de Veículo{% endblock %} {%
+block content %}
 <div class="container mt-3">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0"><i class="fas fa-car-side me-2"></i>Registrar Entrada de Veículo</h4>
-                </div>
-                <div class="card-body">
-                    <form method="POST" action="{{ url_for('parking.register_entry') }}">
-                        <div class="mb-3">
-                            <label for="plate" class="form-label">Placa do Veículo</label>
-                            <input type="text" class="form-control" id="plate" name="plate" required 
-                                   placeholder="ABC1234" maxlength="8" list="plate-list" autocomplete="off">
-                            <datalist id="plate-list">
-                                {% for plate in registered_plates %}
-                                <option value="{{ plate }}">
-                                {% endfor %}
-                            </datalist>
-                            <div class="form-text">Digite a placa sem traços ou espaços</div>
-                        </div>
-                        
-                        <!-- Seleção de tipo de veículo -->
-                        <div class="mb-3">
-                            <label class="form-label">Tipo de Veículo</label>
-                            <div class="d-flex">
-                                <div class="form-check me-4">
-                                    <input class="form-check-input" type="radio" name="vehicle_type" id="vehicle_car" value="carro" checked>
-                                    <label class="form-check-label" for="vehicle_car">
-                                        <i class="fas fa-car me-1"></i> Carro
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="vehicle_type" id="vehicle_motorcycle" value="moto">
-                                    <label class="form-check-label" for="vehicle_motorcycle">
-                                        <i class="fas fa-motorcycle me-1"></i> Moto
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Opção de diária -->
-                        <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="is_daily" name="is_daily">
-                                <label class="form-check-label" for="is_daily">
-                                    <i class="fas fa-calendar-day me-1"></i> Registrar como diária
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <!-- Campos de modelo com autocomplete separado por tipo -->
-                        <div class="mb-3">
-                            <label for="car_model" class="form-label">Modelo do Veículo</label>
-                            <input type="text" class="form-control" id="car_model" name="car_model" required
-                                   placeholder="Ex: Gol, Civic, Corolla" autocomplete="off">
-                            
-                            <!-- Lista para modelos de carro -->
-                            <datalist id="car-model-list">
-                                {% for model in car_models %}
-                                <option value="{{ model }}">
-                                {% endfor %}
-                            </datalist>
-                            
-                            <!-- Lista para modelos de moto -->
-                            <datalist id="motorcycle-model-list">
-                                {% for model in motorcycle_models %}
-                                <option value="{{ model }}">
-                                {% endfor %}
-                            </datalist>
-                        </div>
-                        
-                        <!-- Campo de cor com autocomplete -->
-                        <div class="mb-3">
-                            <label for="car_color" class="form-label">Cor do Veículo</label>
-                            <input type="text" class="form-control" id="car_color" name="car_color" required
-                                   placeholder="Ex: Branco, Preto, Prata" list="color-list" autocomplete="off">
-                            <datalist id="color-list">
-                                {% for color in available_colors %}
-                                <option value="{{ color }}">
-                                {% endfor %}
-                            </datalist>
-                        </div>
-                        
-                        <!-- Alerta para feedback de consulta de placa -->
-                        <div id="plate-query-alert" class="alert alert-info d-none">
-                            <div class="d-flex align-items-center">
-                                <div class="spinner-border spinner-border-sm me-2" role="status" id="plate-query-spinner">
-                                    <span class="visually-hidden">Consultando...</span>
-                                </div>
-                                <div id="plate-query-message">Consultando informações do veículo...</div>
-                            </div>
-                        </div>
-                        
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save me-2"></i>Registrar Entrada
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<div class="card shadow">
+				<div class="card-header bg-primary text-white">
+					<h4 class="mb-0">
+						<i class="fas fa-car-side me-2"></i>Registrar Entrada de Veículo
+					</h4>
+				</div>
+				<div class="card-body">
+					<form method="POST" action="{{ url_for('parking.register_entry') }}">
+						<div class="mb-3">
+							<label for="plate" class="form-label">Placa do Veículo</label>
+							<input
+								type="text"
+								class="form-control"
+								id="plate"
+								name="plate"
+								required
+								placeholder="ABC1234"
+								maxlength="7"
+								list="plate-list"
+								autocomplete="off"
+							/>
+							<datalist id="plate-list">
+								{% for plate in registered_plates %}
+								<option value="{{ plate }}">{% endfor %}</option>
+							</datalist>
+
+							<div class="form-text">Digite a placa sem traços ou espaços</div>
+						</div>
+
+						<!-- Seleção de tipo de veículo -->
+						<div class="mb-3">
+							<label class="form-label">Tipo de Veículo</label>
+							<div class="d-flex">
+								<div class="form-check me-4">
+									<input
+										class="form-check-input"
+										type="radio"
+										name="vehicle_type"
+										id="vehicle_car"
+										value="carro"
+										checked
+									/>
+									<label class="form-check-label" for="vehicle_car">
+										<i class="fas fa-car me-1"></i> Carro
+									</label>
+								</div>
+								<div class="form-check">
+									<input
+										class="form-check-input"
+										type="radio"
+										name="vehicle_type"
+										id="vehicle_motorcycle"
+										value="moto"
+									/>
+									<label class="form-check-label" for="vehicle_motorcycle">
+										<i class="fas fa-motorcycle me-1"></i> Moto
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<!-- Opção de diária -->
+						<div class="mb-3">
+							<div class="form-check">
+								<input
+									class="form-check-input"
+									type="checkbox"
+									id="is_daily"
+									name="is_daily"
+								/>
+								<label class="form-check-label" for="is_daily">
+									<i class="fas fa-calendar-day me-1"></i> Registrar como diária
+								</label>
+							</div>
+						</div>
+
+						<!-- Campos de modelo com autocomplete separado por tipo -->
+						<div class="mb-3">
+							<label for="car_model" class="form-label"
+								>Modelo do Veículo</label
+							>
+							<input
+								type="text"
+								class="form-control"
+								id="car_model"
+								name="car_model"
+								required
+								placeholder="Ex: Gol, Civic, Corolla"
+								autocomplete="off"
+							/>
+
+							<!-- Lista para modelos de carro -->
+							<datalist id="car-model-list">
+								{% for model in car_models %}
+								<option value="{{ model }}">{% endfor %}</option>
+							</datalist>
+
+							<!-- Lista para modelos de moto -->
+							<datalist id="motorcycle-model-list">
+								{% for model in motorcycle_models %}
+								<option value="{{ model }}">{% endfor %}</option>
+							</datalist>
+						</div>
+
+						<!-- Campo de cor com autocomplete -->
+						<div class="mb-3">
+							<label for="car_color" class="form-label">Cor do Veículo</label>
+							<input
+								type="text"
+								class="form-control"
+								id="car_color"
+								name="car_color"
+								required
+								placeholder="Ex: Branco, Preto, Prata"
+								list="color-list"
+								autocomplete="off"
+							/>
+							<datalist id="color-list">
+								{% for color in available_colors %}
+								<option value="{{ color }}">{% endfor %}</option>
+							</datalist>
+						</div>
+
+						<!-- Alerta para feedback de consulta de placa -->
+						<div id="plate-query-alert" class="alert alert-info d-none">
+							<div class="d-flex align-items-center">
+								<div
+									class="spinner-border spinner-border-sm me-2"
+									role="status"
+									id="plate-query-spinner"
+								>
+									<span class="visually-hidden">Consultando...</span>
+								</div>
+								<div id="plate-query-message">
+									Consultando informações do veículo...
+								</div>
+							</div>
+						</div>
+
+						<div class="d-grid gap-2">
+							<button type="submit" class="btn btn-primary">
+								<i class="fas fa-save me-2"></i>Registrar Entrada
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-{% endblock %}
-
-{% block scripts %}
+{% endblock %} {% block scripts %}
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const plateInput = document.getElementById("plate");
-    const modelInput = document.getElementById("car_model");
-    const colorInput = document.getElementById("car_color");
-    const vehicleCarRadio = document.getElementById("vehicle_car");
-    const vehicleMotorcycleRadio = document.getElementById("vehicle_motorcycle");
-    const plateQueryAlert = document.getElementById("plate-query-alert");
-    const plateQuerySpinner = document.getElementById("plate-query-spinner");
-    const plateQueryMessage = document.getElementById("plate-query-message");
-    
-    let debounceTimeout = null;
+	document.addEventListener("DOMContentLoaded", function () {
+		const plateInput = document.getElementById("plate");
+		const modelInput = document.getElementById("car_model");
+		const colorInput = document.getElementById("car_color");
+		const vehicleCarRadio = document.getElementById("vehicle_car");
+		const vehicleMotorcycleRadio =
+			document.getElementById("vehicle_motorcycle");
+		const plateQueryAlert = document.getElementById("plate-query-alert");
+		const plateQuerySpinner = document.getElementById("plate-query-spinner");
+		const plateQueryMessage = document.getElementById("plate-query-message");
 
-    // Função para mostrar alerta de consulta
-    function showQueryAlert(message, isLoading = true) {
-        plateQueryAlert.classList.remove('d-none', 'alert-info', 'alert-success', 'alert-warning', 'alert-danger');
-        
-        if (isLoading) {
-            plateQueryAlert.classList.add('alert-info');
-            plateQuerySpinner.classList.remove('d-none');
-        } else if (message.includes('sucesso')) {
-            plateQueryAlert.classList.add('alert-success');
-            plateQuerySpinner.classList.add('d-none');
-        } else if (message.includes('manual')) {
-            plateQueryAlert.classList.add('alert-warning');
-            plateQuerySpinner.classList.add('d-none');
-        } else {
-            plateQueryAlert.classList.add('alert-danger');
-            plateQuerySpinner.classList.add('d-none');
-        }
-        
-        plateQueryMessage.textContent = message;
-        plateQueryAlert.classList.remove('d-none');
-    }
-    
-    // Função para esconder alerta de consulta
-    function hideQueryAlert() {
-        plateQueryAlert.classList.add('d-none');
-    }
-    
-    // Função para atualizar o datalist do modelo com base no tipo de veículo
-    function updateModelDatalist() {
-        if (vehicleCarRadio.checked) {
-            modelInput.setAttribute('list', 'car-model-list');
-        } else {
-            modelInput.setAttribute('list', 'motorcycle-model-list');
-        }
-    }
-    
-    // Inicializar o datalist correto
-    updateModelDatalist();
-    
-    // Atualizar datalist quando o tipo de veículo mudar
-    vehicleCarRadio.addEventListener('change', updateModelDatalist);
-    vehicleMotorcycleRadio.addEventListener('change', updateModelDatalist);
+		let debounceTimeout = null;
 
-    plateInput.addEventListener("input", function () {
-        const plate = plateInput.value.toUpperCase().trim();
-        
-        // Limpar campos e feedback
-        if (plate.length < 7) {
-            hideQueryAlert();
-            return;
-        }
+		// Função para mostrar alerta de consulta
+		function showQueryAlert(message, isLoading = true) {
+			plateQueryAlert.classList.remove(
+				"d-none",
+				"alert-info",
+				"alert-success",
+				"alert-warning",
+				"alert-danger"
+			);
 
-        // Cancelar chamada anterior (debounce)
-        clearTimeout(debounceTimeout);
+			if (isLoading) {
+				plateQueryAlert.classList.add("alert-info");
+				plateQuerySpinner.classList.remove("d-none");
+			} else if (message.includes("sucesso")) {
+				plateQueryAlert.classList.add("alert-success");
+				plateQuerySpinner.classList.add("d-none");
+			} else if (message.includes("manual")) {
+				plateQueryAlert.classList.add("alert-warning");
+				plateQuerySpinner.classList.add("d-none");
+			} else {
+				plateQueryAlert.classList.add("alert-danger");
+				plateQuerySpinner.classList.add("d-none");
+			}
 
-        // Espera 500ms após o último caractere digitado
-        debounceTimeout = setTimeout(() => {
-            if (plate.length >= 7 && /^[A-Z]{3}[0-9A-Z]{4}$/.test(plate)) {
-                // Mostrar alerta de consulta
-                showQueryAlert("Consultando informações do veículo...");
-                
-                fetch("{{ url_for('parking.consulta_placa') }}", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ plate }),
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        return response.json().then(data => {
-                            throw new Error(data.error || "Veículo não encontrado");
-                        });
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.modelo) {
-                        modelInput.value = data.modelo;
-                        colorInput.value = data.cor || "";
-                        
-                        // Atualizar tipo de veículo se disponível
-                        if (data.tipo === 'carro') {
-                            vehicleCarRadio.checked = true;
-                        } else if (data.tipo === 'moto') {
-                            vehicleMotorcycleRadio.checked = true;
-                        }
-                        
-                        // Atualizar datalist após mudar o tipo
-                        updateModelDatalist();
-                        
-                        showQueryAlert(`Informações encontradas com sucesso no banco de dados!`, false);
-                    } else {
-                        showQueryAlert("Veículo não encontrado. Por favor, preencha o modelo e cor manualmente.", false);
-                    }
-                })
-                .catch(err => {
-                    console.error("Erro ao buscar placa:", err);
-                    showQueryAlert("Veículo não encontrado. Por favor, preencha o modelo e cor manualmente.", false);
-                });
-            }
-        }, 500);
-    });
-});
+			plateQueryMessage.textContent = message;
+			plateQueryAlert.classList.remove("d-none");
+		}
+
+		// Função para esconder alerta de consulta
+		function hideQueryAlert() {
+			plateQueryAlert.classList.add("d-none");
+		}
+
+		// Função para atualizar o datalist do modelo com base no tipo de veículo
+		function updateModelDatalist() {
+			if (vehicleCarRadio.checked) {
+				modelInput.setAttribute("list", "car-model-list");
+			} else {
+				modelInput.setAttribute("list", "motorcycle-model-list");
+			}
+		}
+
+		// Inicializar o datalist correto
+		updateModelDatalist();
+
+		// Atualizar datalist quando o tipo de veículo mudar
+		vehicleCarRadio.addEventListener("change", updateModelDatalist);
+		vehicleMotorcycleRadio.addEventListener("change", updateModelDatalist);
+
+		plateInput.addEventListener("input", function () {
+			const plate = plateInput.value.toUpperCase().trim();
+
+			// Limpar campos e feedback
+			if (plate.length < 7) {
+				hideQueryAlert();
+				return;
+			}
+
+			// Cancelar chamada anterior (debounce)
+			clearTimeout(debounceTimeout);
+
+			// Espera 500ms após o último caractere digitado
+			debounceTimeout = setTimeout(() => {
+				if (plate.length >= 7 && /^[A-Z]{3}[0-9A-Z]{4}$/.test(plate)) {
+					// Mostrar alerta de consulta
+					showQueryAlert("Consultando informações do veículo...");
+
+					fetch("{{ url_for('parking.consulta_placa') }}", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({ plate }),
+					})
+						.then((response) => {
+							if (!response.ok) {
+								return response.json().then((data) => {
+									throw new Error(data.error || "Veículo não encontrado");
+								});
+							}
+							return response.json();
+						})
+						.then((data) => {
+							if (data.modelo) {
+								modelInput.value = data.modelo;
+								colorInput.value = data.cor || "";
+
+								// Atualizar tipo de veículo se disponível
+								if (data.tipo === "carro") {
+									vehicleCarRadio.checked = true;
+								} else if (data.tipo === "moto") {
+									vehicleMotorcycleRadio.checked = true;
+								}
+
+								// Atualizar datalist após mudar o tipo
+								updateModelDatalist();
+
+								showQueryAlert(
+									`Informações encontradas com sucesso no banco de dados!`,
+									false
+								);
+							} else {
+								showQueryAlert(
+									"Veículo não encontrado. Por favor, preencha o modelo e cor manualmente.",
+									false
+								);
+							}
+						})
+						.catch((err) => {
+							console.error("Erro ao buscar placa:", err);
+							showQueryAlert(
+								"Veículo não encontrado. Por favor, preencha o modelo e cor manualmente.",
+								false
+							);
+						});
+				}
+			}, 500);
+		});
+	});
 </script>
 {% endblock %}

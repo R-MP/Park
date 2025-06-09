@@ -3,6 +3,7 @@ from datetime import datetime
 from pytz import utc
 from .user import db
 import pytz
+import math
 
 fuso_brasilia = pytz.timezone('America/Sao_Paulo')
 
@@ -39,36 +40,44 @@ class ParkingRecord(db.Model):
         """Calcula o valor total com base no tempo de permanência e configuração de preços"""
         if not self.exit_time:
             return None
-
-        # Se for diária, retorna o valor da diária correspondente ao tipo de veículo
-        if self.is_daily:
-            if self.vehicle_type == 'moto':
-                self.total_value = price_config.daily_motorcycle_price
-            else:  # carro
-                self.total_value = price_config.daily_car_price
-            return self.total_value
-
+        
         # Converter para o mesmo fuso (São Paulo)
         entry_time = self.entry_time.astimezone(fuso_brasilia)
         exit_time = self.exit_time.astimezone(fuso_brasilia)
 
         duration = (exit_time - entry_time).total_seconds() / 3600
+        
+        # Tolerancia
+        tol = getattr(price_config, 'time_tolerance', None)
+        tolerance = tol if (isinstance(tol, (int, float)) and tol >= 0) else 5
+        
+        # Cálculo de diária
+        if self.is_daily:
+            # dias iniciados (por exemplo, 1,1d → 2 dias)
+            days = math.ceil(duration / 24)
+            if self.vehicle_type == 'moto':
+                price = price_config.daily_motorcycle_price
+            else:
+                price = price_config.daily_car_price
+            self.total_value = round(days * price, 2)
+            return self.total_value
 
-        # Cálculo baseado no tipo de veículo
+        # Cálculo por hora
+        hours_to_charge = max(1, math.ceil((duration - tolerance) / 60))
+        
         if self.vehicle_type == 'moto':
-            if duration <= 1:
-                total = price_config.first_hour_motorcycle_price
-            else:
-                additional_hours = duration - 1
-                total = price_config.first_hour_motorcycle_price + (additional_hours * price_config.additional_hour_motorcycle_price)
-        else:  # carro
-            if duration <= 1:
-                total = price_config.first_hour_car_price
-            else:
-                additional_hours = duration - 1
-                total = price_config.first_hour_car_price + (additional_hours * price_config.additional_hour_car_price)
+            first = price_config.first_hour_motorcycle_price
+            extra = price_config.additional_hour_motorcycle_price
+        else:
+            first = price_config.first_hour_car_price
+            extra = price_config.additional_hour_car_price
+            
+        # Dentro da tolerancia inicial
+        if duration <= tolerance:
+            self.total_value = 0.0
+            return self.total_value
 
-        self.total_value = round(total, 2)
+        self.total_value = round(first + (hours_to_charge - 1) * extra, 2)
         return self.total_value
     
     def __repr__(self):
