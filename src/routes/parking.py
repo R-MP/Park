@@ -9,6 +9,8 @@ from flask import (
     flash,
 )
 from datetime import datetime
+import string
+import random
 import pytz
 from src.models.parking import ParkingRecord
 from src.models.price import PriceConfiguration
@@ -22,6 +24,10 @@ parking_bp = Blueprint("parking", __name__)
 fuso_brasilia = pytz.timezone("America/Sao_Paulo")
 vehicle_data = VehicleDataManager()
 
+def generate_code(n=5):
+    """Gera um código aleatório de n caracteres (A–Z, 0–9)."""
+    chars = string.ascii_uppercase + string.digits
+    return "".join(random.choices(chars, k=n))
 
 @parking_bp.route("/entrada", methods=["GET", "POST"])
 @login_required
@@ -78,8 +84,7 @@ def register_entry():
             user_id=session["user_id"],
             vehicle_type=vehicle_type,
             is_daily=is_daily,
-            # car_model=car_model,
-            # car_color=car_color
+            parking_code=generate_code()
         )
 
         db.session.add(new_entry)
@@ -100,34 +105,39 @@ def register_entry():
 @parking_bp.route("/saida/<int:record_id>", methods=["GET", "POST"])
 @login_required
 def register_exit(record_id):
+    # Busca o registro
     record = ParkingRecord.query.get_or_404(record_id)
-    fuso_brasilia = pytz.timezone("America/Sao_Paulo")
 
+    # Timezone de São Paulo
+    fuso_brasilia = pytz.timezone("America/Sao_Paulo")
+    now = datetime.now(fuso_brasilia)
+
+    # Se já saiu, não deixa repetir
     if record.exit_time:
         flash("Este veículo já foi registrado como saída.", "warning")
         return redirect(url_for("parking.active_entries"))
 
+    # Pega a configuração mais recente (ou cria defaults com tolerância = 5)
+    price_config = PriceConfiguration.query.order_by(PriceConfiguration.id.desc()).first()
+    if not price_config:
+        price_config = PriceConfiguration(
+            first_hour_car_price=10.0,
+            additional_hour_car_price=5.0,
+            daily_car_price=50.0,
+            first_hour_motorcycle_price=5.0,
+            additional_hour_motorcycle_price=3.0,
+            daily_motorcycle_price=25.0,
+            first_hour_price=10.0,
+            additional_hour_price=5.0,
+            time_tolerance=5,
+            user_id=session['user_id']
+        )
+        db.session.add(price_config)
+        db.session.commit()
+
     if request.method == "POST":
-        record.exit_time = datetime.now(fuso_brasilia)
-        price_config = PriceConfiguration.query.order_by(
-            PriceConfiguration.id.desc()
-        ).first()
-
-        if not price_config:
-            price_config = PriceConfiguration(
-                first_hour_car_price=10.0,
-                additional_hour_car_price=5.0,
-                first_hour_motorcycle_price=5.0,
-                additional_hour_motorcycle_price=3.0,
-                daily_car_price=50.0,
-                daily_motorcycle_price=25.0,
-                # Mantendo campos originais para compatibilidade
-                first_hour_price=10.0,
-                additional_hour_price=5.0,
-                user_id=session["user_id"],
-            )
-            db.session.add(price_config)
-
+        # Marca saída oficial, calcula e salva
+        record.exit_time = now
         record.calculate_total(price_config)
         db.session.commit()
 
@@ -137,47 +147,16 @@ def register_exit(record_id):
         )
         return redirect(url_for("parking.receipt", record_id=record.id))
 
-    current_time = datetime.now(fuso_brasilia)
+    # Para GET: estimativa de preço usando calculate_total
+    # (não altera o registro definitivo)
+    original_exit = record.exit_time
+    record.exit_time = now
+    estimated_price = record.calculate_total(price_config)
+    record.exit_time = original_exit
+
+    # Duração em horas para exibir na tela
     entry_time = record.entry_time.astimezone(fuso_brasilia)
-
-    duration = (current_time - entry_time).total_seconds() / 3600
-
-    price_config = PriceConfiguration.query.order_by(
-        PriceConfiguration.id.desc()
-    ).first()
-
-    if not price_config:
-        if record.is_daily:
-            estimated_price = 50.0 if record.vehicle_type == "carro" else 25.0
-        else:
-            if record.vehicle_type == "carro":
-                estimated_price = (
-                    10.0 if duration <= 1 else 10.0 + ((duration - 1) * 5.0)
-                )
-            else:  # moto
-                estimated_price = 5.0 if duration <= 1 else 5.0 + ((duration - 1) * 3.0)
-    else:
-        if record.is_daily:
-            estimated_price = (
-                price_config.daily_car_price
-                if record.vehicle_type == "carro"
-                else price_config.daily_motorcycle_price
-            )
-        else:
-            if record.vehicle_type == "carro":
-                estimated_price = (
-                    price_config.first_hour_car_price
-                    if duration <= 1
-                    else price_config.first_hour_car_price
-                    + ((duration - 1) * price_config.additional_hour_car_price)
-                )
-            else:  # moto
-                estimated_price = (
-                    price_config.first_hour_motorcycle_price
-                    if duration <= 1
-                    else price_config.first_hour_motorcycle_price
-                    + ((duration - 1) * price_config.additional_hour_motorcycle_price)
-                )
+    duration = (now - entry_time).total_seconds() / 3600
 
     return render_template(
         "parking/exit.html",
@@ -185,6 +164,59 @@ def register_exit(record_id):
         duration=duration,
         estimated_price=estimated_price,
     )
+
+@parking_bp.route("/codigo", methods=["GET", "POST"])
+@login_required
+def exit_by_code():
+    """
+    Página simples para o cliente digitar o código de 5 caracteres.
+    Ao submeter, procura o ParkingRecord com parking_code = código
+    e exit_time=None, registra saída e calcula total.
+    """
+    now = datetime.now(fuso_brasilia)
+
+    if request.method == "POST":
+        code = request.form.get("parking_code", "").upper().strip()
+        if len(code) != 5:
+            flash("Código deve ter exatamente 5 caracteres.", "danger")
+            return render_template("parking/park_code.html")
+
+        record = ParkingRecord.query.filter_by(parking_code=code, exit_time=None).first()
+        print(record)
+        print(code)
+        if not record:
+            flash("Código não encontrado ou já utilizado.", "danger")
+            return render_template("parking/park_code.html")
+
+        # encontra price_config
+        price_config = PriceConfiguration.query.order_by(PriceConfiguration.id.desc()).first()
+        if not price_config:
+            # cria defaults se necessário…
+            price_config = PriceConfiguration(
+                first_hour_car_price=10.0,
+                additional_hour_car_price=5.0,
+                daily_car_price=50.0,
+                first_hour_motorcycle_price=5.0,
+                additional_hour_motorcycle_price=3.0,
+                daily_motorcycle_price=25.0,
+                first_hour_price=10.0,
+                additional_hour_price=5.0,
+                time_tolerance=5,
+                user_id=session["user_id"],
+            )
+            db.session.add(price_config)
+            db.session.commit()
+
+        # registra saída
+        record.exit_time = now
+        record.calculate_total(price_config)
+        db.session.commit()
+
+        flash(f"Saída registrada! Placa: {record.plate} — Total: R$ {record.total_value:.2f}", "success")
+        return redirect(url_for("parking.receipt", record_id=record.id))
+
+    # GET
+    return render_template("parking/park_code.html")
 
 
 @parking_bp.route("/recibo/<int:record_id>")
@@ -273,8 +305,6 @@ def history():
         date_to=date_to,
     )
 
-
-# 🚘 ROTA DE CONSULTA DE PLACA
 @parking_bp.route("/consulta_placa", methods=["POST"])
 @login_required
 def consulta_placa():

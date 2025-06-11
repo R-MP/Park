@@ -1,0 +1,50 @@
+{% extends 'base.html' %} 
+{% block title %}Saída por Código{% endblock %} 
+{% block content %}
+<div class="container mt-3">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<div class="card shadow">
+				<div class="card-header bg-primary text-white">
+					<h4 class="mb-0">
+						<i class="fas fa-barcode me-2"></i>Saída por Código
+					</h4>
+				</div>
+				<div class="card-body">
+					<form method="POST" action="{{ url_for('parking.exit_by_code') }}">
+						<div class="mb-3">
+							<label for="parking_code" class="form-label"
+								>Código de Estacionamento</label
+							>
+							<input
+								type="text"
+								class="form-control"
+								id="parking_code"
+								name="parking_code"
+								required
+								placeholder="Ex: ABC12"
+								maxlength="5"
+								minlength="5"
+							/>
+							<div class="form-text">
+								Insira o código de 5 caracteres recebido no momento da entrada.
+							</div>
+						</div>
+						<div class="d-grid gap-2">
+							<button type="submit" class="btn btn-success">
+								<i class="fas fa-sign-out-alt me-2"></i>Confirmar Saída
+							</button>
+							<a
+								href="{{ url_for('parking.active_entries') }}"
+								class="btn btn-secondary"
+							>
+								<i class="fas fa-arrow-left me-2"></i>Voltar
+							</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
