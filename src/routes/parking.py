@@ -110,8 +110,8 @@ def register_exit(record_id):
     vehicle = Vehicle.query.filter_by(plate=record.plate).first_or_404()
 
     # Timezone de São Paulo
-    fuso_brasilia = pytz.timezone("America/Sao_Paulo")
-    now = datetime.now(fuso_brasilia)
+    #fuso_brasilia = pytz.timezone("America/Sao_Paulo")
+    #now = datetime.now(fuso_brasilia)
 
     # Se já saiu, não deixa repetir
     if record.exit_time:
