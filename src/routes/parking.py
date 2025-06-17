@@ -107,6 +107,7 @@ def register_entry():
 def register_exit(record_id):
     # Busca o registro
     record = ParkingRecord.query.get_or_404(record_id)
+    vehicle = Vehicle.query.filter_by(plate=record.plate).first_or_404()
 
     # Timezone de São Paulo
     fuso_brasilia = pytz.timezone("America/Sao_Paulo")
@@ -161,6 +162,7 @@ def register_exit(record_id):
     return render_template(
         "parking/exit.html",
         record=record,
+        vehicle=vehicle,
         duration=duration,
         estimated_price=estimated_price,
     )
@@ -233,7 +235,7 @@ def receipt(record_id):
     minutes = int((duration_seconds % 3600) // 60)
 
     # Buscar informações adicionais do veículo
-    vehicle = Vehicle.get_by_plate(record.plate)
+    vehicle = Vehicle.query.filter_by(plate=record.plate).first_or_404()
 
     return render_template(
         "parking/receipt.html",

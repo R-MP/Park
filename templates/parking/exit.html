@@ -15,11 +15,13 @@
                         <div class="col-md-6">
                             <h5>Informações do Veículo</h5>
                             <p><strong>Placa:</strong> {{ record.plate }}</p>
-                            <p><strong>Entrada:</strong> {{ record.entry_time.strftime('%d/%m/%Y %H:%M') }}</p>
+                            <p><strong>Modelo:</strong> {{ vehicle.model }}</p>
+                            <p><strong>Cor:</strong> {{ vehicle.color }}</p>
                         </div>
                         <div class="col-md-6">
                             <h5>Tempo de Permanência</h5>
-                            <p><strong>Tempo atual:</strong> 
+                            <p><strong>Entrada:</strong> {{ record.entry_time.strftime('%d/%m/%Y %H:%M') }}</p>
+                            <p><strong>Tempo:</strong> 
                                 {% if duration < 1 %}
                                     {{ (duration * 60)|int }} minutos
                                 {% else %}
