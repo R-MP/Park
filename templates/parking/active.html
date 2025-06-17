@@ -71,10 +71,16 @@
 									</td>
 									<td>
 										<a
-											href="{{ url_for('parking.register_exit', record_id=record.id) }}"
+											href="{{ url_for('parking.exit_by_code') }}"
 											class="btn btn-success btn-sm"
 										>
-											<i class="fas fa-sign-out-alt me-1"></i>Registrar Saída
+											<i class="fas fa-sign-out-alt me-1"></i>Saída
+										</a>
+										<a
+											href="{{ url_for('parking.register_exit', record_id=record.id) }}"
+											class="btn btn-danger btn-sm"
+										>
+											<i class="fas fa-ban me-1"></i>Forçar Saída
 										</a>
 									</td>
 								</tr>
