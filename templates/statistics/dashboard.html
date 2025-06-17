@@ -1,0 +1,424 @@
+{% extends "base.html" %}
+
+{% block title %}Estatísticas - Sistema de Estacionamento{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-chart-bar me-2"></i>Painel de Estatísticas
+        </h1>
+    </div>
+</div>
+
+<!-- Cards de Resumo -->
+<div class="row mb-4">
+    <!-- Estatísticas do Mês Atual -->
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-calendar-alt me-2"></i>{{ monthly_stats.period }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-6">
+                        <h4 class="text-success">R$ {{ "%.2f"|format(monthly_stats.total_revenue) }}</h4>
+                        <small class="text-muted">Receita</small>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-info">{{ monthly_stats.total_vehicles }}</h4>
+                        <small class="text-muted">Veículos</small>
+                    </div>
+                </div>
+                <hr>
+                <div class="row text-center">
+                    <div class="col-6">
+                        <span class="text-warning">R$ {{ "%.2f"|format(monthly_stats.total_expenses) }}</span>
+                        <br><small class="text-muted">Gastos</small>
+                    </div>
+                    <div class="col-6">
+                        <span class="text-primary">R$ {{ "%.2f"|format(monthly_stats.net_profit) }}</span>
+                        <br><small class="text-muted">Lucro</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('statistics.extract', period='monthly') }}" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-eye me-1"></i>Ver Extrato
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estatísticas do Ano Atual -->
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-header bg-success text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-calendar me-2"></i>{{ yearly_stats.period }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-6">
+                        <h4 class="text-success">R$ {{ "%.2f"|format(yearly_stats.total_revenue) }}</h4>
+                        <small class="text-muted">Receita</small>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-info">{{ yearly_stats.total_vehicles }}</h4>
+                        <small class="text-muted">Veículos</small>
+                    </div>
+                </div>
+                <hr>
+                <div class="row text-center">
+                    <div class="col-6">
+                        <span class="text-warning">R$ {{ "%.2f"|format(yearly_stats.total_expenses) }}</span>
+                        <br><small class="text-muted">Gastos</small>
+                    </div>
+                    <div class="col-6">
+                        <span class="text-primary">R$ {{ "%.2f"|format(yearly_stats.net_profit) }}</span>
+                        <br><small class="text-muted">Lucro</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('statistics.extract', period='yearly') }}" class="btn btn-outline-success btn-sm">
+                    <i class="fas fa-eye me-1"></i>Ver Extrato
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estatísticas Totais -->
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-header bg-info text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-infinity me-2"></i>{{ total_stats.period }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-6">
+                        <h4 class="text-success">R$ {{ "%.2f"|format(total_stats.total_revenue) }}</h4>
+                        <small class="text-muted">Receita</small>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-info">{{ total_stats.total_vehicles }}</h4>
+                        <small class="text-muted">Veículos</small>
+                    </div>
+                </div>
+                <hr>
+                <div class="row text-center">
+                    <div class="col-6">
+                        <span class="text-warning">R$ {{ "%.2f"|format(total_stats.total_expenses) }}</span>
+                        <br><small class="text-muted">Gastos</small>
+                    </div>
+                    <div class="col-6">
+                        <span class="text-primary">R$ {{ "%.2f"|format(total_stats.net_profit) }}</span>
+                        <br><small class="text-muted">Lucro</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('statistics.extract', period='total') }}" class="btn btn-outline-info btn-sm">
+                    <i class="fas fa-eye me-1"></i>Ver Extrato
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gráficos de Comparação -->
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-chart-line me-2"></i>Comparação Mensal
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="monthlyChart" width="400" height="200"></canvas>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary btn-sm" onclick="updateMonthlyChart('revenue')">Receita</button>
+                    <button type="button" class="btn btn-outline-success btn-sm" onclick="updateMonthlyChart('profit')">Lucro</button>
+                    <button type="button" class="btn btn-outline-info btn-sm" onclick="updateMonthlyChart('vehicles')">Veículos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-chart-bar me-2"></i>Comparação Anual
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="yearlyChart" width="400" height="200"></canvas>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary btn-sm" onclick="updateYearlyChart('revenue')">Receita</button>
+                    <button type="button" class="btn btn-outline-success btn-sm" onclick="updateYearlyChart('profit')">Lucro</button>
+                    <button type="button" class="btn btn-outline-info btn-sm" onclick="updateYearlyChart('vehicles')">Veículos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detalhes por Tipo de Veículo -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-car me-2"></i>Detalhes por Tipo de Veículo - {{ monthly_stats.period }}
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <h4 class="text-primary">{{ monthly_stats.cars_count }}</h4>
+                        <p class="text-muted">Carros</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h4 class="text-warning">{{ monthly_stats.motorcycles_count }}</h4>
+                        <p class="text-muted">Motos</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h4 class="text-success">{{ monthly_stats.daily_count }}</h4>
+                        <p class="text-muted">Diárias</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h4 class="text-info">{{ monthly_stats.hourly_count }}</h4>
+                        <p class="text-muted">Por Hora</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ações Rápidas -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-tools me-2"></i>Ações Rápidas
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <a href="{{ url_for('statistics.extract', period='monthly') }}" class="btn btn-outline-primary w-100">
+                            <i class="fas fa-file-alt me-2"></i>Extrato Mensal
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <a href="{{ url_for('statistics.extract', period='yearly') }}" class="btn btn-outline-success w-100">
+                            <i class="fas fa-file-alt me-2"></i>Extrato Anual
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <a href="{{ url_for('statistics.extract', period='total') }}" class="btn btn-outline-info w-100">
+                            <i class="fas fa-file-alt me-2"></i>Extrato Total
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <button class="btn btn-outline-secondary w-100" onclick="generateReport()">
+                            <i class="fas fa-file-pdf me-2"></i>Gerar PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+let monthlyChart, yearlyChart;
+let monthlyData = [];
+let yearlyData = [];
+
+// Inicialização dos gráficos
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCharts();
+    loadMonthlyData();
+    loadYearlyData();
+});
+
+function initializeCharts() {
+    // Gráfico Mensal
+    const monthlyCtx = document.getElementById('monthlyChart').getContext('2d');
+    monthlyChart = new Chart(monthlyCtx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Receita (R$)',
+                data: [],
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Gráfico Anual
+    const yearlyCtx = document.getElementById('yearlyChart').getContext('2d');
+    yearlyChart = new Chart(yearlyCtx, {
+        type: 'bar',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Receita (R$)',
+                data: [],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+function loadMonthlyData() {
+    fetch('{{ url_for("statistics.monthly_comparison_api") }}')
+        .then(response => response.json())
+        .then(data => {
+            monthlyData = data;
+            updateMonthlyChart('revenue');
+        })
+        .catch(error => console.error('Erro ao carregar dados mensais:', error));
+}
+
+function loadYearlyData() {
+    fetch('{{ url_for("statistics.yearly_comparison_api") }}')
+        .then(response => response.json())
+        .then(data => {
+            yearlyData = data;
+            updateYearlyChart('revenue');
+        })
+        .catch(error => console.error('Erro ao carregar dados anuais:', error));
+}
+
+function updateMonthlyChart(metric) {
+    if (!monthlyData.length) return;
+
+    const labels = monthlyData.map(item => item.label);
+    let data, label, color;
+
+    switch(metric) {
+        case 'revenue':
+            data = monthlyData.map(item => item.revenue);
+            label = 'Receita (R$)';
+            color = 'rgb(75, 192, 192)';
+            break;
+        case 'profit':
+            data = monthlyData.map(item => item.profit);
+            label = 'Lucro (R$)';
+            color = 'rgb(54, 162, 235)';
+            break;
+        case 'vehicles':
+            data = monthlyData.map(item => item.vehicles);
+            label = 'Veículos';
+            color = 'rgb(255, 99, 132)';
+            break;
+    }
+
+    monthlyChart.data.labels = labels;
+    monthlyChart.data.datasets[0].data = data;
+    monthlyChart.data.datasets[0].label = label;
+    monthlyChart.data.datasets[0].borderColor = color;
+    monthlyChart.data.datasets[0].backgroundColor = color.replace('rgb', 'rgba').replace(')', ', 0.2)');
+    monthlyChart.update();
+}
+
+function updateYearlyChart(metric) {
+    if (!yearlyData.length) return;
+
+    const labels = yearlyData.map(item => item.label);
+    let data, label, color;
+
+    switch(metric) {
+        case 'revenue':
+            data = yearlyData.map(item => item.revenue);
+            label = 'Receita (R$)';
+            color = 'rgba(54, 162, 235, 0.2)';
+            break;
+        case 'profit':
+            data = yearlyData.map(item => item.profit);
+            label = 'Lucro (R$)';
+            color = 'rgba(75, 192, 192, 0.2)';
+            break;
+        case 'vehicles':
+            data = yearlyData.map(item => item.vehicles);
+            label = 'Veículos';
+            color = 'rgba(255, 99, 132, 0.2)';
+            break;
+    }
+
+    yearlyChart.data.labels = labels;
+    yearlyChart.data.datasets[0].data = data;
+    yearlyChart.data.datasets[0].label = label;
+    yearlyChart.data.datasets[0].backgroundColor = color;
+    yearlyChart.data.datasets[0].borderColor = color.replace('0.2', '1');
+    yearlyChart.update();
+}
+
+function generateReport() {
+    const currentUrl = window.location.pathname;
+    let pdfUrl;
+    
+    if (currentUrl.includes('/extract/monthly')) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const year = urlParams.get('year') || new Date().getFullYear();
+        const month = urlParams.get('month') || (new Date().getMonth() + 1);
+        pdfUrl = `{{ url_for('statistics.generate_pdf_report', period='monthly') }}?year=${year}&month=${month}`;
+    } else if (currentUrl.includes('/extract/yearly')) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const year = urlParams.get('year') || new Date().getFullYear();
+        pdfUrl = `{{ url_for('statistics.generate_pdf_report', period='yearly') }}?year=${year}`;
+    } else if (currentUrl.includes('/extract/total')) {
+        pdfUrl = `{{ url_for('statistics.generate_pdf_report', period='total') }}`;
+    } else {
+        // Dashboard - gerar PDF mensal atual
+        const now = new Date();
+        pdfUrl = `{{ url_for('statistics.generate_pdf_report', period='monthly') }}?year=${now.getFullYear()}&month=${now.getMonth() + 1}`;
+    }
+    
+    // Abrir PDF em nova aba
+    window.open(pdfUrl, '_blank');
+}
+</script>
+{% endblock %}
+

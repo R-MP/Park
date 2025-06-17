@@ -1,4 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, session, flash
+from src.routes.statistics import statistics_bp
+from src.models.expense import Expense
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import pytz
@@ -9,7 +11,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 # Inicialização da aplicação Flask
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static', static_folder='assets')
 app.config['SECRET_KEY'] = os.urandom(24)
 
 # Configuração do banco de dados SQLite
@@ -28,6 +30,7 @@ from src.routes.price import price_bp
 app.register_blueprint(auth_bp, url_prefix='/auth')
 app.register_blueprint(parking_bp, url_prefix='/parking')
 app.register_blueprint(price_bp, url_prefix='/price')
+app.register_blueprint(statistics_bp, url_prefix='/statistics')
 
 # Config de Tempo
 @app.context_processor

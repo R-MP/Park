@@ -1,0 +1,511 @@
+{% extends "base.html" %}
+
+{% block title %}Gráficos e Análises - Sistema de Estacionamento{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-chart-line me-2"></i>Gráficos e Análises Detalhadas
+        </h1>
+    </div>
+</div>
+
+<!-- Filtros de Período -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form id="filterForm" class="row g-3">
+                    <div class="col-md-3">
+                        <label for="chartType" class="form-label">Tipo de Gráfico</label>
+                        <select class="form-select" id="chartType" onchange="updateChartType()">
+                            <option value="monthly">Comparação Mensal</option>
+                            <option value="yearly">Comparação Anual</option>
+                            <option value="vehicle-distribution">Distribuição por Veículo</option>
+                            <option value="revenue-trend">Tendência de Receita</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="metric" class="form-label">Métrica</label>
+                        <select class="form-select" id="metric" onchange="updateMetric()">
+                            <option value="revenue">Receita</option>
+                            <option value="profit">Lucro</option>
+                            <option value="vehicles">Número de Veículos</option>
+                            <option value="expenses">Gastos</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="period" class="form-label">Período</label>
+                        <select class="form-select" id="period" onchange="updatePeriod()">
+                            <option value="12">Últimos 12 meses</option>
+                            <option value="6">Últimos 6 meses</option>
+                            <option value="3">Últimos 3 meses</option>
+                            <option value="24">Últimos 24 meses</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button type="button" class="btn btn-primary me-2" onclick="refreshCharts()">
+                            <i class="fas fa-sync-alt me-1"></i>Atualizar
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" onclick="exportChart()">
+                            <i class="fas fa-download me-1"></i>Exportar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gráfico Principal -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0" id="chartTitle">
+                    <i class="fas fa-chart-line me-2"></i>Comparação Mensal - Receita
+                </h5>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary btn-sm" onclick="changeChartStyle('line')">
+                        <i class="fas fa-chart-line"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline-primary btn-sm" onclick="changeChartStyle('bar')">
+                        <i class="fas fa-chart-bar"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline-primary btn-sm" onclick="changeChartStyle('area')">
+                        <i class="fas fa-chart-area"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <canvas id="mainChart" width="400" height="150"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gráficos Secundários -->
+<div class="row">
+    <!-- Distribuição por Tipo de Veículo -->
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-chart-pie me-2"></i>Distribuição por Tipo de Veículo
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="vehicleChart" width="400" height="200"></canvas>
+            </div>
+            <div class="card-footer">
+                <div class="row text-center">
+                    <div class="col-4">
+                        <span class="badge bg-primary" id="carsCount">0</span>
+                        <br><small class="text-muted">Carros</small>
+                    </div>
+                    <div class="col-4">
+                        <span class="badge bg-warning" id="motorcyclesCount">0</span>
+                        <br><small class="text-muted">Motos</small>
+                    </div>
+                    <div class="col-4">
+                        <span class="badge bg-info" id="totalCount">0</span>
+                        <br><small class="text-muted">Total</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Distribuição Diária vs Horária -->
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-chart-doughnut me-2"></i>Distribuição Diária vs Horária
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="paymentChart" width="400" height="200"></canvas>
+            </div>
+            <div class="card-footer">
+                <div class="row text-center">
+                    <div class="col-6">
+                        <span class="badge bg-success" id="dailyCount">0</span>
+                        <br><small class="text-muted">Diárias</small>
+                    </div>
+                    <div class="col-6">
+                        <span class="badge bg-info" id="hourlyCount">0</span>
+                        <br><small class="text-muted">Por Hora</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Comparação de Performance -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-chart-area me-2"></i>Análise de Performance
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="performanceChart" width="400" height="150"></canvas>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <h5 class="text-success mb-1" id="avgRevenue">R$ 0,00</h5>
+                        <small class="text-muted">Receita Média Mensal</small>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h5 class="text-primary mb-1" id="avgProfit">R$ 0,00</h5>
+                        <small class="text-muted">Lucro Médio Mensal</small>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h5 class="text-info mb-1" id="avgVehicles">0</h5>
+                        <small class="text-muted">Veículos Médio Mensal</small>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h5 class="text-warning mb-1" id="growthRate">0%</h5>
+                        <small class="text-muted">Taxa de Crescimento</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+let mainChart, vehicleChart, paymentChart, performanceChart;
+let currentData = {};
+
+// Inicialização
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCharts();
+    loadInitialData();
+});
+
+function initializeCharts() {
+    // Gráfico Principal
+    const mainCtx = document.getElementById('mainChart').getContext('2d');
+    mainChart = new Chart(mainCtx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Receita (R$)',
+                data: [],
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                tension: 0.1,
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return 'R$ ' + value.toLocaleString('pt-BR');
+                        }
+                    }
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': R$ ' + context.parsed.y.toLocaleString('pt-BR');
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Gráfico de Distribuição por Veículo
+    const vehicleCtx = document.getElementById('vehicleChart').getContext('2d');
+    vehicleChart = new Chart(vehicleCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Carros', 'Motos'],
+            datasets: [{
+                data: [0, 0],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.8)',
+                    'rgba(255, 206, 86, 0.8)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+
+    // Gráfico de Distribuição Diária vs Horária
+    const paymentCtx = document.getElementById('paymentChart').getContext('2d');
+    paymentChart = new Chart(paymentCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Diárias', 'Por Hora'],
+            datasets: [{
+                data: [0, 0],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.8)',
+                    'rgba(153, 102, 255, 0.8)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+
+    // Gráfico de Performance
+    const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+    performanceChart = new Chart(performanceCtx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [
+                {
+                    label: 'Receita',
+                    data: [],
+                    borderColor: 'rgb(75, 192, 192)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                    tension: 0.1,
+                    fill: true
+                },
+                {
+                    label: 'Lucro',
+                    data: [],
+                    borderColor: 'rgb(54, 162, 235)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                    tension: 0.1,
+                    fill: true
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return 'R$ ' + value.toLocaleString('pt-BR');
+                        }
+                    }
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': R$ ' + context.parsed.y.toLocaleString('pt-BR');
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+function loadInitialData() {
+    // Carrega dados mensais iniciais
+    fetch('{{ url_for("statistics.monthly_comparison_api") }}')
+        .then(response => response.json())
+        .then(data => {
+            currentData.monthly = data;
+            updateMainChart();
+            updateSecondaryCharts();
+            updateStatistics();
+        })
+        .catch(error => console.error('Erro ao carregar dados:', error));
+}
+
+function updateMainChart() {
+    const chartType = document.getElementById('chartType').value;
+    const metric = document.getElementById('metric').value;
+    
+    let data, labels, title;
+    
+    if (chartType === 'monthly' && currentData.monthly) {
+        labels = currentData.monthly.map(item => item.label);
+        title = 'Comparação Mensal';
+        
+        switch(metric) {
+            case 'revenue':
+                data = currentData.monthly.map(item => item.revenue);
+                title += ' - Receita';
+                break;
+            case 'profit':
+                data = currentData.monthly.map(item => item.profit);
+                title += ' - Lucro';
+                break;
+            case 'vehicles':
+                data = currentData.monthly.map(item => item.vehicles);
+                title += ' - Veículos';
+                break;
+            case 'expenses':
+                data = currentData.monthly.map(item => item.expenses);
+                title += ' - Gastos';
+                break;
+        }
+    }
+    
+    if (data && labels) {
+        mainChart.data.labels = labels;
+        mainChart.data.datasets[0].data = data;
+        mainChart.data.datasets[0].label = getMetricLabel(metric);
+        mainChart.update();
+        
+        document.getElementById('chartTitle').innerHTML = 
+            '<i class="fas fa-chart-line me-2"></i>' + title;
+    }
+}
+
+function updateSecondaryCharts() {
+    if (currentData.monthly && currentData.monthly.length > 0) {
+        // Dados do último mês para os gráficos secundários
+        const lastMonth = currentData.monthly[currentData.monthly.length - 1];
+        
+        // Simular dados de distribuição (em um projeto real, viria da API)
+        const totalVehicles = lastMonth.vehicles;
+        const carsCount = Math.floor(totalVehicles * 0.7); // 70% carros
+        const motorcyclesCount = totalVehicles - carsCount;
+        
+        const dailyCount = Math.floor(totalVehicles * 0.3); // 30% diárias
+        const hourlyCount = totalVehicles - dailyCount;
+        
+        // Atualizar gráfico de veículos
+        vehicleChart.data.datasets[0].data = [carsCount, motorcyclesCount];
+        vehicleChart.update();
+        
+        // Atualizar gráfico de pagamento
+        paymentChart.data.datasets[0].data = [dailyCount, hourlyCount];
+        paymentChart.update();
+        
+        // Atualizar badges
+        document.getElementById('carsCount').textContent = carsCount;
+        document.getElementById('motorcyclesCount').textContent = motorcyclesCount;
+        document.getElementById('totalCount').textContent = totalVehicles;
+        document.getElementById('dailyCount').textContent = dailyCount;
+        document.getElementById('hourlyCount').textContent = hourlyCount;
+    }
+}
+
+function updateStatistics() {
+    if (currentData.monthly && currentData.monthly.length > 0) {
+        const data = currentData.monthly;
+        
+        // Calcular médias
+        const avgRevenue = data.reduce((sum, item) => sum + item.revenue, 0) / data.length;
+        const avgProfit = data.reduce((sum, item) => sum + item.profit, 0) / data.length;
+        const avgVehicles = data.reduce((sum, item) => sum + item.vehicles, 0) / data.length;
+        
+        // Calcular taxa de crescimento (comparando primeiro e último mês)
+        const firstMonth = data[0];
+        const lastMonth = data[data.length - 1];
+        const growthRate = firstMonth.revenue > 0 ? 
+            ((lastMonth.revenue - firstMonth.revenue) / firstMonth.revenue * 100) : 0;
+        
+        // Atualizar performance chart
+        const labels = data.map(item => item.label);
+        const revenueData = data.map(item => item.revenue);
+        const profitData = data.map(item => item.profit);
+        
+        performanceChart.data.labels = labels;
+        performanceChart.data.datasets[0].data = revenueData;
+        performanceChart.data.datasets[1].data = profitData;
+        performanceChart.update();
+        
+        // Atualizar estatísticas
+        document.getElementById('avgRevenue').textContent = 'R$ ' + avgRevenue.toLocaleString('pt-BR', {minimumFractionDigits: 2});
+        document.getElementById('avgProfit').textContent = 'R$ ' + avgProfit.toLocaleString('pt-BR', {minimumFractionDigits: 2});
+        document.getElementById('avgVehicles').textContent = Math.round(avgVehicles);
+        document.getElementById('growthRate').textContent = growthRate.toFixed(1) + '%';
+    }
+}
+
+function getMetricLabel(metric) {
+    switch(metric) {
+        case 'revenue': return 'Receita (R$)';
+        case 'profit': return 'Lucro (R$)';
+        case 'vehicles': return 'Veículos';
+        case 'expenses': return 'Gastos (R$)';
+        default: return 'Valor';
+    }
+}
+
+function updateChartType() {
+    updateMainChart();
+}
+
+function updateMetric() {
+    updateMainChart();
+}
+
+function updatePeriod() {
+    // Recarregar dados com novo período
+    loadInitialData();
+}
+
+function changeChartStyle(style) {
+    mainChart.config.type = style;
+    if (style === 'area') {
+        mainChart.config.type = 'line';
+        mainChart.data.datasets[0].fill = true;
+    } else {
+        mainChart.data.datasets[0].fill = false;
+    }
+    mainChart.update();
+}
+
+function refreshCharts() {
+    loadInitialData();
+}
+
+function exportChart() {
+    // Implementação futura para exportar gráficos
+    alert('Funcionalidade de exportação será implementada em breve!');
+}
+</script>
+{% endblock %}
+

@@ -1,0 +1,298 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} - Sistema de Estacionamento{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>
+                <i class="fas fa-file-alt me-2"></i>{{ title }}
+            </h1>
+            <div>
+                <a href="{{ url_for('statistics.dashboard') }}" class="btn btn-outline-secondary me-2">
+                    <i class="fas fa-arrow-left me-1"></i>Voltar
+                </a>
+                <button class="btn btn-primary" onclick="generatePDF()">
+                    <i class="fas fa-file-pdf me-1"></i>Gerar PDF
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Filtros para Extrato Mensal/Anual -->
+{% if period in ['monthly', 'yearly'] %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="GET" class="row g-3">
+                    {% if period == 'monthly' %}
+                    <div class="col-md-4">
+                        <label for="month" class="form-label">Mês</label>
+                        <select class="form-select" id="month" name="month">
+                            {% for i in range(1, 13) %}
+                            <option value="{{ i }}" {% if i == month %}selected{% endif %}>
+                                {{ calendar.month_name[i] }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% endif %}
+                    <div class="col-md-4">
+                        <label for="year" class="form-label">Ano</label>
+                        <select class="form-select" id="year" name="year">
+                            {% for y in range(2020, 2030) %}
+                            <option value="{{ y }}" {% if y == year %}selected{% endif %}>{{ y }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search me-1"></i>Filtrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Resumo Geral -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-chart-pie me-2"></i>Resumo Geral
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 text-center mb-3">
+                        <h3 class="text-success">R$ {{ "%.2f"|format(data.summary.total_revenue) }}</h3>
+                        <p class="text-muted mb-0">Receita Total</p>
+                    </div>
+                    <div class="col-md-3 text-center mb-3">
+                        <h3 class="text-warning">R$ {{ "%.2f"|format(data.summary.total_expenses) }}</h3>
+                        <p class="text-muted mb-0">Gastos Totais</p>
+                    </div>
+                    <div class="col-md-3 text-center mb-3">
+                        <h3 class="text-primary">R$ {{ "%.2f"|format(data.summary.net_profit) }}</h3>
+                        <p class="text-muted mb-0">Lucro Líquido</p>
+                    </div>
+                    <div class="col-md-3 text-center mb-3">
+                        <h3 class="text-info">{{ data.summary.total_vehicles }}</h3>
+                        <p class="text-muted mb-0">Total de Veículos</p>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <span class="badge bg-primary fs-6">{{ data.summary.cars_count }}</span>
+                        <p class="text-muted mb-0 mt-1">Carros</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <span class="badge bg-warning fs-6">{{ data.summary.motorcycles_count }}</span>
+                        <p class="text-muted mb-0 mt-1">Motos</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <span class="badge bg-success fs-6">{{ data.summary.daily_count }}</span>
+                        <p class="text-muted mb-0 mt-1">Diárias</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <span class="badge bg-info fs-6">{{ data.summary.hourly_count }}</span>
+                        <p class="text-muted mb-0 mt-1">Por Hora</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detalhamento por Período -->
+{% if period == 'monthly' and data.daily_data %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-calendar-day me-2"></i>Detalhamento Diário
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Veículos</th>
+                                <th>Receita</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for day, day_data in data.daily_data.items() %}
+                            <tr>
+                                <td>{{ day_data.date.strftime('%d/%m/%Y') }}</td>
+                                <td>{{ day_data.vehicles_count }}</td>
+                                <td>R$ {{ "%.2f"|format(day_data.total_revenue) }}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-info" onclick="showDayDetails({{ day }})">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if period == 'yearly' and data.monthly_data %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-calendar-alt me-2"></i>Detalhamento Mensal
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Mês</th>
+                                <th>Veículos</th>
+                                <th>Receita</th>
+                                <th>Gastos</th>
+                                <th>Lucro</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for month_data in data.monthly_data %}
+                            <tr>
+                                <td>{{ month_data.month_name }}</td>
+                                <td>{{ month_data.vehicles }}</td>
+                                <td>R$ {{ "%.2f"|format(month_data.revenue) }}</td>
+                                <td>R$ {{ "%.2f"|format(month_data.expenses) }}</td>
+                                <td>R$ {{ "%.2f"|format(month_data.profit) }}</td>
+                                <td>
+                                    <a href="{{ url_for('statistics.extract', period='monthly', year=year, month=month_data.month) }}" 
+                                       class="btn btn-sm btn-outline-info">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if period == 'total' and data.yearly_data %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-calendar me-2"></i>Detalhamento Anual
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Ano</th>
+                                <th>Veículos</th>
+                                <th>Receita</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for year_key, year_data in data.yearly_data.items() %}
+                            <tr>
+                                <td>{{ year_data.year }}</td>
+                                <td>{{ year_data.vehicles_count }}</td>
+                                <td>R$ {{ "%.2f"|format(year_data.total_revenue) }}</td>
+                                <td>
+                                    <a href="{{ url_for('statistics.extract', period='yearly', year=year_data.year) }}" 
+                                       class="btn btn-sm btn-outline-info">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- Observações para Gastos Futuros -->
+{% if data.summary.total_expenses == 0 %}
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>
+            <strong>Nota:</strong> O sistema está preparado para registrar gastos futuros. 
+            Quando implementado, os gastos aparecerão automaticamente nos extratos e relatórios.
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+function generatePDF() {
+    const currentUrl = window.location.pathname;
+    const urlParams = new URLSearchParams(window.location.search);
+    let pdfUrl;
+    
+    if (currentUrl.includes('/extract/monthly')) {
+        const year = urlParams.get('year') || new Date().getFullYear();
+        const month = urlParams.get('month') || (new Date().getMonth() + 1);
+        pdfUrl = `{{ url_for('statistics.generate_pdf_report', period='monthly') }}?year=${year}&month=${month}`;
+    } else if (currentUrl.includes('/extract/yearly')) {
+        const year = urlParams.get('year') || new Date().getFullYear();
+        pdfUrl = `{{ url_for('statistics.generate_pdf_report', period='yearly') }}?year=${year}`;
+    } else if (currentUrl.includes('/extract/total')) {
+        pdfUrl = `{{ url_for('statistics.generate_pdf_report', period='total') }}`;
+    }
+    
+    if (pdfUrl) {
+        window.open(pdfUrl, '_blank');
+    } else {
+        alert('Erro ao gerar PDF. Tente novamente.');
+    }
+}
+
+function showDayDetails(day) {
+    // Implementação futura para mostrar detalhes do dia
+    alert('Detalhes do dia ' + day + ' serão implementados em breve!');
+}
+
+// Importar calendar para o template
+{% set calendar = calendar %}
+</script>
+{% endblock %}
+
